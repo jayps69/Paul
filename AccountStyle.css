@@ -9,7 +9,6 @@ body {
 }
 
 #sidebar {
-  
   max-width: 200px; 
   position: sticky;
   top: 0;
@@ -20,6 +19,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center; 
+  overflow-y: auto;
 }
 
 #sidebar .navbar-brand img {
