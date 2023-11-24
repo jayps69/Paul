@@ -1,0 +1,51 @@
+body {
+    overflow-x: hidden;
+}
+
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #2c3e50;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar a {
+    padding: 10px;
+    font-size: 1.2em;
+    display: block;
+    color: #fff;
+}
+
+#sidebar a:hover {
+    background: #354353;
+}
+
+#sidebar .sidebar-header {
+    text-align: center;
+    padding: 20px;
+}
+
+#content {
+    width: 100%;
+    padding: 15px;
+    transition: all 0.3s;
+}
+
+#sidebarCollapse {
+    color: #fff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    margin-left: 15px;
+}
+
+#sidebarCollapse:hover {
+    color: #fff;
+}
