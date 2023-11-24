@@ -27,7 +27,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="index.html">
               <i class="fas fa-address-card"></i><span>PERSONAL INFORMATION</span>
             </a>
           </li>
