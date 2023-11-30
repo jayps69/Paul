@@ -179,6 +179,16 @@ h1 {
   justify-content: space-between;
 }
 
+
+
+#sidebar .navbar-nav .nav-item:hover .nav-link {
+  color: red; /* White text color on hover */
+}
+
+#sidebar .navbar-nav .nav-item:hover .nav-link i {
+  color: red; /* White icon color on hover */
+}
+
 @media (max-width: 1250px) {
   .row {
     justify-content: center;
