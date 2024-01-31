@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Details  </title>
+    <title>Contact Details</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -12,257 +12,247 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
     />
-
     <style>
       body {
-        margin: 0;
-        padding: 0;
-        font-family: kameron;
-      }
+  margin: 0;
+  padding: 0;
+  font-family: kameron;
+}
 
-      #wrapper {
-        display: flex;
-      }
+#wrapper {
+  display: flex;
+}
 
-      #sidebar {
-        max-width: 200px;
-        position: sticky;
-        top: 0;
-        height: 100vh;
-        background: #007bff;
-        color: white;
-        transition: all 0.3s;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        overflow-y: auto;
-        
-      }
+#sidebar {
+  max-width: 200px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background: #007bff;
+  color: white;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+}
 
-      #sidebar .navbar-brand img {
-        width: 75px;
-        height: 75px;
-      }
+#sidebar .navbar-brand img {
+  width: 75px;
+  height: 75px;
+}
 
-      #sidebar .navbar-nav {
-        display: flex;
-        flex-direction: column;
-      }
+#sidebar .navbar-nav {
+  display: flex;
+  flex-direction: column;
+}
 
-      #sidebar .nav-item {
-        padding: 5px;
-        margin-bottom: 10px;
-      }
+#sidebar .nav-item {
+  padding: 5px;
+  margin-bottom: 10px;
+}
 
-      #sidebar .nav-item i {
-        margin-right: 5px;
-      }
+#sidebar .nav-item i {
+  margin-right: 5px;
+}
 
-      #sidebar .nav-item a {
-        color: white;
-        font-weight: bold;
-        font-size: 14px;
-      }
+#sidebar .nav-item a {
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
 
-      header {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        border-left: 5px solid #007bff;
-        border-right: 5px solid #007bff;
-        border-bottom: 5px solid #007bff;
-        padding: 10px;
-        border-radius: 25px;
-      }
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 5px solid #007bff;
+  border-right: 5px solid #007bff;
+  border-bottom: 5px solid #007bff;
+  padding: 10px;
+  border-radius: 25px;
+}
 
-      header div {
-        display: flex;
-        flex-direction: column;
-      }
+header div {
+  display: flex;
+  flex-direction: column;
+}
 
-      header p1,
-      header p2,
-      header p3 {
-        font-weight: bold;
-      }
+header p1,
+header p2,
+header p3 {
+  font-weight: bold;
+}
 
-      header p1 {
-        font-size: 24px;
-      }
+header p1 {
+  font-size: 24px;
+}
 
-      header p2 {
-        font-size: 22px;
-      }
+header p2 {
+  font-size: 22px;
+}
 
-      header p3 {
-        font-size: 20px;
-      }
+header p3 {
+  font-size: 20px;
+}
 
-      #profile {
-        display: flex;
-        align-items: center;
-      }
+#profile {
+  display: flex;
+  align-items: center;
+}
 
-      #profile img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        margin-right: 10px;
-      }
+#profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
 
-      #profile span {
-        font-weight: bold;
-        font-size: 14px;
-      }
+#profile span {
+  font-weight: bold;
+  font-size: 14px;
+}
 
-      #content {
-        width: 100%;
-        padding: 15px;
-      }
+#content {
+  width: 100%;
+  padding: 15px;
+}
 
-      h1 {
-        margin-top: 20px;
-        font-weight: bold;
-      }
-
-      .PersonalInfo-box {
-        border: 3px solid #007bff;
-        padding: 10px;
-        margin-top: 20px;
-        border-radius: 25px;
-        width: 1400px;
-        height: 550px;
-        margin: 0 auto;
-        width: 100%;
-        transition: height 0.5s ease;
-      }
-
-      .PersonalInfo-box input {
-      font-family: 'kameron', sans-serif; /* Replace 'YourChosenFont' with the desired font */
-      font-size: 14px; /* Adjust the font size as needed */
-      width: 180px;
-      height: 20px;
-      margin-left: 5px;
-      border: 1px solid;
-      
-    }
-
-    .PersonalInfo-box label {
-      font-family: 'kameron', sans-serif; /* Replace 'YourChosenFont' with the desired font */
-      font-size: 14px; /* Adjust the font size as needed */
-      font-weight: bold; /* Optional: add bold font weight */
-    }
-
-    .btn-primary {
-        border-radius: 25px;
-        font-size: 16px;
-    }
-
-
-      @media (max-width: 1250px) {
-
-        header p1 {
-          font-size: 20px;
-        }
-
-        header p2 {
-          font-size: 18px;
-        }
-
-        header p3 {
-          font-size: 16px;
-        }
-
-        #profile span {
-          font-size: 12px;
-        }
-
-        h1 {
-          font-size: 30px;
-        }
-      }
-
-      @media (max-width: 1051px) {
-
-    .PersonalInfo-box {
-    height: 650px ;
-
-    }
-    }
-
-      @media (max-width: 960px) {
-        header p1 {
-          font-size: 18px;
-        }
-
-        header p2 {
-          font-size: 16px;
-        }
-
-        header p3 {
-          font-size: 14px;
-        }
-
-        #profile span {
-          font-size: 10px;
-        }
-
-        h1 {
-          font-size: 20px;
-        }
-      }
-
-
-
-      @media (max-width: 875px) {
-        #sidebar {
-          width: 70px;
-        }
-
-        #sidebar .navbar-nav {
-          align-items: center;
-        }
-        #sidebar .nav-item {
-          padding: 5px;
-          margin-bottom: 5px;
-        }
-        #sidebar .nav-item span {
-          display: none;
-        }
-        #sidebar .navbar {
-          overflow: visible;
-          justify-content: center;
-        }
-
-        header p1 {
-          font-size: 16px;
-        }
-
-        header p2 {
-          font-size: 14px;
-        }
-
-        header p3 {
-          font-size: 12px;
-        }
-
-        #profile span {
-          font-size: 10px;
-        }
-
-        h1 {
-          font-size: 18px;
-        }
-      }
-
-      @media (max-width: 767px) {
+h1 {
+  margin-top: 20px;
+  font-weight: bold;
+}
 
 .PersonalInfo-box {
-height: 1500px ;
+  border: 3px solid #007bff;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 25px;
+  width: 1400px;
+  height: 550px;
+  margin: 0 auto;
+  width: 100%;
+  transition: height 0.5s ease;
+}
 
+.PersonalInfo-box input {
+  font-family: "kameron", sans-serif; /* Replace 'YourChosenFont' with the desired font */
+  font-size: 14px; /* Adjust the font size as needed */
+  width: 180px;
+  height: 20px;
+  margin-left: 5px;
+  border: 1px solid;
 }
+
+.PersonalInfo-box label {
+  font-family: "kameron", sans-serif; /* Replace 'YourChosenFont' with the desired font */
+  font-size: 14px; /* Adjust the font size as needed */
+  font-weight: bold; /* Optional: add bold font weight */
 }
+
+.btn-primary {
+  border-radius: 25px;
+  font-size: 16px;
+}
+
+@media (max-width: 1250px) {
+  header p1 {
+    font-size: 20px;
+  }
+
+  header p2 {
+    font-size: 18px;
+  }
+
+  header p3 {
+    font-size: 16px;
+  }
+
+  #profile span {
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 1051px) {
+  .PersonalInfo-box {
+    height: 650px;
+  }
+}
+
+@media (max-width: 960px) {
+  header p1 {
+    font-size: 18px;
+  }
+
+  header p2 {
+    font-size: 16px;
+  }
+
+  header p3 {
+    font-size: 14px;
+  }
+
+  #profile span {
+    font-size: 10px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 875px) {
+  #sidebar {
+    width: 70px;
+  }
+
+  #sidebar .navbar-nav {
+    align-items: center;
+  }
+  #sidebar .nav-item {
+    padding: 5px;
+    margin-bottom: 5px;
+  }
+  #sidebar .nav-item span {
+    display: none;
+  }
+  #sidebar .navbar {
+    overflow: visible;
+    justify-content: center;
+  }
+
+  header p1 {
+    font-size: 16px;
+  }
+
+  header p2 {
+    font-size: 14px;
+  }
+
+  header p3 {
+    font-size: 12px;
+  }
+
+  #profile span {
+    font-size: 10px;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 767px) {
+  .PersonalInfo-box {
+    height: 1500px;
+  }
+}
+
     </style>
   </head>
   <body>
@@ -270,7 +260,11 @@ height: 1500px ;
       <!-- Sidebar -->
       <div id="sidebar">
         <div class="navbar-brand">
-          <img src="Images/Logonobg.gif" alt="Logo" class="d-inline-block align-top"/>
+          <img
+            src="Images/Logonobg.gif"
+            alt="Logo"
+            class="d-inline-block align-top"
+          />
         </div>
         <nav class="navbar">
           <ul class="navbar-nav">
@@ -349,80 +343,115 @@ height: 1500px ;
 
         <h1>CONTACT DETAILS</h1>
 
-          <div class="PersonalInfo-box">
-              <div class="row">
+        <div class="PersonalInfo-box">
+          <div class="row">
+            <div class="col-md-4">
+              <!-------First section------->
+              <div class="form-group d-flex">
+                <div class="col-md-6">
+                  <label for="AltEmail">Alternate Email : </label>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="col-md-4">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="AltEmail"
+                      name="AltEmail"
+                    />
+                  </div>
 
+                  <div class="col-md-6">
+                    <label for="AltEmail2"></label>
+                  </div>
+                  <div class="col-md-4">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="AltEmail2"
+                      name="AltEmail2"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group d-flex">
+                <div class="col-md-6">
+                  <label for="QCSim">QC Sim Card No.: </label>
+                </div>
                 <div class="col-md-4">
-                    
-                  <!-------First section------->
-                    <div class="form-group d-flex ">
-                        <div class="col-md-6">
-                            <label for="AltEmail">Alternate Email : </label>
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="col-md-4">
-                                <input type="text" class="form-control" id="AltEmail" name="AltEmail">
-                            </div>
-                    
-                            <div class="col-md-6">
-                                <label for="AltEmail2"></label>
-                            </div>
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="AltEmail2" name="AltEmail2">
-                        </div>
-                    </div>
-                    </div>
-                    <div class="form-group d-flex ">
-                        <div class="col-md-6">
-                            <label for="QCSim">QC Sim Card No.: </label>
-                        </div>
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="QCSim" name="QCSim">
-                        </div>
-                    </div>
-                    <div class="form-group d-flex ">
-                        <div class="col-md-6">
-                            <label for="DEPEDSim">DEPED Sim Card No.: </label>
-                        </div>
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="DEPEDSim" name="DEPEDSim">
-                        </div>
-                    </div>
-                    <div class="form-group d-flex ">
-                        <div class="col-md-6">
-                            <label for="NEAPSim">NEAP Sim Card No.: </label>
-                        </div>
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="NEAPSim" name="NEAPSim">
-                        </div>
-                    </div>
-                    <div class="form-group d-flex ">
-                        <div class="col-md-6">
-                            <label for="OtherContactNo">Other Contact No.: </label>
-                        </div>
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="OtherContactNo" name="OtherContactNo">
-                        </div>
-                    </div>
-                    <div class="form-group d-flex ">
-                        <div class="col-md-6">
-                            <label for="FBName">Name on Facebook Profile: </label>
-                        </div>
-                        <div class="col-md-4">
-                            <input type="text" class="form-control" id="FBName" name="FBName">
-                        </div>
-                    </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="QCSim"
+                    name="QCSim"
+                  />
+                </div>
+              </div>
+              <div class="form-group d-flex">
+                <div class="col-md-6">
+                  <label for="DEPEDSim">DEPED Sim Card No.: </label>
+                </div>
+                <div class="col-md-4">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="DEPEDSim"
+                    name="DEPEDSim"
+                  />
+                </div>
+              </div>
+              <div class="form-group d-flex">
+                <div class="col-md-6">
+                  <label for="NEAPSim">NEAP Sim Card No.: </label>
+                </div>
+                <div class="col-md-4">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="NEAPSim"
+                    name="NEAPSim"
+                  />
+                </div>
+              </div>
+              <div class="form-group d-flex">
+                <div class="col-md-6">
+                  <label for="OtherContactNo">Other Contact No.: </label>
+                </div>
+                <div class="col-md-4">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="OtherContactNo"
+                    name="OtherContactNo"
+                  />
+                </div>
+              </div>
+              <div class="form-group d-flex">
+                <div class="col-md-6">
+                  <label for="FBName">Name on Facebook Profile: </label>
+                </div>
+                <div class="col-md-4">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="FBName"
+                    name="FBName"
+                  />
+                </div>
+              </div>
 
-                    <div class="form-group d-flex">
-                        <div class="col-md-6"></div>
-                        <div class="col-md-6 saveupdatebtn text-center" id="saveupdatebtn">
-                            <button class="btn btn-primary">SAVE / UPDATE</button>
-                        </div>
-                    </div>
-               
+              <div class="form-group d-flex">
+                <div class="col-md-6"></div>
+                <div
+                  class="col-md-6 saveupdatebtn text-center"
+                  id="saveupdatebtn"
+                >
+                  <button class="btn btn-primary">SAVE / UPDATE</button>
+                </div>
               </div>
             </div>
-          </div>         
+          </div>
+        </div>
       </div>
     </div>
 

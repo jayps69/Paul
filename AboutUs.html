@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Details  </title>
+    <title>SDOQC|HRUTP|About Us</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -13,306 +13,393 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
     />
 
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: kameron;
-      }
+<style>
 
-      #wrapper {
-        display: flex;
-      }
-
-      #sidebar {
-        max-width: 200px;
-        position: sticky;
-        top: 0;
-        height: 100vh;
-        background: #007bff;
-        color: white;
-        transition: all 0.3s;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        overflow-y: auto;
-        
-      }
-
-      #sidebar .navbar-brand img {
-        width: 75px;
-        height: 75px;
-      }
-
-      #sidebar .navbar-nav {
-        display: flex;
-        flex-direction: column;
-      }
-
-      #sidebar .nav-item {
-        padding: 5px;
-        margin-bottom: 10px;
-      }
-
-      #sidebar .nav-item i {
-        margin-right: 5px;
-      }
-
-      #sidebar .nav-item a {
-        color: white;
-        font-weight: bold;
-        font-size: 14px;
-      }
-
-      header {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        border-left: 5px solid #007bff;
-        border-right: 5px solid #007bff;
-        border-bottom: 5px solid #007bff;
-        padding: 10px;
-        border-radius: 25px;
-      }
-
-      header div {
-        display: flex;
-        flex-direction: column;
-      }
-
-      header p1,
-      header p2,
-      header p3 {
-        font-weight: bold;
-      }
-
-      header p1 {
-        font-size: 24px;
-      }
-
-      header p2 {
-        font-size: 22px;
-      }
-
-      header p3 {
-        font-size: 20px;
-      }
-
-      #profile {
-        display: flex;
-        align-items: center;
-      }
-
-      #profile img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        margin-right: 10px;
-      }
-
-      #profile span {
-        font-weight: bold;
-        font-size: 14px;
-      }
-
-      #content {
-        width: 100%;
-        padding: 15px;
-      }
-
-      h1 {
-        margin-top: 20px;
-        font-weight: bold;
-      }
-
-      .PersonalInfo-box {
-        border: 3px solid #007bff;
-        padding: 10px;
-        margin-top: 20px;
-        border-radius: 25px;
-        width: 1400px;
-        height: 550px;
-        margin: 0 auto;
-        width: 100%;
-        transition: height 0.5s ease;
-        justify-content: center;
-      }
-
-      .PersonalInfo-box input {
-      font-family: 'kameron', sans-serif; /* Replace 'YourChosenFont' with the desired font */
-      font-size: 14px; /* Adjust the font size as needed */
-      width: 180px;
-      height: 20px;
-      margin-left: 5px;
-      border: 1px solid;
-      
-    }
-
-    .PersonalInfo-box label {
-      font-family: 'kameron', sans-serif; /* Replace 'YourChosenFont' with the desired font */
-      font-size: 14px; /* Adjust the font size as needed */
-      font-weight: bold; /* Optional: add bold font weight */
-    }
-
-    .btn-primary {
-        border-radius: 25px;
-        font-size: 16px;
-    }
-    .cycle-tab-container a {
-    color: #173649;
-    font-size: 16px;
-    font-family: roboto;
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .tab-pane {
-      text-align: center;
-      height: 100px !important;
-      margin: 30px auto;
-      width: 500px;
-      max-width: 100%;
-  }
-
-  .nav {
-    justify-content: flex-end !important;
-  }
-  
-
-  .cycle-tab-item {
-    width: 180px;
-  }
-  
-  .cycle-tab-item:after {
-    display:block;
-    content: '';
-    border-bottom: solid 3px red;  
-    transform: scaleX(0);  
-    transition: transform 0ms ease-out;
-  }
-  .cycle-tab-item.active:after { 
-    transform: scaleX(1);
-    transform-origin:  0% 50%; 
-    transition: transform 5000ms ease-in;
-  }
-  
-  
-  
-  .nav-link:focus,
-  .nav-link:hover,
-  .cycle-tab-item.active a {
-    border-color: transparent !important;
-    color: red;
-  }
-  .nav-link.active {
-    color: red !important;  /* Using !important to ensure it overrides other styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: kameron;
 }
 
-      @media (max-width: 1250px) {
+#wrapper {
+  display: flex;
+}
 
-        header p1 {
-          font-size: 20px;
-        }
+#sidebar {
+  max-width: 200px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background: #007bff;
+  color: white;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+}
 
-        header p2 {
-          font-size: 18px;
-        }
+#sidebar .navbar-brand img {
+  width: 75px;
+  height: 75px;
+}
 
-        header p3 {
-          font-size: 16px;
-        }
+#sidebar .navbar-nav {
+  display: flex;
+  flex-direction: column;
+}
 
-        #profile span {
-          font-size: 12px;
-        }
+#sidebar .nav-item {
+  padding: 5px;
+  margin-bottom: 10px;
+}
 
-        h1 {
-          font-size: 30px;
-        }
-      }
+#sidebar .nav-item i {
+  margin-right: 5px;
+}
 
-      @media (max-width: 1051px) {
+#sidebar .nav-item a {
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
 
-    .PersonalInfo-box {
-    height: 650px ;
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 5px solid #007bff;
+  border-right: 5px solid #007bff;
+  border-bottom: 5px solid #007bff;
+  padding: 10px;
+  border-radius: 25px;
+}
 
-    }
-    }
+header div {
+  display: flex;
+  flex-direction: column;
+}
 
-      @media (max-width: 960px) {
-        header p1 {
-          font-size: 18px;
-        }
+header p1,
+header p2,
+header p3 {
+  font-weight: bold;
+}
 
-        header p2 {
-          font-size: 16px;
-        }
+header p1 {
+  font-size: 24px;
+}
 
-        header p3 {
-          font-size: 14px;
-        }
+header p2 {
+  font-size: 22px;
+}
 
-        #profile span {
-          font-size: 10px;
-        }
+header p3 {
+  font-size: 20px;
+}
 
-        h1 {
-          font-size: 20px;
-        }
-      }
+#profile {
+  display: flex;
+  align-items: center;
+}
 
+#profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
 
+#profile span {
+  font-weight: bold;
+  font-size: 14px;
+}
 
-      @media (max-width: 875px) {
-        #sidebar {
-          width: 70px;
-        }
+#content {
+  width: 100%;
+  padding: 15px;
+}
 
-        #sidebar .navbar-nav {
-          align-items: center;
-        }
-        #sidebar .nav-item {
-          padding: 5px;
-          margin-bottom: 5px;
-        }
-        #sidebar .nav-item span {
-          display: none;
-        }
-        #sidebar .navbar {
-          overflow: visible;
-          justify-content: center;
-        }
-
-        header p1 {
-          font-size: 16px;
-        }
-
-        header p2 {
-          font-size: 14px;
-        }
-
-        header p3 {
-          font-size: 12px;
-        }
-
-        #profile span {
-          font-size: 10px;
-        }
-
-        h1 {
-          font-size: 18px;
-        }
-      }
-
-      @media (max-width: 767px) {
+h1 {
+  margin-top: 20px;
+  font-weight: bold;
+}
 
 .PersonalInfo-box {
-height: 1500px ;
+  display: flex;
+  border: 3px solid #007bff;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 25px;
+  width: 1400px;
+  height: 550px;
+  margin: 0 auto;
+  width: 100%;
+  transition: height 0.5s ease;
+  justify-content: center;
+  overflow-y: scroll;
+}
 
+.PersonalInfo-box input {
+  font-family: "kameron", sans-serif; /* Replace 'YourChosenFont' with the desired font */
+  font-size: 14px; /* Adjust the font size as needed */
+  width: 180px;
+  height: 20px;
+  margin-left: 5px;
+  border: 1px solid;
 }
+
+.PersonalInfo-box label {
+  font-family: "kameron", sans-serif; /* Replace 'YourChosenFont' with the desired font */
+  font-size: 14px; /* Adjust the font size as needed */
+  font-weight: bold; /* Optional: add bold font weight */
 }
-    </style>
+
+.btn-primary {
+  border-radius: 25px;
+  font-size: 16px;
+}
+
+.cycle-tab-container a {
+  color: #173649;
+  font-size: 16px;
+  font-family: roboto;
+  text-align: center;
+  background: #dbdbdb;
+}
+
+.tab-pane {
+  text-align: center;
+  height: 100px !important;
+  margin: 30px auto;
+  width: 500px;
+  max-width: 100%;
+}
+
+.nav {
+  justify-content: flex-end !important;
+  margin-bottom: 1rem;
+}
+
+.cycle-tab-item {
+  margin-right: 10px;
+}
+
+.cycle-tab-item:after {
+  display: block;
+  content: "";
+  border-bottom: solid 3px red;
+  transform: scaleX(0);
+  transition: transform 0ms ease-out;
+}
+.cycle-tab-item.active:after {
+  transform: scaleX(1);
+  transform-origin: 0% 50%;
+  transition: transform 5000ms ease-in;
+}
+.nav-link:focus,
+.nav-link:hover,
+.cycle-tab-item.active a {
+  border-color: transparent !important;
+  color: #007bff;
+}
+.nav-link.active {
+  color: #007bff !important; /* Using !important to ensure it overrides other styles */
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column; /* Make items stack vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  gap: 20px; /* Space between the items */
+}
+
+img {
+  width: 100px;
+  height: 100px;
+}
+
+.card {
+  width: 190px;
+  background: white;
+  padding: 0.4em;
+  border-radius: 6px;
+}
+
+.card-image {
+  background-color: rgb(236, 236, 236);
+  width: 100%;
+  height: 100%;
+  border-radius: 6px 6px 0 0;
+}
+
+.card-image img:hover {
+  transform: scale(0.98);
+}
+
+.category {
+  text-transform: uppercase;
+  font-size: 0.7em;
+  font-weight: 600;
+  color: rgb(63, 121, 230);
+  padding: 10px 7px 0;
+  text-align: center;
+}
+
+.category:hover {
+  cursor: pointer;
+}
+
+.heading {
+  font-weight: 600;
+  color: rgb(88, 87, 87);
+  font-size: 10px;
+  max-width: 100%;
+  text-align: center;
+}
+
+.heading2 {
+  font-weight: 600;
+  color: rgb(88, 87, 87);
+  font-size: 10px;
+  max-width: 100%;
+  text-align: center;
+}
+
+.heading:hover {
+  cursor: pointer;
+}
+
+.author {
+  color: gray;
+  font-weight: 400;
+  font-size: 11px;
+  padding-top: 20px;
+}
+
+.name {
+  font-weight: 600;
+}
+
+.name:hover {
+  cursor: pointer;
+}
+
+#devteam-header {
+  color: red;
+}
+
+#Ictteam-header {
+  color: blue;
+}
+
+.card:last-child {
+  margin-bottom: 100px; /* Adjust this value as per your requirement */
+}
+
+@media (max-width: 1250px) {
+  header p1 {
+    font-size: 20px;
+  }
+
+  header p2 {
+    font-size: 18px;
+  }
+
+  header p3 {
+    font-size: 16px;
+  }
+
+  #profile span {
+    font-size: 12px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 1051px) {
+  .PersonalInfo-box {
+    height: 650px;
+  }
+}
+
+@media (max-width: 960px) {
+  header p1 {
+    font-size: 18px;
+  }
+
+  header p2 {
+    font-size: 16px;
+  }
+
+  header p3 {
+    font-size: 14px;
+  }
+
+  #profile span {
+    font-size: 10px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 875px) {
+  #sidebar {
+    width: 70px;
+  }
+
+  #sidebar .navbar-nav {
+    align-items: center;
+  }
+  #sidebar .nav-item {
+    padding: 5px;
+    margin-bottom: 5px;
+  }
+  #sidebar .nav-item span {
+    display: none;
+  }
+  #sidebar .navbar {
+    overflow: visible;
+    justify-content: center;
+  }
+
+  header p1 {
+    font-size: 16px;
+  }
+
+  header p2 {
+    font-size: 14px;
+  }
+
+  header p3 {
+    font-size: 12px;
+  }
+
+  #profile span {
+    font-size: 10px;
+  }
+
+  h1 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 767px) {
+  .PersonalInfo-box {
+    height: 1500px;
+  }
+}
+
+
+
+</style>
+
   </head>
   <body>
     <div id="wrapper">
@@ -395,41 +482,255 @@ height: 1500px ;
             <span>John Paul Estanislao</span>
           </div>
         </header>
-        <div class="d-flex">
             <h1>ABOUT US</h1>
-           
-        </div>
-        <div class="cycle-tab-container">
-            <ul class="nav nav-tabs">
-                <li class="cycle-tab-item">
-                    <a class="nav-link" role="tab" data-toggle="tab" href="#UNITHEADS" id="Unithead-tab" aria-selected="false">UNIT HEADS</a>
-                </li>
-                <li class="cycle-tab-item">
-                    <a class="nav-link" role="tab" data-toggle="tab" href="#UNITHEADS" id="Unithead-tab" aria-selected="false">UNIT HEADS</a>
-                </li>
-                <li class="cycle-tab-item">
-                    <a class="nav-link" role="tab" data-toggle="tab" href="#UNITHEADS" id="Unithead-tab" aria-selected="false">UNIT HEADS</a>
-                </li>
-                <li class="cycle-tab-item">
-                    <a class="nav-link" role="tab" data-toggle="tab" href="#UNITHEADS" id="Unithead-tab" aria-selected="false">UNIT HEADS</a>
-                </li>
-            </ul>
-        </div>
+            <div class="cycle-tab-container">
+              <ul class="nav nav-tabs">
+                  <li class="cycle-tab-item ">
+                      <a class="nav-link active" role="tab" data-toggle="tab" href="#UNITHEADS" id="Unithead-tab">UNIT HEADS</a>
+                      <div class="progress" style="height: 4px; margin-bottom: -4px;">
+                          <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                  </li>
+                  <li class="cycle-tab-item">
+                      <a class="nav-link" role="tab" data-toggle="tab" href="#DEVELOPER" id="Developer-tab">DEVELOPER</a>
+                      <div class="progress" style="height: 4px; margin-bottom: -4px;">
+                          <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                  </li>
+                  <li class="cycle-tab-item">
+                      <a class="nav-link" role="tab" data-toggle="tab" href="#ICTTEAM" id="Ictteam-tab">ICT TEAM</a>
+                      <div class="progress" style="height: 4px; margin-bottom: -4px;">
+                          <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                  </li>
+                  <li class="cycle-tab-item">
+                      <a class="nav-link" role="tab" data-toggle="tab" href="#ADVISER" id="Adviser-tab">ADVISERS</a>
+                      <div class="progress" style="height: 4px; margin-bottom: -4px;">
+                          <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                  </li>
+              </ul>
           <div class="PersonalInfo-box">
               <div class="row">
 
-                
+                <div class="tab-content">
+                  <div class="tab-pane fade show active" id="UNITHEADS" role="tabpanel" aria-labelledby="Unithead-tab">
+          
+                      <div class="content-wrapper">
+                          <img src="images/hrutplogo.png" alt="hrutplogo">
+                          <h4>TEACHING UNIT HEADS</h4>
+          
+                          <div class="card">
+                              <div class="card-image">
+                                  <img src="images/lugtu.png" alt="Bernadette D.C. Lugtu">
+                              </div>
+                              <div class="category">BERNADETTE DC. LUGTU</div>
+                              <div class="heading">Administrative Officer V / HRMO-III</div>
+                              <div class="heading2">HEAD, TEACHING UNIT</div>
+                          </div>
+          
+                          <div class="card">
+                              <div class="card-image">
+                                  <img src="images/desiderio.png" alt="Marie Jeanne Carmelli R. Desiderio">
+                              </div>
+                              <div class="category">MARIE JEANNE CARMELLI R. DESIDERIO</div>
+                              <div class="heading">Administrative Officer IV / HRMO-II</div>
+                              <div class="heading2">HEAD, ELEMENTARY LEVEL</div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="tab-pane fade" id="DEVELOPER" role="tabpanel" aria-labelledby="Developer-tab">
+                    <div class="content-wrapper">
+                        <img src="images/techlogo.png" alt="techlogo">
+                        <h4 id="devteam-header">DEVELOPER TEAM</h4>
+        
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="images/mcko.jpg" alt="MICHAEL A. DESIDERIO">
+                            </div>
+                            <div class="category">MICHAEL A. DESIDERIO, CEH</div>
+                            <div class="heading">Information System Analyst II / System Developer</div>
+                            
+                        </div>
+        
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="images/desiderio.png" alt="Marie Jeanne Carmelli R. Desiderio">
+                            </div>
+                            <div class="category">MARIE JEANNE CARMELLI R. DESIDERIO</div>
+                            <div class="heading">AO-IV / HRMO II / System Analyst</div>
+                        </div>
+        
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="images/brianreyes.jpg" alt="BRIAN SPENCER REYES">
+                            </div>
+                            <div class="category">BRIAN SPENCER REYES</div>
+                            <div class="heading">Project Development Officer I</div>
+                        </div>
+        
+                        <small>-----------------------------------------------------------</small>
+        
+                        <h4 class="text-primary">TECHNICAL STAFF</h4>
+        
+                        <div class="card">
+                            <div class="category">LIZA C. FUYONAN</div>
+                            <div class="heading">Administrative Officer II</div>
+                        </div>
+        
+                        <div class="card">
+                            <div class="category">VANESSA A. CACAYURAN</div>
+                            <div class="heading">Administrative Officer II</div>
+                        </div>
+        
+                        <div class="card">
+                            <div class="category">REXMOND D. MADEJA</div>
+                            <div class="heading">Administrative Assistant III</div>
+                        </div>
+        
+                        <div class="card">
+                            <div class="category">PAOLO JAMES S. REYES</div>
+                            <div class="heading">Administrative Assistant III</div>
+                        </div>
+        
+                        <div class="card">
+                            <div class="category">ROSSEL G. MACEDA</div>
+                            <div class="heading">Administrative Assistant III</div>
+                        </div>
+        
+                        <div class="card">
+                            <div class="category">CHRISTINA R. ESTRADA</div>
+                            <div class="heading">Administrative Assistant III</div>
+                        </div>
+        
+                        <div class="card">
+                            <div class="category">RAZEL CLAUDETTE O. VELEZ</div>
+                            <div class="heading">Human Resource Mangement Aide</div>
+                        </div>
+        
+                        <div class="card">
+                            <div class="category">JOHN PAUL L. ESTANISLAO</div>
+                            <div class="heading">INTERN / OJT</div>
+                        </div>
+        
+                        <div class="card">
+                            <div class="category">JENNELLA A. SABLADA</div>
+                            <div class="heading">INTERN / OJT</div>
+                        </div>     
+                        
+                        <div class="card">
+                          <div class="category">JACOB D. DIONISIO</div>
+                          <div class="heading">INTERN / OJT</div>
+                      </div>
+
+                      </div>
+                    </div>
+
+                  <div class="tab-pane fade" id="ICTTEAM" role="tabpanel" aria-labelledby="Ictteam-tab">
                     
-                  <!-------First section------->
-                    
-               
-              </div>
-            </div>       
-      </div>
+                    <div class="content-wrapper">
+                      <img src="images/ictlogo.jpg" alt="ictlogo">
+                      <h4 id="Ictteam-header">ICT TEAM</h4>
+
+                      <div class="card">
+                          <div class="card-image">
+                              <img src="images/mamtina.jpg" alt="Bernadette D.C. Lugtu">
+                          </div>
+                          <div class="category">DR. MA. CRISTINA N. MARQUEZ</div>
+                          <div class="heading">Information Techonology Officer</div>
+                      </div>
+
+                      <div class="card">
+                          <div class="card-image">
+                              <img src="images/ran.jpg" alt="Marie Jeanne Carmelli R. Desiderio">
+                          </div>
+                          <div class="category">FLORANTE TORREFIEL</div>
+                          <div class="heading">Computer Maintenance Technologist I</div>
+                      </div>
+                  </div> 
+                  </div>
+
+                  <div class="tab-pane fade" id="ADVISER" role="tabpanel" aria-labelledby="Adviser-tab">
+
+                    <div class="content-wrapper">
+                        <img src="images/sdoqclogo.png" alt="sdoqclogo">
+                        <h4>ADVISERS</h4>
+
+                        <div class="card">
+                          <div class="card-image">
+                            <img src="" >
+                        </div>
+                          <div class="category">DR. JENILYN ROSE B. CORPUZ, CESO VI</div>
+                          <div class="heading">Schools Division Superintendent</div>
+                        </div>
+
+                        <div class="card">
+                          <div class="card-image">
+                            <img src="">
+                          </div>
+                          <div class="category">ENGR. MARC VOLTAIRE A. PADILLA, CESe</div>
+                          <div class="heading">Assistant Schools Division Superintendent</div>
+                        </div>
+                    </div> 
+                  </div>
+
+
     </div>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script>
+      $(document).ready(function() {
+          let currentTabIndex = 0;
+          const tabs = $('.cycle-tab-item .nav-link');
+          const progressBars = $('.cycle-tab-item .progress-bar');
+          let interval;
+  
+          function resetProgressBars() {
+              progressBars.css('width', '0%').attr('aria-valuenow', 0);
+          }
+  
+          function startProgressForTab(index) {
+              let width = 0;
+  
+              if (interval) {
+                  clearInterval(interval);
+              }
+  
+              const progressBar = $(tabs[index]).parent().find('.progress-bar');
+  
+              interval = setInterval(function() {
+                  width += 1; // Increment by 1% every 150ms
+                  progressBar.css('width', width + '%').attr('aria-valuenow', width);
+  
+                  if (width >= 100) {
+                      clearInterval(interval);
+                      currentTabIndex++;
+                      if (currentTabIndex >= tabs.length) {
+                          currentTabIndex = 0; // loop back to the first tab
+                      }
+                      $(tabs[currentTabIndex]).tab('show');
+                      startProgressForTab(currentTabIndex);
+                  }
+              }, 150); // Changed this from 300ms to 150ms
+          }
+  
+          // Start progress for the first tab on load
+          startProgressForTab(0);
+  
+          // When a tab is shown, reset all progress bars and start progress for the current tab
+          tabs.on('shown.bs.tab', function (e) {
+              currentTabIndex = tabs.index(e.target); // Get the index of the currently shown tab
+              resetProgressBars();
+              startProgressForTab(currentTabIndex);
+          });
+      });
+  </script>
+  
+
   </body>
 </html>
