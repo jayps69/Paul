@@ -1,0 +1,244 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: kameron;
+  }
+  
+  #wrapper {
+    display: flex;
+  }
+  
+  #sidebar {
+    max-width: 200px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    background: #007bff;
+    color: white;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+  }
+  
+  #sidebar .navbar-brand img {
+    width: 75px;
+    height: 75px;
+  }
+  
+  #sidebar .navbar-nav {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #sidebar .nav-item {
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  
+  #sidebar .nav-item i {
+    margin-right: 5px;
+  }
+  
+  #sidebar .nav-item a {
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 5px solid #007bff;
+    border-right: 5px solid #007bff;
+    border-bottom: 5px solid #007bff;
+    padding: 10px;
+    border-radius: 25px;
+  }
+  
+  header div {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  header p1,
+  header p2,
+  header p3 {
+    font-weight: bold;
+  }
+  
+  header p1 {
+    font-size: 24px;
+  }
+  
+  header p2 {
+    font-size: 22px;
+  }
+  
+  header p3 {
+    font-size: 20px;
+  }
+  
+  #profile {
+    display: flex;
+    align-items: center;
+  }
+  
+  #profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  #profile span {
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  #content {
+    width: 100%;
+    padding: 15px;
+  }
+  
+  h1 {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  
+  .ContactDetails-box {
+    border: 3px solid #007bff;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 25px;
+    width: 1400px;
+    height: 550px;
+    margin: 0 auto;
+    width: 100%;
+    transition: height 0.5s ease;
+  }
+  
+  .ContactDetails-box input {
+    font-family: "kameron", sans-serif; /* Replace 'YourChosenFont' with the desired font */
+    font-size: 14px; /* Adjust the font size as needed */
+    width: 180px;
+    height: 20px;
+    margin-left: 5px;
+    border: 1px solid;
+    margin-top: 20px;
+  }
+  
+  .ContactDetails-box label {
+    font-family: "kameron", sans-serif; /* Replace 'YourChosenFont' with the desired font */
+    font-size: 14px; /* Adjust the font size as needed */
+    font-weight: bold; /* Optional: add bold font weight */
+    margin-top: 20px;
+  }
+  
+  .btn-primary {
+    border-radius: 25px;
+    font-size: 16px;
+  }
+
+  
+  
+  @media (max-width: 1250px) {
+    header p1 {
+      font-size: 20px;
+    }
+  
+    header p2 {
+      font-size: 18px;
+    }
+  
+    header p3 {
+      font-size: 16px;
+    }
+  
+    #profile span {
+      font-size: 12px;
+    }
+  
+    h1 {
+      font-size: 30px;
+    }
+  }
+  
+  @media (max-width: 1051px) {
+    .ContactDetails-box {
+      height: 650px;
+    }
+  }
+  
+  @media (max-width: 960px) {
+    header p1 {
+      font-size: 18px;
+    }
+  
+    header p2 {
+      font-size: 16px;
+    }
+  
+    header p3 {
+      font-size: 14px;
+    }
+  
+    #profile span {
+      font-size: 10px;
+    }
+  
+    h1 {
+      font-size: 20px;
+    }
+  }
+  
+  @media (max-width: 875px) {
+    #sidebar {
+      width: 70px;
+    }
+  
+    #sidebar .navbar-nav {
+      align-items: center;
+    }
+    #sidebar .nav-item {
+      padding: 5px;
+      margin-bottom: 5px;
+    }
+    #sidebar .nav-item span {
+      display: none;
+    }
+    #sidebar .navbar {
+      overflow: visible;
+      justify-content: center;
+    }
+  
+    header p1 {
+      font-size: 16px;
+    }
+  
+    header p2 {
+      font-size: 14px;
+    }
+  
+    header p3 {
+      font-size: 12px;
+    }
+  
+    #profile span {
+      font-size: 10px;
+    }
+  
+    h1 {
+      font-size: 18px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .ContactDetails-box {
+      height: 1500px;
+    }
+  }
+  

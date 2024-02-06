@@ -15,7 +15,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="ContactDetails.html">
               <i class="fas fa-phone"></i><span>CONTACT DETAILS</span>
             </a>
           </li>
