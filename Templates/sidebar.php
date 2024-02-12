@@ -15,12 +15,12 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="ContactDetails.html">
+            <a class="nav-link" href="ContactDetails.php">
               <i class="fas fa-phone"></i><span>CONTACT DETAILS</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="Education.php">
               <i class="fas fa-graduation-cap"></i><span>EDUCATION</span>
             </a>
           </li>

@@ -1,20 +1,26 @@
-
+<?php
+include 'Templates/head.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Education</title>
-  
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DataTables</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="Education.css">
-  <style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" />
 
-   .table {
+
+    <link rel="stylesheet" href="DataTable.css">
+    <style>
+        header {
+            box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+        }
+
+        .table {
             --bs-table-hover-bg: #A9D8F7 !important;
         }
 
@@ -36,32 +42,37 @@ transition: height 0.5s ease;
 box-shadow: 8px 6px 5px 0px rgba(0, 0, 0, 0.18);
 }
 
+        .Education-box {
+            overflow-y: auto;
+            box-shadow: 5px 10px;
+        }
 
-  </style>
+       
+    </style>
 </head>
 
 <body>
-  <div id="wrapper">
-    <!-- Sidebar -->
-    <?php
-    include 'Templates/sidebar.php';
-    ?>
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <?php
+        include 'Templates/sidebar.php';
+        ?>
 
-    <div id="content">
-      <?php 
-      include 'Templates/header.php'
-      ?>
-
-
-      <div class="AddButton">
-        <h1>Education</h1>
-
-        <button class="addRecord" name="addRecord" data-toggle="modal" data-target="#addRecord">ADD RECORD</button>
-
-      </div>
+        <div id="content">
+            <?php
+            include 'Templates/header.php'
+            ?>
 
 
-      <table id="example" class="table table-hover table-striped">
+            <div class="AddButton">
+                <h1>Education</h1>
+
+                <button class="addRecord" name="addRecord" data-toggle="modal" data-target="#addRecord">ADD RECORD</button>
+
+            </div>
+
+
+            <table id="example" class="table table-hover table-striped">
                 <thead>
                     <tr>
 
@@ -315,31 +326,30 @@ box-shadow: 8px 6px 5px 0px rgba(0, 0, 0, 0.18);
             </div>
         </div>
     </div>
-      <script src=" https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-      <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-      <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-      <script>
-      $(function() {
-        var start_year = new Date().getFullYear();
-        var html = ''
-        html +=  '<option value=""></option>'
-        for (var i = start_year - 55; i <= start_year; i++) {
-          html += '<option value="'+i+'">'+i+'</option>';
-        }
-        $("#from").html(html)
-        $("#to").html(html)
+    <script src=" https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(function() {
+            var start_year = new Date().getFullYear();
+            var html = ''
+            html += '<option value=""></option>'
+            for (var i = start_year - 55; i <= start_year; i++) {
+                html += '<option value="' + i + '">' + i + '</option>';
+            }
+            $("#from").html(html)
+            $("#to").html(html)
         });
-      </script>
-      <script>
+    </script>
+    <script>
         $(document).ready(function() {
-        $('#example').dataTable( {
-          searching: false
-                  } );
-        } );
-
-      </script>
+            $('#example').dataTable({
+                searching: false
+            });
+        });
+    </script>
 </body>
 
 </html>
