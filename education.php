@@ -1,67 +1,62 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Education</title>
-  
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Education</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="Education.css">
-  <style>
-
-   .table {
+    <link rel="stylesheet" href="Education.css">
+    <style>
+        .table {
             --bs-table-hover-bg: #A9D8F7 !important;
         }
 
         #example {
 
-padding: 10px;
-margin-top: 20px;
-border-radius: 10px;
-border-top: 1px solid #007bff;
-border-left: 1px solid #007bff;
-border-right: 2px solid #007bff;
-border-bottom: 2px solid #007bff;
-width: 1400px;
-height: 550px;
-margin: 0 auto;
-width: 100%;
-background-color: #f5f7fa;
-transition: height 0.5s ease;
-box-shadow: 8px 6px 5px 0px rgba(0, 0, 0, 0.18);
-}
-
-
-  </style>
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 10px;
+            border-top: 1px solid #007bff;
+            border-left: 1px solid #007bff;
+            border-right: 2px solid #007bff;
+            border-bottom: 2px solid #007bff
+            margin: 0 auto;
+            width: 100%;
+            background-color: #f5f7fa;
+            transition: height 0.5s ease;
+            box-shadow: 8px 6px 5px 0px rgba(0, 0, 0, 0.18);
+            overflow-x: auto !important;
+            overflow-y: auto !important;
+        }
+    </style>
 </head>
 
 <body>
-  <div id="wrapper">
-    <!-- Sidebar -->
-    <?php
-    include 'Templates/sidebar.php';
-    ?>
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <?php
+        include 'Templates/sidebar.php';
+        ?>
 
-    <div id="content">
-      <?php 
-      include 'Templates/header.php'
-      ?>
-
-
-      <div class="AddButton">
-        <h1>Education</h1>
-
-        <button class="addRecord" name="addRecord" data-toggle="modal" data-target="#addRecord">ADD RECORD</button>
-
-      </div>
+        <div id="content">
+            <?php
+            include 'Templates/header.php'
+                ?>
 
 
-      <table id="example" class="table table-hover table-striped">
+            <div class="AddButton">
+                <h1>Education</h1>
+
+                <button class="addRecord" name="addRecord" data-toggle="modal" data-target="#addRecord">ADD
+                    RECORD</button>
+
+            </div>
+
+
+            <table id="example" class="table table-hover table-striped">
                 <thead>
                     <tr>
 
@@ -83,7 +78,8 @@ box-shadow: 8px 6px 5px 0px rgba(0, 0, 0, 0.18);
                         <td>2005</td>
 
                         <td>
-                            <button name="editRecord" data-toggle="modal" data-target="#editRecord" class="btn btn-danger btn-sm px-3">
+                            <button name="editRecord" data-toggle="modal" data-target="#editRecord"
+                                class="btn btn-danger btn-sm px-3">
                                 <i class="fas fa-pencil-alt"></i>
                             </button>
                         </td>
@@ -189,11 +185,78 @@ box-shadow: 8px 6px 5px 0px rgba(0, 0, 0, 0.18);
                             </button>
                         </td>
                     </tr>
+
+                    <tr>
+
+
+                        <td>ELEMENTARY</td>
+                        <td>School1</td>
+                        <td>Sample Degree</td>
+                        <td>1997</td>
+                        <td>2005</td>
+                        <td>
+
+                            <button type="button" class="btn btn-danger btn-edit btn-sm px-3">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+
+
+                        <td>ELEMENTARY</td>
+                        <td>School1</td>
+                        <td>Sample Degree</td>
+                        <td>1997</td>
+                        <td>2005</td>
+                        <td>
+
+                            <button type="button" class="btn btn-danger btn-edit btn-sm px-3">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+
+
+                        <td>ELEMENTARY</td>
+                        <td>School1</td>
+                        <td>Sample Degree</td>
+                        <td>1997</td>
+                        <td>2005</td>
+                        <td>
+
+                            <button type="button" class="btn btn-danger btn-edit btn-sm px-3">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+
+
+                        <td>ELEMENTARY</td>
+                        <td>School1</td>
+                        <td>Sample Degree</td>
+                        <td>1997</td>
+                        <td>2005</td>
+                        <td>
+
+                            <button type="button" class="btn btn-danger btn-edit btn-sm px-3">
+                                <i class="fas fa-pencil-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+
+
                 </tbody>
             </table>
 
 
-            <div class="modal fade" id="addRecord" tabindex="-1" role="dialog" aria-labelledby="titleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="addRecord" tabindex="-1" role="dialog" aria-labelledby="titleModalLabel"
+                aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -240,7 +303,8 @@ box-shadow: 8px 6px 5px 0px rgba(0, 0, 0, 0.18);
 
 
                             <div class="modal-footer justify-content-center">
-                                <button type="button" id="savebtn" name="savebtn" class="btn btn-primary custom-btn">SAVE</button>
+                                <button type="button" id="savebtn" name="savebtn"
+                                    class="btn btn-primary custom-btn">SAVE</button>
                             </div>
 
 
@@ -253,7 +317,8 @@ box-shadow: 8px 6px 5px 0px rgba(0, 0, 0, 0.18);
                     </div>
                 </div>
             </div>
-            <div class="modal fade" id="editRecord" tabindex="-1" role="dialog" aria-labelledby="titleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="editRecord" tabindex="-1" role="dialog" aria-labelledby="titleModalLabel"
+                aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -300,7 +365,8 @@ box-shadow: 8px 6px 5px 0px rgba(0, 0, 0, 0.18);
 
 
                             <div class="modal-footer justify-content-center">
-                                <button type="button" id="updatebtn" name="updatebtn" class="btn btn-primary custom-btn">UPDATE</button>
+                                <button type="button" id="updatebtn" name="updatebtn"
+                                    class="btn btn-primary custom-btn">UPDATE</button>
                             </div>
 
 
@@ -315,31 +381,33 @@ box-shadow: 8px 6px 5px 0px rgba(0, 0, 0, 0.18);
             </div>
         </div>
     </div>
-      <script src=" https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-      <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-      <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-      <script>
-      $(function() {
-        var start_year = new Date().getFullYear();
-        var html = ''
-        html +=  '<option value=""></option>'
-        for (var i = start_year - 55; i <= start_year; i++) {
-          html += '<option value="'+i+'">'+i+'</option>';
-        }
-        $("#from").html(html)
-        $("#to").html(html)
-        });
-      </script>
-      <script>
-        $(document).ready(function() {
-        $('#example').dataTable( {
-          searching: false
-                  } );
-        } );
+    <script src=" https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
 
-      </script>
+    <script>
+        $(function () {
+            var start_year = new Date().getFullYear();
+            var html = ''
+            html += '<option value=""></option>'
+            for (var i = start_year - 55; i <= start_year; i++) {
+                html += '<option value="' + i + '">' + i + '</option>';
+            }
+            $("#from").html(html)
+            $("#to").html(html)
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#example').dataTable({
+                searching: false,
+                bLengthChange: false
+
+            });
+        });
+    </script>
 </body>
 
 </html>

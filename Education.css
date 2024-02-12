@@ -8,8 +8,13 @@ body {
   display: flex;
 }
 
+.navbar {
+  padding: 0.5rem 1rem !important;
+}
+
 #sidebar {
   max-width: 200px;
+  min-width: 70px;
   position: sticky;
   top: 0;
   height: 100vh;
@@ -21,6 +26,7 @@ body {
   align-items: center;
   overflow-y: auto;
 }
+
 
 #sidebar .navbar-brand img {
   width: 75px;
@@ -109,60 +115,20 @@ h1 {
   font-weight: bold;
 }
 
-
-
-.Education-box input {
-  font-family: "kameron", sans-serif; /* Replace 'YourChosenFont' with the desired font */
-  font-size: 14px; /* Adjust the font size as needed */
-  width: 180px;
-  height: 20px;
-  margin-left: 5px;
-  border: 1px solid;
-  margin-top: 20px;
-}
-
-.Education-box label {
-  font-family: "kameron", sans-serif; /* Replace 'YourChosenFont' with the desired font */
-  font-size: 14px; /* Adjust the font size as needed */
-  font-weight: bold; /* Optional: add bold font weight */
-  margin-top: 20px;
-}
-
 .btn-primary {
   border-radius: 25px;
   font-size: 16px;
 }
 
-.intro {
-  height: 100%;
+td {
+  text-align: center;
+  vertical-align: middle;
 }
 
-table td,
-table th {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
+thead, th {
 
-.card {
-  border-radius: 0.5rem;
-  border: 0px !important;
-}
-
-.mask-custom {
-  background: rgba(24, 24, 16, 0.2);
-  border-radius: 2em;
-  backdrop-filter: blur(25px);
-  border: 2px solid rgba(255, 255, 255, 0.05);
-  background-clip: padding-box;
-  box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
-}
-
-.scrollable-table {
-  max-height: 490px; /* Adjust this height as needed */
-  width: 1200px;
-  overflow-y: auto;
-  display: block; /* To ensure the div acts as a block-level container for the table */
+  text-align: center !important;
+  vertical-align: middle;
 }
 
 .AddButton {
@@ -171,8 +137,10 @@ table th {
 }
 
 .custom-btn {
-  font-size: 20px !important; /* Adjust the font size as needed */
-  padding: 9px 45px; /* Adjust the padding as needed */
+  font-size: 20px !important;
+  
+  padding: 9px 45px;
+  
 }
 
 .addRecord {
@@ -249,7 +217,7 @@ table th {
   color: rgb(100, 100, 100);
 }
 
-.inputGroup :is(input:focus, input:valid) ~ label {
+.inputGroup :is(input:focus, input:valid)~label {
   transform: translateY(-50%) scale(0.9);
   margin: 0em;
   margin-left: 1em;
@@ -272,8 +240,8 @@ table th {
   width: 250px;
 }
 
-.inputGroup select:focus + label2,
-.inputGroup select:valid + label2 {
+.inputGroup select:focus+label2,
+.inputGroup select:valid+label2 {
   transform: translateY(-50%) scale(0.9);
   margin: 0em;
   margin-left: 0.6em;
@@ -317,18 +285,11 @@ table th {
   h1 {
     font-size: 30px;
   }
-  .scrollable-table {
-    max-height: 490px; /* Adjust this height as needed */
-    width: auto;
-    overflow-y: auto;
-    display: block; /* To ensure the div acts as a block-level container for the table */
-  }
+
 }
 
 @media (max-width: 1051px) {
-  .Education-box {
-    height: 650px;
-  }
+
 }
 
 @media (max-width: 960px) {
@@ -361,13 +322,16 @@ table th {
   #sidebar .navbar-nav {
     align-items: center;
   }
+
   #sidebar .nav-item {
     padding: 5px;
     margin-bottom: 5px;
   }
+
   #sidebar .nav-item span {
     display: none;
   }
+
   #sidebar .navbar {
     overflow: visible;
     justify-content: center;
@@ -394,6 +358,4 @@ table th {
   }
 }
 
-@media (max-width: 767px) {
-
-}
+@media (max-width: 767px) {}
