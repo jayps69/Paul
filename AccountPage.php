@@ -20,7 +20,24 @@ include 'Templates/head.php';
       ?>
 
       <h1>ACCOUNT</h1>
+        <?php
+          $sql = "SELECT employeeno, lastname, firstname, depedemail FROM user_tbl WHERE uname = '$username'";
+          $result = $conn->query($sql);
+          if ($result->num_rows == 1) {
+              // Fetch data from the result set
+              $row = $result->fetch_assoc();
+              $employeeNo = $row["employeeno"];
+              $lastName = $row["lastname"];
+              $firstName = $row["firstname"];
+              $depedEmail = $row["depedemail"];
 
+              $firstName = ucfirst(strtolower($firstName));
+              $lastName = ucfirst(strtolower($lastName));
+          } else {
+              // Handle the case where user data is not found
+              $error_message = "User data not found.";
+          }
+        ?>
       <div class="container">
         <div class="row">
           <!-- AccountDetails-box (6 columns) -->
@@ -34,10 +51,10 @@ include 'Templates/head.php';
                 <p1 class="label">DEPED EMAIL :</p1>
               </div>
               <div class="col-md-6">
-                <p1 class="answer">123456</p1>
-                <p1 class="answer">Estanislao</p1>
-                <p1 class="answer">John Paul</p1>
-                <p1 class="answer">johnpaulestanislao32@yahoo.com</p1>
+                    <p1 class="answer"><?php echo $employeeNo; ?></p1>
+                    <p1 class="answer"><?php echo $lastName; ?></p1>
+                    <p1 class="answer"><?php echo $firstName; ?></p1>
+                    <p1 class="answer"><?php echo $depedEmail; ?></p1>
               </div>
 
             </div>
@@ -49,7 +66,7 @@ include 'Templates/head.php';
           <div class="col-md-6 ">
             <div class="AccountPicture-box" id="AccountPicture-box">
               <!-- Content for AccountPicture-box goes here -->
-              <img src="Images/default.png" alt="Profile Photo">
+              <img src="<?php echo $picture; ?>" alt="Profile Photo" />
             </div>
             <div class="Changepasswordbtn" id="Changepasswordbtn">
               <button class="btn btn-primary">CHANGE PASSWORD</button>

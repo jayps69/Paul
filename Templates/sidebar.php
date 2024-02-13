@@ -55,10 +55,22 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="#" onclick="confirmLogout()">
               <i class="fas fa-sign-out-alt"></i><span> LOGOUT</span>
             </a>
           </li>
         </ul>
       </nav>
     </div>
+
+    <script>
+    function confirmLogout() {
+      var result = confirm("Are you sure you want to logout?");
+      if (result) {
+        // If user confirms, redirect to logout page
+        
+        window.location.href = "Login.php"; // Replace "logout.php" with your actual logout page
+        session_destroy();
+      }
+    }
+  </script>

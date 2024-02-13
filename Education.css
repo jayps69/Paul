@@ -63,7 +63,7 @@ header {
   border-bottom: 1px solid #007bff;
   padding: 10px;
   border-radius: 25px;
-  box-shadow: 16px 12px 9px 0px rgba(0,0,0,0.18);
+  box-shadow: 16px 12px 9px 0px rgba(0, 0, 0, 0.18);
 }
 
 header div {
@@ -116,14 +116,34 @@ h1 {
   font-weight: bold;
 }
 
+.table {
+  --bs-table-hover-bg: #A9D8F7 !important;
+}
 
+#example {
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 10px;
+  border-top: 1px solid #007bff;
+  border-left: 1px solid #007bff;
+  border-right: 2px solid #007bff;
+  border-bottom: 2px solid #007bff;
+  margin: 0 auto;
+  width: 100%;
+  background-color: #f5f7fa;
+  transition: height 0.5s ease;
+  box-shadow: 8px 6px 5px 0px rgba(0, 0, 0, 0.18);
+  overflow-x: auto !important;
+  overflow-y: auto !important;
+}
 
 td {
   text-align: center;
   vertical-align: middle;
 }
 
-thead, th {
+thead,
+th {
 
   text-align: center !important;
   vertical-align: middle;
@@ -139,7 +159,7 @@ thead, th {
   border-radius: 25px;
 
   padding: 9px 45px;
-  
+
 }
 
 .addRecord {
@@ -175,6 +195,10 @@ thead, th {
   font-size: large;
   left: 0;
   right: 0;
+}
+
+.btn-close {
+  z-index: 2;
 }
 
 #school {
@@ -288,9 +312,7 @@ thead, th {
 
 }
 
-@media (max-width: 1051px) {
-
-}
+@media (max-width: 1051px) {}
 
 @media (max-width: 960px) {
   header p1 {
