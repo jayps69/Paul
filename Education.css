@@ -58,11 +58,12 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-left: 5px solid #007bff;
-  border-right: 5px solid #007bff;
-  border-bottom: 5px solid #007bff;
+  border-left: 1px solid #007bff;
+  border-right: 1px solid #007bff;
+  border-bottom: 1px solid #007bff;
   padding: 10px;
   border-radius: 25px;
+  box-shadow: 16px 12px 9px 0px rgba(0,0,0,0.18);
 }
 
 header div {
@@ -115,10 +116,7 @@ h1 {
   font-weight: bold;
 }
 
-.btn-primary {
-  border-radius: 25px;
-  font-size: 16px;
-}
+
 
 td {
   text-align: center;
@@ -138,7 +136,8 @@ thead, th {
 
 .custom-btn {
   font-size: 20px !important;
-  
+  border-radius: 25px;
+
   padding: 9px 45px;
   
 }
@@ -173,6 +172,7 @@ thead, th {
   width: 100%;
   text-align: center;
   position: absolute;
+  font-size: large;
   left: 0;
   right: 0;
 }
