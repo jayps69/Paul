@@ -1,0 +1,16 @@
+62bfee10e200dba654a9632b58e7069e
+62bfee10e200dba654a9632b58e7069e
+dd441d3a1cd4021d60d23fb0c2b39ec3
+
+star13124
+
+
+Select * From educationtbl where userid = $userid
+
+
+vfranlex
+Mayumi1130
+
+INSERT INTO `educationtbl` (`idno`, `userid`, `educid`, `educationlevel`, `school`, `degree`, `datefrom`, `dateto`) VALUES (NULL, '$userId', '', '', '', '', '', '');
+
+18166
