@@ -7,6 +7,9 @@ body {
   #wrapper {
     display: flex;
   }
+  .navbar {
+    padding: 0.5rem 3rem !important;
+  }
   
   #sidebar {
     max-width: 200px;
@@ -57,7 +60,7 @@ body {
     border-bottom: 1px solid #007bff;
     padding: 10px;
     border-radius: 25px;
-       box-shadow: 16px 12px 9px 0px rgba(0,0,0,0.18);
+    box-shadow: 16px 12px 9px 0px rgba(0,0,0,0.18);
 
   }
   

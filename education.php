@@ -13,7 +13,9 @@
         .table {
             --bs-table-hover-bg: #A9D8F7 !important;
         }
-
+        .modal-title {
+            justify-self: center;
+        }
         #example {
             padding: 10px;
             margin-top: 20px;
@@ -29,6 +31,10 @@
             box-shadow: 8px 6px 5px 0px rgba(0, 0, 0, 0.18);
             overflow-x: auto !important;
             overflow-y: auto !important;
+        }
+
+        .btn-close {
+            z-index: 2;
         }
     </style>
 </head>
@@ -253,14 +259,18 @@
                 </tbody>
             </table>
 
+            
+
 
             <div class="modal" id="addRecord" tabindex="-1" role="dialog" aria-labelledby="titleModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
+                        
                         <div class="modal-header">
-                            <h5 class="modal-title" id="titleModalLabel">ADD RECORD</h5>
-                            
+                        <h5 class="modal-title" id="titleModalLabel">ADD RECORD</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                            </button>
                         </div>
                         <div class="modal-body">
                             <div class="inputGroup">
@@ -302,7 +312,7 @@
                             <div class="modal-footer justify-content-center">
                                 <button type="button" id="savebtn" name="savebtn"
                                     class="btn btn-primary custom-btn">SAVE</button>
-                                    <button type="button" class="btn btn-danger custom-btn" data-bs-dismiss="modal">Close</button>
+                                    
 
                             </div>
 
@@ -321,9 +331,8 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="titleModalLabel">EDIT RECORD</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
+                        <h5 class="modal-title" id="titleModalLabel">EDIT RECORD</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                             </button>
                         </div>
                         <div class="modal-body">
