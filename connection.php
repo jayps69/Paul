@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database = "sdoqc_hrutppdfdb";
+$database = "teacher_portal";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $database);
