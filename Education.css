@@ -2,7 +2,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: kameron;
-  
+  min-width: 500px;
+
 }
 
 #wrapper {
@@ -313,10 +314,10 @@ th {
   }
 
   .addRecord {
-    
+
     padding: 0.5em 1.5em;
     font-size: 14px;
-    
+
   }
 
 }
@@ -345,18 +346,18 @@ th {
   }
 
   .addRecord {
-    
+
     padding: 0.5em .5em;
     font-size: 12px;
-    
+
   }
 
   #example {
-    
+
     font-size: 12px;
     width: 100%;
-     
-   }
+
+  }
 
 }
 
@@ -402,11 +403,12 @@ th {
   h1 {
     font-size: 18px;
   }
+
   .addRecord {
-    
+
     padding: 0.5em .5em;
     font-size: 10px;
-    
+
   }
 
 
@@ -417,21 +419,46 @@ th {
 
 
   .addRecord {
-    
+
     padding: 0.2em .2em;
     font-size: 8px;
-    
+
   }
 
   tbody td {
     padding: 8px 1px !important;
   }
+
   #example {
-    
+
     font-size: 8px;
     min-width: 10%;
-     
-   }
+
+  }
+
+}
+
+@media (max-width: 412px) {
+
+  #sidebar {
+
+
+    height: 120vh;
+
+  }
+
+
+
+}
+
+@media (max-width: 360px) {
+
+  #sidebar {
+
+
+    height: 140vh;
+
+  }
 
 
 

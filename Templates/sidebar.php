@@ -26,7 +26,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="Eligibility.php">
               <i class="fas fa-check-circle"></i><span>ELIGIBILITY</span>
             </a>
           </li>
@@ -51,7 +51,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="AboutUs.html">
               <i class="fas fa-info-circle"></i><span>ABOUT US</span>
             </a>
           </li>

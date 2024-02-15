@@ -14,3 +14,6 @@ Mayumi1130
 INSERT INTO `educationtbl` (`idno`, `userid`, `educid`, `educationlevel`, `school`, `degree`, `datefrom`, `dateto`) VALUES (NULL, '$userId', '', '', '', '', '', '');
 
 18166
+
+412 120vh
+360 140vh

@@ -41,7 +41,6 @@ include 'Templates/head.php';
         </header>
 
         <h1>CONTACT DETAILS</h1>
-
         <div class="ContactDetails-box">
           <div class="row">
             <div class="col-md-4">

@@ -1,20 +1,19 @@
 <?php
-include 'Templates/head.php';
+session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Education</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <link rel="stylesheet" href="Education.css">
-  <style>
+  <title>Eligibility</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Eligibility.css">
 
-  </style>
 </head>
 
 <body>
@@ -25,301 +24,300 @@ include 'Templates/head.php';
     ?>
 
     <div id="content">
-      <?php 
-      include 'Templates/header.php';
-      ?>
+      <?php
+      include 'Templates/header.php'
+        ?>
 
 
       <div class="AddButton">
-        <h1>Education</h1>
+        <h1>Eligibility</h1>
 
-        <button class="addRecord" name="addRecord" data-toggle="modal" data-target="#addRecord">ADD RECORD</button>
+        <button class="addRecord" name="addRecord" data-bs-toggle="modal" data-bs-target="#addRecord">ADD
+          RECORD</button>
 
       </div>
 
 
-      <div class="Education-box">
-        <section class="intro">
+      <table id="example" class="table table-hover table-striped">
+        <thead>
+          <tr>
 
-          <div class="mask">
-            <div class="container">
-              <div class="row">
-                <div class="col-12">
-                  <div class="card shadow-2-strong" style="background-color: #f5f7fa;">
-                    <div class="card-body">
-                      <div class="table-responsive scrollable-table">
-                        <table class="table table-borderless mb-0">
-                          <thead>
-                            <tr>
+            <th scope="col">TITLE</th>
+            <th scope="col">RATING</th>
+            <th scope="col">DATE OF EXAMINATION</th>
+            <th scope="col">PLACE OF EXAMINATION</th>
+            <th scope="col">LICENSE NO.</th>
+            <th scope="col">DATE OF VALIDITY</th>
+            <th scope="col">EDIT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+          // Display educationtbl to data table
+          $query = "SELECT idno, title, rating, dateofexamination, placeofexamination, licensenumber, dateofvalidity FROM eligibilitytbl WHERE userid = $userId";
+          $result = mysqli_query($conn, $query);
+          if ($result) {
+            if (mysqli_num_rows($result) > 0) {
 
-                              <th scope="col">LEVEL</th>
-                              <th scope="col">SCHOOL</th>
-                              <th scope="col">DEGREE</th>
-                              <th scope="col">FROM</th>
-                              <th scope="col">TO</th>
-                              <th scope="col">EDIT</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-
-                              <td>ELEMENTARY</td>
-                              <td>School1</td>
-                              <td>Sample Degree</td>
-                              <td>1997</td>
-                              <td>2005</td>
-
-                              <td>
-                                <button name="editRecord" data-toggle="modal" data-target="#editRecord"  class="btn btn-danger btn-sm px-3">
-                                  <i class="fas fa-pencil-alt"></i>
-                                </button>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>ELEMENTARY</td>
-                              <td>School1</td>
-                              <td>Sample Degree</td>
-                              <td>1997</td>
-                              <td>2005</td>
-
-                              <td>
-                                <button type="button" class="btn btn-danger btn-sm px-3">
-                                  <i class="fas fa-pencil-alt"></i>
-                                </button>
-                              </td>
-                            </tr>
-
-                            <tr>
-
-                              <td>ELEMENTARY</td>
-                              <td>School1</td>
-                              <td>Sample Degree</td>
-                              <td>1997</td>
-                              <td>2005</td>
-
-                              <td>
-                                <button type="button" class="btn btn-danger btn-md px-3">
-                                  <i class="fas fa-pencil-alt"></i>
-                                </button>
-                              </td>
-                            </tr>
-                            <tr>
-
-                              <td>ELEMENTARY</td>
-                              <td>School1</td>
-                              <td>Sample Degree</td>
-                              <td>1997</td>
-                              <td>2005</td>
-                              <td>
-
-                                <button type="button" class="btn btn-danger btn-sm px-3">
-                                  <i class="fas fa-pencil-alt"></i>
-                                </button>
-                              </td>
-                            </tr>
-                            <tr>
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>";
+                echo "<td>" . $row['title'] . "</td>";
+                echo "<td>" . $row['rating'] . "</td>";
+                echo "<td>" . $row['dateofexamination'] . "</td>";
+                echo "<td>" . $row['placeofexamination'] . "</td>";
+                echo "<td>" . $row['licensenumber'] . "</td>";
+                echo "<td>" . $row['dateofvalidity'] . "</td>";
+                echo '<td><button name="editRecord" data-bs-toggle="modal" data-bs-target="#editRecord" data-idno="' . $row['idno'] . '" class="btn btn-danger btn-sm px-3"><i class="fas fa-pencil-alt"></i></button></td>';
+                echo "</tr>";
+              }
+            }
+          }
+          ?>
+        </tbody>
+      </table>
 
 
-                              <td>ELEMENTARY</td>
-                              <td>School1</td>
-                              <td>Sample Degree</td>
-                              <td>1997</td>
-                              <td>2005</td>
-                              <td>
-
-                                <button type="button" class="btn btn-danger btn-sm px-3">
-                                  <i class="fas fa-pencil-alt"></i>
-                                </button>
-                              </td>
-                            </tr>
-                            <tr>
-
-                              <td>ELEMENTARY</td>
-                              <td>School1</td>
-                              <td>Sample Degree</td>
-                              <td>1997</td>
-                              <td>2005</td>
-
-                              <td>
-                                <button type="button" class="btn btn-danger btn-sm px-3">
-                                  <i class="fas fa-pencil-alt"></i>
-                                </button>
-                              </td>
-                            </tr>
-                            <tr>
-
-                              <td>ELEMENTARY</td>
-                              <td>School1</td>
-                              <td>Sample Degree</td>
-                              <td>1997</td>
-                              <td>2005</td>
-                              <td>
-
-                                <button type="button" class="btn btn-danger btn-sm px-3">
-                                  <i class="fas fa-pencil-alt"></i>
-                                </button>
-                              </td>
-                            </tr>
-
-                            <tr>
-
-
-                              <td>ELEMENTARY</td>
-                              <td>School1</td>
-                              <td>Sample Degree</td>
-                              <td>1997</td>
-                              <td>2005</td>
-                              <td>
-
-                                <button type="button" class="btn btn-danger btn-sm px-3">
-                                  <i class="fas fa-pencil-alt"></i>
-                                </button>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
+      <div class="modal" id="addRecord" tabindex="-1" role="dialog" aria-labelledby="titleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <form id="addRecordForm" method="post" action="">
+              <div class="modal-header">
+                <h5 class="modal-title" id="titleModalLabel">ADD RECORD</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="inputGroup">
+                  <input type="text" id="addtitle" name="addtitle" required="" autocomplete="off">
+                  <label for="addtitle">TITLE</label>
+                </div>
+                <div class="inputGroup">
+                  <input type="text" id="addrating" name="addrating" required="" autocomplete="off">
+                  <label for="addrating">RATING</label>
+                </div>
+                <div class="inputGroup">
+                  <input type="date" id="adddoe" name="adddoe" required="" autocomplete="off" class="focus-valid">
+                  <label for="adddoe" class="focus-valid">DATE OF EXAM</label>
+                </div>
+                <div class="inputGroup">
+                  <input type="text" id="addpoe" name="addpoe" required="" autocomplete="off">
+                  <label for="addpoe">PLACE OF EXAM</label>
+                </div>
+                <div class="inputGroup">
+                  <input type="text" id="addlicensenumber" name="addlicensenumber" required="" autocomplete="off">
+                  <label for="addlicensenumber">LICENSE NO.</label>
+                </div>
+                <div class="inputGroup">
+                  <input type="text" id="adddov" name="adddov" required="" autocomplete="off">
+                  <label for="adddov">DATE OF VALIDITY</label>
+                </div>
+                <div class="modal-footer justify-content-center">
+                  <button type="submit" id="savebtn" name="savebtn" class="btn btn-primary custom-btn">SAVE</button>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <div class="modal fade" id="addRecord" tabindex="-1" role="dialog" aria-labelledby="titleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="titleModalLabel">ADD RECORD</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="inputGroup">
-                <select required="" autocomplete="off" id="level">
-                  <option value=""></option>
-                  <option value="ELEMENTARY">LEVEL</option>
-                  <option value="SECONDARY">SECONDARY</option>
-                  <option value="VOCATIONAL">VOCATIONAL</option>
-                  <option value="COLLEGE">COLLEGE</option>
-                  <option value="MASTERS DEGREE">MASTERS DEGREE</option>
-                  <option value="DOCTORATE DEGREE">DOCTORATE DEGREE</option>
-                </select>
-                <label2 for="level">LEVEL</label2>
-              </div>
-
-
-              <div class="inputGroup">
-                <input type="text" id="school" name="school" required="" autocomplete="off">
-                <label for="school">SCHOOL</label>
-              </div>
-
-
-              <div class="inputGroup">
-                <input type="text" id="degree" name="degree" required="" autocomplete="off">
-                <label for="degree">DEGREE</label>
-              </div>
-
-              <div class="inputGroup">
-                <select required="" autocomplete="off" name="from" id="from"></select>
-                <label2 for="from">FROM</label2>
-              </div>
-
-              <div class="inputGroup">
-                <select required="" autocomplete="off" name="to" id="to"></select>
-                <label2 for="to">TO</label2>
-              </div>
-
-
-              <div class="modal-footer justify-content-center">
-                <button type="button" id="savebtn" name="savebtn" class="btn btn-primary custom-btn">SAVE</button>
-              </div>
-
-
-
-            </div>
-
-
-
-
+            </form>
           </div>
         </div>
       </div>
-      <div class="modal fade" id="editRecord" tabindex="-1" role="dialog" aria-labelledby="titleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="titleModalLabel">EDIT RECORD</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="inputGroup">
-                <select required="" autocomplete="off" id="level">
-                  <option value=""></option>
-                  <option value="ELEMENTARY">LEVEL</option>
-                  <option value="SECONDARY">SECONDARY</option>
-                  <option value="VOCATIONAL">VOCATIONAL</option>
-                  <option value="COLLEGE">COLLEGE</option>
-                  <option value="MASTERS DEGREE">MASTERS DEGREE</option>
-                  <option value="DOCTORATE DEGREE">DOCTORATE DEGREE</option>
-                </select>
-                <label2 for="level">LEVEL</label2>
-              </div>
 
+      <?php
+      // Add function
+      if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['savebtn'])) {
 
-              <div class="inputGroup">
-                <input type="text" id="school" name="school" required="" autocomplete="off">
-                <label for="school">SCHOOL</label>
-              </div>
+        // Get form data and sanitize
+        $addtitle = $_POST['addtitle'];
+        $addrating = $_POST['addrating'];
+        $adddoe = $_POST['adddoe'];
+        $addpoe = $_POST['addpoe'];
+        $addlicensenumber = $_POST['addlicensenumber'];
+        $adddov = $_POST['adddov'];
 
+        // Prepare the insert query
+        $sql = "INSERT INTO eligibilitytbl (idno, userid, title, rating, dateofexamination, placeofexamination , licensenumber, dateofvalidity) 
+                VALUES (NULL, ?, ?, ?, ?, ?, ?, ?)";
 
-              <div class="inputGroup">
-                <input type="text" id="degree" name="degree" required="" autocomplete="off">
-                <label for="degree">DEGREE</label>
-              </div>
+        // Prepare statement
+        if ($stmt = mysqli_prepare($conn, $sql)) {
+          // Bind variables to the prepared statement as parameters
+          mysqli_stmt_bind_param($stmt, "issssss", $userId, $addtitle, $addrating, $adddoe, $addpoe, $addlicensenumber, $adddov);
 
-              <div class="inputGroup">
-                <select required="" autocomplete="off" name="from" id="from"></select>
-                <label2 for="from">FROM</label2>
-              </div>
+          // Execute the statement
+          if (mysqli_stmt_execute($stmt)) {
+            echo "<script>alert('NEW RECORD ADDED'); window.location.href = 'Eligibility.php';</script>";
+          } else {
+            echo "Error: " . mysqli_stmt_error($stmt);
+          }
 
-              <div class="inputGroup">
-                <select required="" autocomplete="off" name="to" id="to"></select>
-                <label2 for="to">TO</label2>
-              </div>
+          // Close statement
+          mysqli_stmt_close($stmt);
+        } else {
+          echo "Error: " . mysqli_error($conn);
+        }
 
-
-              <div class="modal-footer justify-content-center">
-                <button type="button" id="updatebtn" name="updatebtn" class="btn btn-primary custom-btn">UPDATE</button>
-              </div>
-
-
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script src=" https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script>
-    $(function() {
-      var start_year = new Date().getFullYear();
-      var html = ''
-      html +=  '<option value=""></option>'
-      for (var i = start_year - 55; i <= start_year; i++) {
-        html += '<option value="'+i+'">'+i+'</option>';
+        // Close database connection
+        mysqli_close($conn);
       }
-      $("#from").html(html)
-      $("#to").html(html)
+      ?>
+
+      <div class="modal fade" id="editRecord" tabindex="-1" role="dialog" aria-labelledby="titleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <form id="editRecordForm" method="post" action="">
+              <div class="modal-header">
+                <h5 class="modal-title" id="titleModalLabel">EDIT RECORD</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="inputGroup">
+                  <input type="text" id="edittitle" name="edittitle" required="" autocomplete="off">
+                  <label for="edittitle">TITLE</label>
+                </div>
+                <div class="inputGroup">
+                  <input type="text" id="editrating" name="editrating" required="" autocomplete="off">
+                  <label for="editrating">RATING</label>
+                </div>
+                <div class="inputGroup">
+                  <input type="date" id="editdoe" name="editdoe" required="" autocomplete="off" class="focus-valid">
+                  <label for="editdoe" class="focus-valid">DATE OF EXAM</label>
+                </div>
+                <div class="inputGroup">
+                  <input type="text" id="editpoe" name="editpoe" required="" autocomplete="off">
+                  <label for="editpoe">PLACE OF EXAM</label>
+                </div>
+                <div class="inputGroup">
+                  <input type="text" id="editlicensenumber" name="editlicensenumber" required="" autocomplete="off">
+                  <label for="editlicensenumber">LICENSE NO.</label>
+                </div>
+                <div class="inputGroup">
+                  <input type="text" id="editdov" name="editdov" required="" autocomplete="off">
+                  <label for="editdov">DATE OF VALIDITY</label>
+                </div>
+                <input type="hidden" id="editidno" name="editidno">
+                <div class="modal-footer justify-content-center">
+                  <button type="submit" id="updatebtn" name="updatebtn"
+                    class="btn btn-primary custom-btn">UPDATE</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <?php
+        // Assuming you have already established a database connection
+        
+        // Check if the form is submitted
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['updatebtn'])) {
+          // Retrieve form data
+          $idno = $_POST['editidno'];
+          $edittitle = $_POST['edittitle'];
+          $editrating = $_POST['editrating'];
+          $editdoe = $_POST['editdoe'];
+          $editpoe = $_POST['editpoe'];
+          $editlicensenumber = $_POST['editlicensenumber'];
+          $editdov = $_POST['editdov'];
+
+          // SQL update query with prepared statement
+          $sql = "UPDATE eligibilitytbl SET title = ?, rating = ?, dateofexamination = ?, placeofexamination = ?, licensenumber = ?,dateofvalidity = ? WHERE idno = ?";
+
+          // Prepare the statement
+          $stmt = mysqli_prepare($conn, $sql);
+
+          // Bind parameters
+          mysqli_stmt_bind_param($stmt, "ssssssi", $edittitle, $editrating, $editdoe, $editpoe, $editlicensenumber, $editdov, $idno);
+
+          // Execute the update query
+          if (mysqli_stmt_execute($stmt)) {
+            echo "<script>alert('RECORD UPDATED'); window.location.href = 'Eligibility.php';</script>";
+          } else {
+            echo "Error updating record: " . mysqli_error($conn);
+          }
+
+          // Close the statement
+          mysqli_stmt_close($stmt);
+        }
+
+        // Close the database connection
+        mysqli_close($conn);
+      ?>
+    </div>
+  </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+
+
+  <script>
+    $(document).ready(function () {
+      // Populate the fields of from to (Add and Edit Records)
+      var start_year = new Date().getFullYear();
+      var html = '';
+      html += '<option value=""></option>';
+      for (var i = start_year - 55; i <= start_year; i++) {
+        html += '<option value="' + i + '">' + i + '</option>';
+      }
+      $("#addfrom, #addto, #editfrom, #editto").html(html);
+
+      // Clearing the fields of addRecord modal when closed
+      var addModal = document.getElementById('addRecord');
+      addModal.addEventListener('hidden.bs.modal', function () {
+        document.getElementById('addtitle').value = '';
+        document.getElementById('addrating').value = '';
+        document.getElementById('adddoe').value = '';
+        document.getElementById('addpoe').value = '';
+        document.getElementById('addlicensenumber').value = '';
+        document.getElementById('adddov').value = '';
       });
-    </script>
+
+
+      // Clearing the fields of editRecord modal when closed
+      var editModal = document.getElementById('editRecord');
+      editModal.addEventListener('hidden.bs.modal', function () {
+        document.getElementById('editlevel').selectedIndex = 0;
+        document.getElementById('editschool').value = '';
+        document.getElementById('editdegree').value = '';
+        document.getElementById('editfrom').selectedIndex = 0;
+        document.getElementById('editto').selectedIndex = 0;
+      });
+
+      // Sort the data table Datefrom ASC
+      $('#example').dataTable({
+        searching: false,
+        bLengthChange: false,
+        autoWidth: false,
+        responsive: true  // Add this line to enable responsive mode
+        
+        
+      });
+
+      // Populate the edit fields
+      $('#example').on('click', 'button[name="editRecord"]', function () {
+        var idno = $(this).data('idno');
+        var rowData = $('#example').DataTable().row($(this).closest('tr')).data();
+        $('#edittitle').val(rowData[0]);
+        $('#editrating').val(rowData[1]);
+        $('#editdoe').val(rowData[2]);
+        $('#editpoe').val(rowData[3]);
+        $('#editlicensenumber').val(rowData[4]);
+        $('#editdov').val(rowData[5]);
+        $('#editidno').val(idno);
+        $('#editRecord').modal('show');
+      });
+    });
+    //Getting the SelectedIndex of addlevel
+    function updateSelectedIndex(select) {
+      var selectedIndex = select.selectedIndex;
+      document.getElementById('selectedOptionIndex').value = selectedIndex;
+    }
+  </script>
+
+
+
 </body>
 
 </html>
