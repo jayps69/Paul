@@ -127,42 +127,31 @@ session_start();
             </div>
 
             <?php
-                // Add function
-                if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['savebtn'])) {
+            //Add function
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['savebtn'])) {
 
-                    // Get form data and sanitize
-                    $addlevel = $_POST['addlevel'];
-                    $selectedOptionIndex = $_POST['selectedOptionIndex'];
-                    $addschool = $_POST['addschool'];
-                    $adddegree = $_POST['adddegree'];
-                    $addfrom = $_POST['addfrom'];
-                    $addto = $_POST['addto'];
+                // Get form data
+                $addlevel = $_POST['addlevel'];
+                $selectedOptionIndex = $_POST['selectedOptionIndex'];
+                $addschool = $_POST['addschool'];
+                $adddegree = $_POST['adddegree'];
+                $addfrom = $_POST['addfrom'];
+                $addto = $_POST['addto'];
 
-                    // Prepare the insert query
-                    $sql = "INSERT INTO educationtbl (idno, userid, educid, educationlevel, school, degree , datefrom, dateto) 
-                VALUES (NULL, ?, ?, ?, ?, ?, ?, ?)";
 
-                    // Prepare statement
-                    if ($stmt = mysqli_prepare($conn, $sql)) {
-                        // Bind variables to the prepared statement as parameters
-                        mysqli_stmt_bind_param($stmt, "iiissss", $userId, $selectedOptionIndex, $addlevel, $addschool, $adddegree, $addfrom, $addto);
+                $sql = "INSERT INTO educationtbl (idno, userid, educid, educationlevel, school, degree , datefrom, dateto) 
+                VALUES (NULL, '$userId', '$selectedOptionIndex', '$addlevel', '$addschool', '$adddegree', '$addfrom', '$addto')";
 
-                        // Execute the statement
-                        if (mysqli_stmt_execute($stmt)) {
-                            echo "<script>alert('NEW RECORD ADDED'); window.location.href = 'Education.php';</script>";
-                        } else {
-                            echo "Error: " . mysqli_stmt_error($stmt);
-                        }
 
-                        // Close statement
-                        mysqli_stmt_close($stmt);
-                    } else {
-                        echo "Error: " . mysqli_error($conn);
-                    }
-
-                    // Close database connection
-                    mysqli_close($conn);
+                if (mysqli_query($conn, $sql)) {
+                    echo "<script>alert('NEW RECORD ADDED'); window.location.href = 'Education.php';</script>";
+                } else {
+                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
                 }
+
+                // Close database connection
+                mysqli_close($conn);
+            }
             ?>
 
             <div class="modal fade" id="editRecord" tabindex="-1" role="dialog" aria-labelledby="titleModalLabel"
