@@ -124,40 +124,40 @@ session_start();
             </div>
 
             <?php
-// Add function
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['savebtn'])) {
-    // Get form data
-    $addlevel = $_POST['addlevel'];
-    $selectedOptionIndex = $_POST['selectedOptionIndex'];
-    $addschool = $_POST['addschool'];
-    $adddegree = $_POST['adddegree'];
-    $addfrom = $_POST['addfrom'];
-    $addto = $_POST['addto'];
+                // Add function
+                if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['savebtn'])) {
+                    // Get form data
+                    $addlevel = $_POST['addlevel'];
+                    $selectedOptionIndex = $_POST['selectedOptionIndex'];
+                    $addschool = $_POST['addschool'];
+                    $adddegree = $_POST['adddegree'];
+                    $addfrom = $_POST['addfrom'];
+                    $addto = $_POST['addto'];
 
-    // Prepare the SQL statement
-    $sql = "INSERT INTO educationtbl (userid, educid, educationlevel, school, degree, datefrom, dateto) 
-            VALUES (?, ?, ?, ?, ?, ?, ?)";
+                    // Prepare the SQL statement
+                    $sql = "INSERT INTO educationtbl (userid, educid, educationlevel, school, degree, datefrom, dateto) 
+                VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-    // Create a prepared statement
-    $stmt = mysqli_prepare($conn, $sql);
-    
-    // Bind parameters
-    mysqli_stmt_bind_param($stmt, "iisssii", $userId, $selectedOptionIndex, $addlevel, $addschool, $adddegree, $addfrom, $addto);
+                    // Create a prepared statement
+                    $stmt = mysqli_prepare($conn, $sql);
 
-    // Execute the statement
-    if (mysqli_stmt_execute($stmt)) {
-        echo "<script>alert('NEW RECORD ADDED'); window.location.href = 'Education.php';</script>";
-    } else {
-        echo "Error: " . mysqli_error($conn);
-    }
+                    // Bind parameters
+                    mysqli_stmt_bind_param($stmt, "iisssii", $userId, $selectedOptionIndex, $addlevel, $addschool, $adddegree, $addfrom, $addto);
 
-    // Close statement
-    mysqli_stmt_close($stmt);
-    
-    // Close database connection
-    mysqli_close($conn);
-}
-?>
+                    // Execute the statement
+                    if (mysqli_stmt_execute($stmt)) {
+                        echo "<script>alert('NEW RECORD ADDED'); window.location.href = 'Education.php';</script>";
+                    } else {
+                        echo "Error: " . mysqli_error($conn);
+                    }
+
+                    // Close statement
+                    mysqli_stmt_close($stmt);
+
+                    // Close database connection
+                    mysqli_close($conn);
+            }
+            ?>
 
             <div class="modal fade" id="editRecord" tabindex="-1" role="dialog" aria-labelledby="titleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -208,41 +208,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['savebtn'])) {
                 </div>
             </div>
             <?php
-// Update function
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['updatebtn'])) {
-    // Get form data
-    $idno = $_POST['editidno'];
-    $editlevel = $_POST['editlevel'];
-    $editschool = $_POST['editschool'];
-    $editdegree = $_POST['editdegree'];
-    $editfrom = $_POST['editfrom'];
-    $editto = $_POST['editto'];
-    $selectedOptionIndex1 = $_POST['selectedOptionIndex1'];
+                // Update function
+                if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['updatebtn'])) {
+                    // Get form data
+                    $idno = $_POST['editidno'];
+                    $editlevel = $_POST['editlevel'];
+                    $editschool = $_POST['editschool'];
+                    $editdegree = $_POST['editdegree'];
+                    $editfrom = $_POST['editfrom'];
+                    $editto = $_POST['editto'];
+                    $selectedOptionIndex1 = $_POST['selectedOptionIndex1'];
 
-    // Prepare the SQL statement
-    $sql = "UPDATE `educationtbl` SET `educid`=?, `educationlevel`=?, `school`=?,
-            `degree`=?, `datefrom`=?, `dateto`=? WHERE `idno`=?";
+                    // Prepare the SQL statement
+                    $sql = "UPDATE `educationtbl` SET `educid`=?, `educationlevel`=?, `school`=?,
+                `degree`=?, `datefrom`=?, `dateto`=? WHERE `idno`=?";
 
-    // Create a prepared statement
-    $stmt = mysqli_prepare($conn, $sql);
-    
-    // Bind parameters
-    mysqli_stmt_bind_param($stmt, "isssssi", $selectedOptionIndex1, $editlevel, $editschool, $editdegree, $editfrom, $editto, $idno);
+                    // Create a prepared statement
+                    $stmt = mysqli_prepare($conn, $sql);
 
-    // Execute the statement
-    if (mysqli_stmt_execute($stmt)) {
-        echo "<script>alert('RECORD UPDATED'); window.location.href = 'Education.php';</script>";
-    } else {
-        echo "Error: " . mysqli_error($conn);
-    }
+                    // Bind parameters
+                    mysqli_stmt_bind_param($stmt, "isssssi", $selectedOptionIndex1, $editlevel, $editschool, $editdegree, $editfrom, $editto, $idno);
 
-    // Close statement
-    mysqli_stmt_close($stmt);
-    
-    // Close database connection
-    mysqli_close($conn);
-}
-?>
+                    // Execute the statement
+                    if (mysqli_stmt_execute($stmt)) {
+                        echo "<script>alert('RECORD UPDATED'); window.location.href = 'Education.php';</script>";
+                    } else {
+                        echo "Error: " . mysqli_error($conn);
+                    }
+
+                    // Close statement
+                    mysqli_stmt_close($stmt);
+
+                    // Close database connection
+                    mysqli_close($conn);
+                }
+            ?>
 
         </div>
     </div>
@@ -289,6 +289,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['updatebtn'])) {
             $('#example').dataTable({
                 searching: false,
                 bLengthChange: false,
+                responsive: true,
                 columnDefs: [{
                     type: 'date',
                     targets: [3] // Assuming datefrom is the 4th column (index 3)

@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: kameron;
+  
 }
 
 #wrapper {
@@ -109,6 +110,7 @@ header p3 {
 #content {
   width: 100%;
   padding: 15px;
+  overflow-x: auto;
 }
 
 h1 {
@@ -310,9 +312,16 @@ th {
     font-size: 30px;
   }
 
+  .addRecord {
+    
+    padding: 0.5em 1.5em;
+    font-size: 14px;
+    
+  }
+
 }
 
-@media (max-width: 1051px) {}
+
 
 @media (max-width: 960px) {
   header p1 {
@@ -334,6 +343,21 @@ th {
   h1 {
     font-size: 20px;
   }
+
+  .addRecord {
+    
+    padding: 0.5em .5em;
+    font-size: 12px;
+    
+  }
+
+  #example {
+    
+    font-size: 12px;
+    width: 100%;
+     
+   }
+
 }
 
 @media (max-width: 875px) {
@@ -378,6 +402,37 @@ th {
   h1 {
     font-size: 18px;
   }
+  .addRecord {
+    
+    padding: 0.5em .5em;
+    font-size: 10px;
+    
+  }
+
+
 }
 
-@media (max-width: 767px) {}
+@media (max-width: 767px) {
+
+
+
+  .addRecord {
+    
+    padding: 0.2em .2em;
+    font-size: 8px;
+    
+  }
+
+  tbody td {
+    padding: 8px 1px !important;
+  }
+  #example {
+    
+    font-size: 8px;
+    min-width: 10%;
+     
+   }
+
+
+
+}
