@@ -154,8 +154,7 @@ session_start();
             }
             ?>
 
-            <div class="modal fade" id="editRecord" tabindex="-1" role="dialog" aria-labelledby="titleModalLabel"
-                aria-hidden="true">
+<div class="modal fade" id="editRecord" tabindex="-1" role="dialog" aria-labelledby="titleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <form id="editRecordForm" method="post" action="">
@@ -166,7 +165,7 @@ session_start();
                             </div>
                             <div class="modal-body">
                                 <div class="inputGroup">
-                                    <select required="" autocomplete="off" id="editlevel" name="editlevel">
+                                    <select required="" autocomplete="off" id="editlevel" name="editlevel" onchange="updateSelectedIndex1(this)">
                                         <option value=""></option>
                                         <option value="ELEMENTARY">ELEMENTARY</option>
                                         <option value="SECONDARY">SECONDARY</option>
@@ -175,7 +174,7 @@ session_start();
                                         <option value="MASTERS DEGREE">MASTERS DEGREE</option>
                                         <option value="DOCTORATE DEGREE">DOCTORATE DEGREE</option>
                                     </select>
-                                    <label2 label2 for="editlevel">LEVEL</label2>
+                                    <label2   label2 for="editlevel">LEVEL</label2>
                                 </div>
                                 <div class="inputGroup">
                                     <input type="text" id="editschool" name="editschool" required="" autocomplete="off">
@@ -186,11 +185,10 @@ session_start();
                                     <label for="editdegree">DEGREE</label>
                                 </div>
 
-
+                            
 
                                 <div class="inputGroup">
-                                    <select select required="" autocomplete="off" name="editfrom"
-                                        id="editfrom"></select>
+                                    <select   select required="" autocomplete="off" name="editfrom" id="editfrom"></select>
                                     <label2 for="editfrom">FROM</label2>
                                 </div>
                                 <div class="inputGroup">
@@ -198,9 +196,9 @@ session_start();
                                     <label2 for="editto">TO</label2>
                                 </div>
                                 <input type="hidden" id="editidno" name="editidno">
+                                <input type="hidden" name="selectedOptionIndex1" id="selectedOptionIndex1" value="">
                                 <div class="modal-footer justify-content-center">
-                                    <button type="submit" id="updatebtn" name="updatebtn"
-                                        class="btn btn-primary custom-btn">UPDATE</button>
+                                    <button type="submit" id="updatebtn" name="updatebtn" class="btn btn-primary custom-btn">UPDATE</button>
                                 </div>
                             </div>
                         </form>
@@ -208,36 +206,28 @@ session_start();
                 </div>
             </div>
             <?php
-            // Update function
+            //Update function
             if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['updatebtn'])) {
 
-                // Get form data and sanitize
+                
+                
+                // Get form data
                 $idno = $_POST['editidno'];
                 $editlevel = $_POST['editlevel'];
                 $editschool = $_POST['editschool'];
                 $editdegree = $_POST['editdegree'];
                 $editfrom = $_POST['editfrom'];
                 $editto = $_POST['editto'];
+                $selectedOptionIndex1 = $_POST['selectedOptionIndex1'];
 
-                // Prepare the update query
-                $sql = "UPDATE `educationtbl` SET `educationlevel`=?, `school`=?, `degree`=?, `datefrom`=?, `dateto`=? WHERE `idno`=?";
+                $sql = "UPDATE `educationtbl` SET `educid`='$selectedOptionIndex1', `educationlevel`='$editlevel', `school`='$editschool',
+                `degree`='$editdegree',`datefrom`='$editfrom',`dateto`='$editto' WHERE `idno`='$idno'";
 
-                // Prepare statement
-                if ($stmt = mysqli_prepare($conn, $sql)) {
-                    // Bind variables to the prepared statement as parameters
-                    mysqli_stmt_bind_param($stmt, "sssssi", $editlevel, $editschool, $editdegree, $editfrom, $editto, $idno);
 
-                    // Execute the statement
-                    if (mysqli_stmt_execute($stmt)) {
-                        echo "<script>alert('RECORD UPDATED'); window.location.href = 'Education.php';</script>";
-                    } else {
-                        echo "Error updating record: " . mysqli_stmt_error($stmt);
-                    }
-
-                    // Close statement
-                    mysqli_stmt_close($stmt);
+                if (mysqli_query($conn, $sql)) {
+                    echo "<script>alert('RECORD UPDATED'); window.location.href = 'Education.php';</script>";
                 } else {
-                    echo "Error: " . mysqli_error($conn);
+                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
                 }
 
                 // Close database connection
@@ -315,6 +305,10 @@ session_start();
         function updateSelectedIndex(select) {
             var selectedIndex = select.selectedIndex;
             document.getElementById('selectedOptionIndex').value = selectedIndex;
+        }
+        function updateSelectedIndex1(select) {
+            var selectedIndex1 = select.selectedIndex;
+            document.getElementById('selectedOptionIndex1').value = selectedIndex1;
         }
     </script>
 
