@@ -60,6 +60,7 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  border-top: 1px solid #007bff;
   border-left: 1px solid #007bff;
   border-right: 1px solid #007bff;
   border-bottom: 1px solid #007bff;

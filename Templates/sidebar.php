@@ -31,22 +31,22 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="WorkExperience.php">
               <i class="fas fa-briefcase"></i><span>WORK EXPERIENCE</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="VolunteerWork.php">
               <i class="fas fa-handshake"></i><span>VOLUNTEER WORK</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="Trainings.php">
               <i class="fas fa-chalkboard"></i><span>TRAININGS</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="SkillsAndHobbies.php">
               <i class="fas fa-paint-brush"></i><span>SKILLS & HOBBIES</span>
             </a>
           </li>
