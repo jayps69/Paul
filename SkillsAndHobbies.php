@@ -221,7 +221,7 @@ session_start();
 
 
             });
-
+            //edit isang line
             // Populate the edit fields
             $('#example').on('click', 'button[name="editRecord"]', function() {
                 var idno = $(this).data('idno');
