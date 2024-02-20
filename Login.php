@@ -120,6 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         .form .message a{
             color: #007bff;
+            text-decoration: none;
         }
 
         .container {
@@ -131,7 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         body {
             background-color: white;
-            background-image: linear-gradient(to right, white, #9dc6ea);
+            background-image: linear-gradient(to right, white, white);
             font-family: Arial, sans-serif;
         }
         h3{
@@ -148,7 +149,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .login-header{
             margin-bottom: 1rem;
         }
-        .forgot{
+        .forgot:hover{
+            color: red !important;
+        }
+        .register:hover{
             color: red !important;
         }
     </style>
@@ -170,7 +174,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="text" class="form-control" name="username" placeholder="Email" />
                 <input type="password" class="form-control" name="password" placeholder="Password" />
                 <input type="submit" class="btn btn-primary active" value="Log In">
-                <p class="message"><a href="Registration.php">Create an account</a> | 
+                <p class="message"><a class="register" href="Registration.php">Create an account</a> | 
                 <a class="forgot" href="#">Forgot password</a></p>
             </form>
         </div>
