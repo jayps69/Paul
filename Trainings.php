@@ -13,7 +13,7 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.0/css/dataTables.bootstrap5.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.0/css/responsive.bootstrap5.css">
-    <link rel="stylesheet" href="Eligibility.css">
+    <link rel="stylesheet" href="Datatables.css">
 
     <style>
         input[type=date]:required:invalid::-webkit-datetime-edit {
@@ -52,7 +52,7 @@ session_start();
             </div>
 
 
-            <table id="example" class="table table-striped nowrap" style="width:100%">
+            <table id="example" class="table table-striped " style="width:100%;">
                 <thead>
                     <tr>
 
@@ -126,7 +126,7 @@ session_start();
                                 <div class="inputGroup">
                                     <input type="text" id="addconducted" name="addconducted" required=""
                                         autocomplete="off">
-                                    <label for="adddov" class="longlabel">CONDUCTED OR SPONSORED BY</label>
+                                    <label for="addconducted" class="longlabel">CONDUCTED OR SPONSORED BY</label>
                                 </div>
                                 <div class="modal-footer justify-content-center">
                                     <button type="submit" id="savebtn" name="savebtn"
@@ -307,11 +307,11 @@ session_start();
                 document.getElementById('editconducted').value = '';
             });
 
-            // Sort the data table Datefrom ASC
             var fullname = "<?php echo $fullName; ?>";
             new DataTable('#example', {
                 searching: false,
                 bLengthChange: false,
+                
                 responsive: {
                     details: {
                         display: DataTable.Responsive.display.modal({
@@ -325,7 +325,10 @@ session_start();
                         }),
                     }
                 },
-                order: [[1, 'asc']]
+                columnDefs: [
+                    { width: '20%', targets: 0 }
+  
+                ]
             });
 
             // Populate the edit fields

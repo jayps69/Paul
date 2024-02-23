@@ -13,7 +13,7 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.0/css/dataTables.bootstrap5.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.0/css/responsive.bootstrap5.css">
-    <link rel="stylesheet" href="Education.css">
+    <link rel="stylesheet" href="Datatables.css">
 
 </head>
 
@@ -39,7 +39,7 @@ session_start();
             </div>
 
 
-            <table id="example" class="table table-striped nowrap" style="width:100%">
+            <table id="example" class="table table-striped nowrap" style="width:100%;" >
                 <thead>
                     <tr>
 
