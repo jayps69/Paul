@@ -216,7 +216,7 @@ session_start();
                                     <label for="editoffice">OFFICE</label>
                                 </div>
                                 <div class="inputGroup">
-                                    <input type="number" id="editmonthly" name="editmonthly" required=""
+                                    <input type="text" id="editmonthly" name="editmonthly" required=""
                                         autocomplete="off">
                                     <label for="editmonthly">MONTHLY SALARY</label>
                                 </div>

@@ -190,6 +190,8 @@ body {
   .modal-content {
     border-radius: 50px !important;
     box-shadow: 10px 10px 20px #7f7c7c, -10px -10px 20px #ffffff;
+    
+    
   }
   
   #titleModalLabel {
@@ -231,7 +233,7 @@ body {
     border: 2px solid rgb(200, 200, 200);
     background-color: transparent;
     border-radius: 20px;
-    width: 100%;
+    width: 400px;
   }
   
   .inputGroup label {
@@ -243,6 +245,7 @@ body {
     pointer-events: none;
     transition: all 0.3s ease;
     color: rgb(100, 100, 100);
+    top: 0; /* Add this line */
   }
   
   .inputGroup :is(input:focus, input:valid)~label {

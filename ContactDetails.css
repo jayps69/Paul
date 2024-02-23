@@ -122,14 +122,17 @@ body {
   }
   
   .ContactDetails-box input {
-    font-family: "kameron", sans-serif; /* Replace 'YourChosenFont' with the desired font */
+    font-family: "kameron"; /* Replace 'YourChosenFont' with the desired font */
     font-size: 14px; /* Adjust the font size as needed */
-    width: 180px;
+    width: 250px;
     height: 20px;
     margin-left: 5px;
     border: 1px solid;
     margin-top: 20px;
+    text-align: center;
+    z-index: 2;
   }
+  
   
   .ContactDetails-box label {
     font-family: "kameron", sans-serif; /* Replace 'YourChosenFont' with the desired font */
