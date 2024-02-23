@@ -142,15 +142,15 @@ h1 {
 }
 
 td {
-  text-align: center;
-  vertical-align: middle;
+  text-align: center !important;
+  vertical-align: middle !important;
 }
 
 thead,
 th {
 
   text-align: center !important;
-  vertical-align: middle;
+  vertical-align: middle !important;
 }
 
 .AddButton {
@@ -353,12 +353,7 @@ th {
 
   }
 
-  #example {
-
-    font-size: 12px;
-    width: 100%;
-
-  }
+ 
 
 }
 
@@ -430,12 +425,7 @@ th {
     padding: 8px 1px !important;
   }
 
-  #example {
 
-    font-size: 8px;
-    min-width: 10%;
-
-  }
 
 }
 

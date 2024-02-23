@@ -27,7 +27,7 @@ session_start();
         <div id="content">
             <?php
             include 'Templates/header.php'
-            ?>
+                ?>
 
 
             <div class="AddButton">
@@ -76,7 +76,8 @@ session_start();
             </table>
 
 
-            <div class="modal" id="addRecord" tabindex="-1" role="dialog" aria-labelledby="titleModalLabel" aria-hidden="true">
+            <div class="modal" id="addRecord" tabindex="-1" role="dialog" aria-labelledby="titleModalLabel"
+                aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <form id="addRecordForm" method="post" action="">
@@ -87,7 +88,8 @@ session_start();
                             </div>
                             <div class="modal-body">
                                 <div class="inputGroup">
-                                    <select required="" autocomplete="off" id="addlevel" name="addlevel" onchange="updateSelectedIndex(this)">
+                                    <select required="" autocomplete="off" id="addlevel" name="addlevel"
+                                        onchange="updateSelectedIndex(this)">
                                         <option value=""></option>
                                         <option value="ELEMENTARY">ELEMENTARY</option>
                                         <option value="SECONDARY">SECONDARY</option>
@@ -117,7 +119,8 @@ session_start();
                                 </div>
                                 <input type="hidden" name="selectedOptionIndex" id="selectedOptionIndex" value="">
                                 <div class="modal-footer justify-content-center">
-                                    <button type="submit" id="savebtn" name="savebtn" class="btn btn-primary custom-btn">SAVE</button>
+                                    <button type="submit" id="savebtn" name="savebtn"
+                                        class="btn btn-primary custom-btn">SAVE</button>
                                 </div>
                             </div>
                         </form>
@@ -128,8 +131,7 @@ session_start();
             <?php
             // Add function
             if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['savebtn'])) {
-
-                // Get form data and sanitize
+                // Get form data
                 $addlevel = $_POST['addlevel'];
                 $selectedOptionIndex = $_POST['selectedOptionIndex'];
                 $addschool = $_POST['addschool'];
@@ -137,34 +139,33 @@ session_start();
                 $addfrom = $_POST['addfrom'];
                 $addto = $_POST['addto'];
 
-                // Prepare the insert query
-                $sql = "INSERT INTO educationtbl (idno, userid, educid, educationlevel, school, degree , datefrom, dateto) 
-                VALUES (NULL, ?, ?, ?, ?, ?, ?, ?)";
+                // Prepare the SQL statement
+                $sql = "INSERT INTO educationtbl (userid, educid, educationlevel, school, degree, datefrom, dateto) 
+            VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-                // Prepare statement
-                if ($stmt = mysqli_prepare($conn, $sql)) {
-                    // Bind variables to the prepared statement as parameters
-                    mysqli_stmt_bind_param($stmt, "iiissss", $userId, $selectedOptionIndex, $addlevel, $addschool, $adddegree, $addfrom, $addto);
+                // Create a prepared statement
+                $stmt = mysqli_prepare($conn, $sql);
 
-                    // Execute the statement
-                    if (mysqli_stmt_execute($stmt)) {
-                        echo "<script>alert('NEW RECORD ADDED'); window.location.href = 'Education.php';</script>";
-                    } else {
-                        echo "Error: " . mysqli_stmt_error($stmt);
-                    }
+                // Bind parameters
+                mysqli_stmt_bind_param($stmt, "iisssii", $userId, $selectedOptionIndex, $addlevel, $addschool, $adddegree, $addfrom, $addto);
 
-                    // Close statement
-                    mysqli_stmt_close($stmt);
+                // Execute the statement
+                if (mysqli_stmt_execute($stmt)) {
+                    echo "<script>alert('NEW RECORD ADDED'); window.location.href = 'education.php';</script>";
                 } else {
                     echo "Error: " . mysqli_error($conn);
                 }
+
+                // Close statement
+                mysqli_stmt_close($stmt);
 
                 // Close database connection
                 mysqli_close($conn);
             }
             ?>
 
-            <div class="modal fade" id="editRecord" tabindex="-1" role="dialog" aria-labelledby="titleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="editRecord" tabindex="-1" role="dialog" aria-labelledby="titleModalLabel"
+                aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <form id="editRecordForm" method="post" action="">
@@ -175,7 +176,8 @@ session_start();
                             </div>
                             <div class="modal-body">
                                 <div class="inputGroup">
-                                    <select required="" autocomplete="off" id="editlevel" name="editlevel">
+                                    <select required="" autocomplete="off" id="editlevel" name="editlevel"
+                                        onchange="updateSelectedIndex1(this)">
                                         <option value=""></option>
                                         <option value="ELEMENTARY">ELEMENTARY</option>
                                         <option value="SECONDARY">SECONDARY</option>
@@ -195,7 +197,8 @@ session_start();
                                     <label for="editdegree">DEGREE</label>
                                 </div>
                                 <div class="inputGroup">
-                                    <select select required="" autocomplete="off" name="editfrom" id="editfrom"></select>
+                                    <select select required="" autocomplete="off" name="editfrom"
+                                        id="editfrom"></select>
                                     <label2 for="editfrom">FROM</label2>
                                 </div>
                                 <div class="inputGroup">
@@ -203,8 +206,10 @@ session_start();
                                     <label2 for="editto">TO</label2>
                                 </div>
                                 <input type="hidden" id="editidno" name="editidno">
+                                <input type="hidden" name="selectedOptionIndex1" id="selectedOptionIndex1" value="">
                                 <div class="modal-footer justify-content-center">
-                                    <button type="submit" id="updatebtn" name="updatebtn" class="btn btn-primary custom-btn">UPDATE</button>
+                                    <button type="submit" id="updatebtn" name="updatebtn"
+                                        class="btn btn-primary custom-btn">UPDATE</button>
                                 </div>
                             </div>
                         </form>
@@ -214,35 +219,34 @@ session_start();
             <?php
             // Update function
             if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['updatebtn'])) {
-
-                // Get form data and sanitize
+                // Get form data
                 $idno = $_POST['editidno'];
                 $editlevel = $_POST['editlevel'];
                 $editschool = $_POST['editschool'];
                 $editdegree = $_POST['editdegree'];
                 $editfrom = $_POST['editfrom'];
                 $editto = $_POST['editto'];
+                $selectedOptionIndex1 = $_POST['selectedOptionIndex1'];
 
-                // Prepare the update query
-                $sql = "UPDATE `educationtbl` SET `educationlevel`=?, `school`=?, `degree`=?, `datefrom`=?, `dateto`=? WHERE `idno`=?";
+                // Prepare the SQL statement
+                $sql = "UPDATE `educationtbl` SET `educid`=?, `educationlevel`=?, `school`=?,
+            `degree`=?, `datefrom`=?, `dateto`=? WHERE `idno`=?";
 
-                // Prepare statement
-                if ($stmt = mysqli_prepare($conn, $sql)) {
-                    // Bind variables to the prepared statement as parameters
-                    mysqli_stmt_bind_param($stmt, "sssssi", $editlevel, $editschool, $editdegree, $editfrom, $editto, $idno);
+                // Create a prepared statement
+                $stmt = mysqli_prepare($conn, $sql);
 
-                    // Execute the statement
-                    if (mysqli_stmt_execute($stmt)) {
-                        echo "<script>alert('RECORD UPDATED'); window.location.href = 'Education.php';</script>";
-                    } else {
-                        echo "Error updating record: " . mysqli_stmt_error($stmt);
-                    }
+                // Bind parameters
+                mysqli_stmt_bind_param($stmt, "isssssi", $selectedOptionIndex1, $editlevel, $editschool, $editdegree, $editfrom, $editto, $idno);
 
-                    // Close statement
-                    mysqli_stmt_close($stmt);
+                // Execute the statement
+                if (mysqli_stmt_execute($stmt)) {
+                    echo "<script>alert('RECORD UPDATED'); window.location.href = 'Education.php';</script>";
                 } else {
                     echo "Error: " . mysqli_error($conn);
                 }
+
+                // Close statement
+                mysqli_stmt_close($stmt);
 
                 // Close database connection
                 mysqli_close($conn);
@@ -263,7 +267,7 @@ session_start();
 
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             // Populate the fields of from to (Add and Edit Records)
             var start_year = new Date().getFullYear();
             var html = '';
@@ -275,7 +279,7 @@ session_start();
 
             // Clearing the fields of addRecord modal when closed
             var addModal = document.getElementById('addRecord');
-            addModal.addEventListener('hidden.bs.modal', function() {
+            addModal.addEventListener('hidden.bs.modal', function () {
                 document.getElementById('addlevel').selectedIndex = 0;
                 document.getElementById('addschool').value = '';
                 document.getElementById('adddegree').value = '';
@@ -285,7 +289,7 @@ session_start();
 
             // Clearing the fields of editRecord modal when closed
             var editModal = document.getElementById('editRecord');
-            editModal.addEventListener('hidden.bs.modal', function() {
+            editModal.addEventListener('hidden.bs.modal', function () {
                 document.getElementById('editlevel').selectedIndex = 0;
                 document.getElementById('editschool').value = '';
                 document.getElementById('editdegree').value = '';
@@ -300,7 +304,7 @@ session_start();
                 responsive: {
                     details: {
                         display: DataTable.Responsive.display.modal({
-                            header: function(row) {
+                            header: function (row) {
                                 var data = row.data();
                                 return 'Education of ' + fullname;
                             }
@@ -308,36 +312,64 @@ session_start();
                         renderer: DataTable.Responsive.renderer.tableAll({
                             tableClass: 'table'
                         }),
-
                     }
-                }
+                },
+                order: [[3, 'asc']] 
             });
 
-            // Populate the edit fields
-            $('#example').on('click', 'button[name="editRecord"]', function() {
+            $('#example').on('click', 'button[name="editRecord"]', function () {
+                
                 var idno = $(this).data('idno');
-                console.log("Edit button clicked");
-                var rowData = $(this).closest('tr').find('td').map(function() {
+                // Retrieve data from the clicked row and map it to an array
+                var rowData = $(this).closest('tr').find('td').map(function () {
                     return $(this).text();
                 }).get();
+
+                // Populate the fields in the edit modal with the retrieved data
                 $('#editlevel').val(rowData[0]);
                 $('#editschool').val(rowData[1]);
                 $('#editdegree').val(rowData[2]);
                 $('#editfrom').val(rowData[3]);
                 $('#editto').val(rowData[4]);
-                $('#editidno').val(idno);
+                $('#editidno').val(idno); // Set the idno value in a hidden input field if needed
+
+                // Show the edit modal
                 $('#editRecord').modal('show');
             });
 
+            $(document).on('click', '.modal button[name="editRecord"]', function () {
 
+                var idno = $(this).data('idno');
+                // Retrieve data from the closest table row inside the modal and map it to an array
+                var rowData = $(this).closest('.modal').find('tr').find('td').map(function () {
+                    return $(this).text();
+                }).get();
 
+                // Populate the fields in the edit modal with the retrieved data
+                $('#editlevel').val(rowData[1]);
+                $('#editschool').val(rowData[3]);
+                $('#editdegree').val(rowData[5]);
+                $('#editfrom').val(rowData[7]);
+                $('#editto').val(rowData[9]);
+                $('#editidno').val(idno); 
 
+                // Show the edit modal
+                $('#editRecord').modal('show');
+            });
         });
+
+
         //Getting the SelectedIndex of addlevel
         function updateSelectedIndex(select) {
             var selectedIndex = select.selectedIndex;
             document.getElementById('selectedOptionIndex').value = selectedIndex;
         }
+
+        function updateSelectedIndex1(select) {
+            var selectedIndex1 = select.selectedIndex;
+            document.getElementById('selectedOptionIndex1').value = selectedIndex1;
+        }
+
     </script>
 
 
