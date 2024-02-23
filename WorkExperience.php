@@ -10,8 +10,9 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Work Experience</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.0/css/dataTables.bootstrap5.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.0/css/responsive.bootstrap5.css">
     <link rel="stylesheet" href="Eligibility.css">
 
     <style>
@@ -35,7 +36,7 @@ session_start();
         <div id="content">
             <?php
             include 'Templates/header.php'
-            ?>
+                ?>
 
 
             <div class="AddButton">
@@ -47,7 +48,7 @@ session_start();
             </div>
 
 
-            <table id="example" class="table table-hover table-striped">
+            <table id="example" class="table table-striped nowrap" style="width:100%">
                 <thead>
                     <tr>
                         <th scope="col">FROM</th>
@@ -90,7 +91,8 @@ session_start();
             </table>
 
 
-            <div class="modal" id="addRecord" tabindex="-1" role="dialog" aria-labelledby="titleModalLabel" aria-hidden="true">
+            <div class="modal" id="addRecord" tabindex="-1" role="dialog" aria-labelledby="titleModalLabel"
+                aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <form id="addRecordForm" method="post" action="">
@@ -109,7 +111,8 @@ session_start();
                                     <label for="addto">TO</label>
                                 </div>
                                 <div class="inputGroup">
-                                    <input type="text" id="addposition" name="addposition" required="" autocomplete="off" class="focus-valid">
+                                    <input type="text" id="addposition" name="addposition" required=""
+                                        autocomplete="off" class="focus-valid">
                                     <label for="addposition" class="focus-valid">POSITION</label>
                                 </div>
                                 <div class="inputGroup">
@@ -117,7 +120,8 @@ session_start();
                                     <label for="addoffice">OFFICE</label>
                                 </div>
                                 <div class="inputGroup">
-                                    <input type="number" id="addmonthly" name="addmonthly" required="" autocomplete="off">
+                                    <input type="number" id="addmonthly" name="addmonthly" required=""
+                                        autocomplete="off">
                                     <label for="addmonthly">MONTHLY SALARY</label>
                                 </div>
                                 <div class="inputGroup">
@@ -133,7 +137,8 @@ session_start();
                                     <label for="addservice">GOVERNMENT SERVICE</label>
                                 </div>
                                 <div class="modal-footer justify-content-center">
-                                    <button type="submit" id="savebtn" name="savebtn" class="btn btn-primary custom-btn">SAVE</button>
+                                    <button type="submit" id="savebtn" name="savebtn"
+                                        class="btn btn-primary custom-btn">SAVE</button>
                                 </div>
                             </div>
                         </form>
@@ -182,7 +187,8 @@ session_start();
             }
             ?>
 
-            <div class="modal fade" id="editRecord" tabindex="-1" role="dialog" aria-labelledby="titleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="editRecord" tabindex="-1" role="dialog" aria-labelledby="titleModalLabel"
+                aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <form id="editRecordForm" method="post" action="">
@@ -201,7 +207,8 @@ session_start();
                                     <label for="editto">TO</label>
                                 </div>
                                 <div class="inputGroup">
-                                    <input type="text" id="editposition" name="editposition" required="" autocomplete="off" class="focus-valid">
+                                    <input type="text" id="editposition" name="editposition" required=""
+                                        autocomplete="off" class="focus-valid">
                                     <label for="editposition" class="focus-valid">POSITION</label>
                                 </div>
                                 <div class="inputGroup">
@@ -209,7 +216,8 @@ session_start();
                                     <label for="editoffice">OFFICE</label>
                                 </div>
                                 <div class="inputGroup">
-                                    <input type="number" id="editmonthly" name="editmonthly" required="" autocomplete="off">
+                                    <input type="number" id="editmonthly" name="editmonthly" required=""
+                                        autocomplete="off">
                                     <label for="editmonthly">MONTHLY SALARY</label>
                                 </div>
                                 <div class="inputGroup">
@@ -221,12 +229,14 @@ session_start();
                                     <label for="editstatus">APPOINTMENT STATUS</label>
                                 </div>
                                 <div class="inputGroup">
-                                    <input type="text" id="editservice" name="editservice" required="" autocomplete="off">
+                                    <input type="text" id="editservice" name="editservice" required=""
+                                        autocomplete="off">
                                     <label for="editservice">GOVERNMENT SERVICE</label>
                                 </div>
                                 <input type="hidden" id="editidno" name="editidno">
                                 <div class="modal-footer justify-content-center">
-                                    <button type="submit" id="updatebtn" name="updatebtn" class="btn btn-primary custom-btn">UPDATE</button>
+                                    <button type="submit" id="updatebtn" name="updatebtn"
+                                        class="btn btn-primary custom-btn">UPDATE</button>
                                 </div>
                             </div>
                         </form>
@@ -235,7 +245,7 @@ session_start();
             </div>
             <?php
             // Assuming you have already established a database connection
-
+            
             // Check if the form is submitted
             if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['updatebtn'])) {
                 // Retrieve form data
@@ -277,14 +287,16 @@ session_start();
     </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.0/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.0.0/js/dataTables.bootstrap5.js"></script>
+    <script src="https://cdn.datatables.net/responsive/3.0.0/js/dataTables.responsive.js"></script>
+    <script src="https://cdn.datatables.net/responsive/3.0.0/js/responsive.bootstrap5.js"></script>
 
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             // Populate the fields of from to (Add and Edit Records)
             var start_year = new Date().getFullYear();
             var html = '';
@@ -296,7 +308,7 @@ session_start();
 
             // Clearing the fields of addRecord modal when closed
             var addModal = document.getElementById('addRecord');
-            addModal.addEventListener('hidden.bs.modal', function() {
+            addModal.addEventListener('hidden.bs.modal', function () {
                 document.getElementById('addfrom').value = '';
                 document.getElementById('addto').value = '';
                 document.getElementById('addposition').value = '';
@@ -310,7 +322,7 @@ session_start();
 
             // Clearing the fields of editRecord modal when closed
             var editModal = document.getElementById('editRecord');
-            editModal.addEventListener('hidden.bs.modal', function() {
+            editModal.addEventListener('hidden.bs.modal', function () {
                 document.getElementById('editfrom').value = '';
                 document.getElementById('editto').value = '';
                 document.getElementById('editposition').value = '';
@@ -321,18 +333,28 @@ session_start();
                 document.getElementById('editservice').value = '';
             });
 
-            // Sort the data table Datefrom ASC
-            $('#example').dataTable({
+            var fullname = "<?php echo $fullName; ?>";
+            new DataTable('#example', {
                 searching: false,
                 bLengthChange: false,
-                autoWidth: false,
-                responsive: true // Add this line to enable responsive mode
-
-
+                responsive: {
+                    details: {
+                        display: DataTable.Responsive.display.modal({
+                            header: function (row) {
+                                var data = row.data();
+                                return 'Work Experience of ' + fullname;
+                            }
+                        }),
+                        renderer: DataTable.Responsive.renderer.tableAll({
+                            tableClass: 'table'
+                        }),
+                    }
+                },
+                order: [[0, 'asc']]
             });
 
             // Populate the edit fields
-            $('#example').on('click', 'button[name="editRecord"]', function() {
+            $('#example').on('click', 'button[name="editRecord"]', function () {
                 var idno = $(this).data('idno');
                 var rowData = $('#example').DataTable().row($(this).closest('tr')).data();
                 $('#editfrom').val(rowData[0]);
@@ -346,8 +368,31 @@ session_start();
                 $('#editidno').val(idno);
                 $('#editRecord').modal('show');
             });
-        });
 
+            $(document).on('click', '.modal button[name="editRecord"]', function () {
+
+                var idno = $(this).data('idno');
+                // Retrieve data from the closest table row inside the modal and map it to an array
+                var rowData = $(this).closest('.modal').find('tr').find('td').map(function () {
+                    return $(this).text();
+                }).get();
+
+                // Populate the fields in the edit modal with the retrieved data
+                $('#editfrom').val(rowData[1]);
+                $('#editto').val(rowData[3]);
+                $('#editposition').val(rowData[5]);
+                $('#editoffice').val(rowData[7]);
+                $('#editmonthly').val(rowData[9]);
+                $('#editsalary').val(rowData[11]);
+                $('#editstatus').val(rowData[13]);
+                $('#editservice').val(rowData[15]);
+                $('#editidno').val(idno);
+
+                // Show the edit modal
+                $('#editRecord').modal('show');
+            });
+
+        });
     </script>
 
 

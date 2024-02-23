@@ -9,19 +9,21 @@ session_start();
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Eligibility</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="Eligibility.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.0/css/dataTables.bootstrap5.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.0/css/responsive.bootstrap5.css">
+  <link rel="stylesheet" href="Eligibility.css">
 
-    <style>
-      input[type=date]:required:invalid::-webkit-datetime-edit {
-    color: transparent;
-}
-input[type=date]:focus::-webkit-datetime-edit {
-    color: black !important;
-}
-    </style>
+  <style>
+    input[type=date]:required:invalid::-webkit-datetime-edit {
+      color: transparent;
+    }
+
+    input[type=date]:focus::-webkit-datetime-edit {
+      color: black !important;
+    }
+  </style>
 </head>
 
 <body>
@@ -46,7 +48,7 @@ input[type=date]:focus::-webkit-datetime-edit {
       </div>
 
 
-      <table id="example" class="table table-hover table-striped">
+      <table id="example" class="table table-striped nowrap" style="width:100%">
         <thead>
           <tr>
 
@@ -214,50 +216,52 @@ input[type=date]:focus::-webkit-datetime-edit {
         </div>
       </div>
       <?php
-        // Assuming you have already established a database connection
-        
-        // Check if the form is submitted
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['updatebtn'])) {
-          // Retrieve form data
-          $idno = $_POST['editidno'];
-          $edittitle = $_POST['edittitle'];
-          $editrating = $_POST['editrating'];
-          $editdoe = $_POST['editdoe'];
-          $editpoe = $_POST['editpoe'];
-          $editlicensenumber = $_POST['editlicensenumber'];
-          $editdov = $_POST['editdov'];
+      // Assuming you have already established a database connection
+      
+      // Check if the form is submitted
+      if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['updatebtn'])) {
+        // Retrieve form data
+        $idno = $_POST['editidno'];
+        $edittitle = $_POST['edittitle'];
+        $editrating = $_POST['editrating'];
+        $editdoe = $_POST['editdoe'];
+        $editpoe = $_POST['editpoe'];
+        $editlicensenumber = $_POST['editlicensenumber'];
+        $editdov = $_POST['editdov'];
 
-          // SQL update query with prepared statement
-          $sql = "UPDATE eligibilitytbl SET title = ?, rating = ?, dateofexamination = ?, placeofexamination = ?, licensenumber = ?,dateofvalidity = ? WHERE idno = ?";
+        // SQL update query with prepared statement
+        $sql = "UPDATE eligibilitytbl SET title = ?, rating = ?, dateofexamination = ?, placeofexamination = ?, licensenumber = ?,dateofvalidity = ? WHERE idno = ?";
 
-          // Prepare the statement
-          $stmt = mysqli_prepare($conn, $sql);
+        // Prepare the statement
+        $stmt = mysqli_prepare($conn, $sql);
 
-          // Bind parameters
-          mysqli_stmt_bind_param($stmt, "ssssssi", $edittitle, $editrating, $editdoe, $editpoe, $editlicensenumber, $editdov, $idno);
+        // Bind parameters
+        mysqli_stmt_bind_param($stmt, "ssssssi", $edittitle, $editrating, $editdoe, $editpoe, $editlicensenumber, $editdov, $idno);
 
-          // Execute the update query
-          if (mysqli_stmt_execute($stmt)) {
-            echo "<script>alert('RECORD UPDATED'); window.location.href = 'Eligibility.php';</script>";
-          } else {
-            echo "Error updating record: " . mysqli_error($conn);
-          }
-
-          // Close the statement
-          mysqli_stmt_close($stmt);
+        // Execute the update query
+        if (mysqli_stmt_execute($stmt)) {
+          echo "<script>alert('RECORD UPDATED'); window.location.href = 'Eligibility.php';</script>";
+        } else {
+          echo "Error updating record: " . mysqli_error($conn);
         }
 
-        // Close the database connection
-        mysqli_close($conn);
+        // Close the statement
+        mysqli_stmt_close($stmt);
+      }
+
+      // Close the database connection
+      mysqli_close($conn);
       ?>
     </div>
   </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.datatables.net/2.0.0/js/dataTables.js"></script>
+  <script src="https://cdn.datatables.net/2.0.0/js/dataTables.bootstrap5.js"></script>
+  <script src="https://cdn.datatables.net/responsive/3.0.0/js/dataTables.responsive.js"></script>
+  <script src="https://cdn.datatables.net/responsive/3.0.0/js/responsive.bootstrap5.js"></script>
 
 
   <script>
@@ -293,14 +297,23 @@ input[type=date]:focus::-webkit-datetime-edit {
         document.getElementById('editto').selectedIndex = 0;
       });
 
-      // Sort the data table Datefrom ASC
-      $('#example').dataTable({
+      var fullname = "<?php echo $fullName; ?>";
+      new DataTable('#example', {
         searching: false,
         bLengthChange: false,
-        autoWidth: false,
-        responsive: true  // Add this line to enable responsive mode
-        
-        
+        responsive: {
+          details: {
+            display: DataTable.Responsive.display.modal({
+              header: function (row) {
+                var data = row.data();
+                return 'Eligibility of ' + fullname;
+              }
+            }),
+            renderer: DataTable.Responsive.renderer.tableAll({
+              tableClass: 'table'
+            }),
+          }
+        }
       });
 
       // Populate the edit fields
@@ -316,12 +329,30 @@ input[type=date]:focus::-webkit-datetime-edit {
         $('#editidno').val(idno);
         $('#editRecord').modal('show');
       });
+      $(document).on('click', '.modal button[name="editRecord"]', function () {
+
+        var idno = $(this).data('idno');
+        // Retrieve data from the closest table row inside the modal and map it to an array
+        var rowData = $(this).closest('.modal').find('tr').find('td').map(function () {
+          return $(this).text();
+        }).get();
+
+        // Populate the fields in the edit modal with the retrieved data
+        $('#edittitle').val(rowData[1]);
+        $('#editrating').val(rowData[3]);
+        $('#editdoe').val(rowData[5]);
+        $('#editpoe').val(rowData[7]);
+        $('#editlicensenumber').val(rowData[9]);
+        $('#editdov').val(rowData[11]);
+        $('#editidno').val(idno);
+        $('#editRecord').modal('show');
+
+        // Show the edit modal
+        $('#editRecord').modal('show');
+      });
+
     });
-    //Getting the SelectedIndex of addlevel
-    function updateSelectedIndex(select) {
-      var selectedIndex = select.selectedIndex;
-      document.getElementById('selectedOptionIndex').value = selectedIndex;
-    }
+
   </script>
 
 
