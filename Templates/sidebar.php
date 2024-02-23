@@ -11,7 +11,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="PersonalInfo.php">
               <i class="fas fa-address-card"></i><span>PERSONAL INFORMATION</span>
             </a>
           </li>

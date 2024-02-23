@@ -313,7 +313,8 @@ session_start();
               tableClass: 'table'
             }),
           }
-        }
+        },
+        order: [[2, 'asc']] 
       });
 
       // Populate the edit fields

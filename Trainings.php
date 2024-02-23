@@ -325,6 +325,8 @@ session_start();
                         }),
                     }
                 },
+                order: [[1, 'asc']] ,
+
                 columnDefs: [
                     { width: '20%', targets: 0 }
   
