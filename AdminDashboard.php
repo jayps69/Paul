@@ -28,8 +28,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-            const NUMBER_CFG = { count: 7, min: -100, max: 100 };
+            const labels = ['Distrcit I', 'Distrcit II', 'Distrcit III', 'Distrcit IV', 'Distrcit V', 'Distrcit VI'];
+            const NUMBER_CFG = { count: 6, min: -100, max: 100 };
             const data = {
                 labels: labels,
                 datasets: [
