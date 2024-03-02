@@ -6,10 +6,14 @@ session_start();
 include 'Templates/head.php';
 ?>
 <style>
+    #stackedbar {
+  height: 450px !important;
+}
+
     .cards {
         display: flex;
         flex-wrap: wrap;
-        gap: 250px;
+        gap: 83px;
         justify-content: center;
         margin-top: 20px;
 
@@ -28,13 +32,28 @@ include 'Templates/head.php';
         background-color: #22c55e;
     }
 
+    .cards .gray {
+        background-color: #138496;
+    }
+
+    .card .tip {
+        margin-bottom: 5px;
+        /* Adjust this value to reduce the space */
+    }
+
+    .card .second-text {
+        margin-top: 2px;
+        font-weight: 700;
+        margin-right: 30px; /* Adjust the value as needed */
+    }
+
     .cards .card {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
         text-align: center;
-        height: 100px;
+        height: 160px;
         width: 350px;
         border-radius: 10px;
         color: white;
@@ -43,12 +62,12 @@ include 'Templates/head.php';
     }
 
     .cards .card p.tip {
-        font-size: 1em;
+        font-size: 1.5em;
         font-weight: 700;
     }
 
     .cards .card p.second-text {
-        font-size: .8em;
+        font-size: 1em;
     }
 
     .cards .card:hover {
@@ -60,6 +79,10 @@ include 'Templates/head.php';
         transform: scale(0.9, 0.9);
     }
 
+    .second-text-container {
+    display: flex; /* Use flexbox to align items horizontally */
+    justify-content: space-between; /* Distribute items evenly */
+}
 
     .Chartcards {
         display: flex;
@@ -68,10 +91,11 @@ include 'Templates/head.php';
         justify-content: center;
 
     }
+
     .Chartcard1 {
         width: 400px;
-        height: 400px;
-        background-color: blue;
+        height: 450px;
+        background-color: #F8FBFE;
         border-radius: 8px;
         z-index: 1;
         margin-top: 20px;
@@ -79,8 +103,8 @@ include 'Templates/head.php';
 
     .Chartcard2 {
         width: 1200px;
-        height: 400px;
-        background-color: red;
+        height: 450px;
+        background-color: #F8FBFE;
         border-radius: 8px;
         z-index: 1;
         margin-top: 20px;
@@ -116,6 +140,8 @@ include 'Templates/head.php';
     .green {
         background-color: #00ca4e;
     }
+
+
 </style>
 
 
@@ -182,6 +208,21 @@ include 'Templates/head.php';
                     <p class="tip">RETIRED</p>
                     <p class="tip">25</p>
                 </div>
+                <div class="card gray">
+                    <p class="tip">Status of Appointment</p>
+                    <div class="second-text-container">
+                        <div>
+                            <p class="second-text">PERMANENT:</p>
+                            <p class="second-text">SUBSTITUTE:</p>
+                            <p class="second-text">PROVISIONARY:</p>
+                        </div>
+                        <div>
+                            <p class="second-text">1</p>
+                            <p class="second-text">2</p>
+                            <p class="second-text">3</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="Chartcards">
@@ -198,6 +239,7 @@ include 'Templates/head.php';
                         </div>
                     </div>
                     <div class="card__content">
+                    <canvas id="piechart"></canvas>
                     </div>
                 </div>
 
@@ -213,25 +255,14 @@ include 'Templates/head.php';
                             <span class="green box"></span>
                         </div>
                     </div>
+
                     <div class="card__content">
+                    <canvas id="stackedbar" ></canvas>
                     </div>
                 </div>
             </div>
 
-            <div class="cards">
-                <div class="card red">
-                    <p class="tip">PROVISIONARY</p>
-                    <p class="tip">150</p>
-                </div>
-                <div class="card blue">
-                    <p class="tip">SUBSTITUTE</p>
-                    <p class="tip">0</p>
-                </div>
-                <div class="card green">
-                    <p class="tip">PERMANENT</p>
-                    <p class="tip">25</p>
-                </div>
-            </div>
+
 
 
 
@@ -244,8 +275,8 @@ include 'Templates/head.php';
 
 
 
-
-
+        <script src="charts/stackedbar1.js"></script>
+        <script src="charts/piechart.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
