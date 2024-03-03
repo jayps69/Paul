@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Function to fetch data from the PHP script
     function fetchDataFromPHP() {
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'charts/schoolcount.php', true); // Replace 'your_php_script.php' with the path to your PHP script
+        xhr.open('GET', 'charts/schoolcount2.php', true); // Replace 'your_php_script.php' with the path to your PHP script
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function() {
             } // Close options object
         }; // Close config object
 
-        const ctx = document.getElementById('piechart');
+        const ctx = document.getElementById('piechart2');
         new Chart(ctx, config);
     } // Close updateChart function
 

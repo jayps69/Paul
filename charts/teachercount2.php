@@ -24,7 +24,7 @@ $sql = "SELECT
     FROM 
     personalinfotbl
     WHERE 
-    `schooldistrict` = '1'
+    `schooldistrict` = '2'
     AND `employmentstatus` = 'ACTIVE'";
 
 $result = $conn->query($sql);

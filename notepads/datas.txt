@@ -17,3 +17,32 @@ INSERT INTO `educationtbl` (`idno`, `userid`, `educid`, `educationlevel`, `schoo
 
 412 120vh
 360 140vh
+
+
+
+SELECT COUNT(*) AS active
+FROM personalinfotbl
+WHERE `employmentstatus` = 'active'
+AND `schooldistrict` = 1;
+
+SELECT COUNT(*) AS total_teachers_above_59
+FROM personalinfotbl
+WHERE DATEDIFF(CURDATE(), `birthday`) > 59*365
+AND `schooldistrict` = 1
+
+SELECT COUNT(*) AS PERMANENT
+FROM personalinfotbl
+WHERE `statusofappointment` = 'PERMANENT'
+AND `schooldistrict` = 1;
+
+
+SELECT COUNT(*) AS PROVISIONARY
+FROM personalinfotbl
+WHERE `statusofappointment` = 'Provisionary'
+AND `schooldistrict` = 1;
+
+SELECT COUNT(*) AS SUBSTITUTE
+FROM personalinfotbl
+WHERE `statusofappointment` = 'SUBSTITUTE'
+AND `schooldistrict` = 1;
+

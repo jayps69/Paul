@@ -1,130 +1,114 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Function to fetch data from the PHP script
-    function fetchDataFromPHP() {
+  // Declare myChart variable outside the functions
+  var myChart;
+
+  // Function to fetch data from the PHP script
+  function fetchDataFromPHP() {
       var xhr = new XMLHttpRequest();
-      xhr.open("GET", "charts/teachercount.php", true); // Replace 'your_php_script.php' with the path to your PHP script
+      xhr.open("GET", "charts/teachercount.php", true);
       xhr.onreadystatechange = function () {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-          if (xhr.status === 200) {
-            var data = JSON.parse(xhr.responseText);
-            // Call function to update chart with fetched data
-            updateChart(data);
-          } else {
-            console.error("Error fetching data: " + xhr.status);
+          if (xhr.readyState === XMLHttpRequest.DONE) {
+              if (xhr.status === 200) {
+                  var data = JSON.parse(xhr.responseText);
+                  // Call function to update chart with fetched data
+                  updateChart(data);
+              } else {
+                  console.error("Error fetching data: " + xhr.status);
+              }
           }
-        }
       };
       xhr.send();
-    }
-  
-    // Function to update the chart with fetched data
-    function updateChart(data) {
-      console.log(data); // Check if the data is correctly received
-  
-      const labels = [
-        "T-I",
-        "T-II",
-        "T-III",
-        "MT-I",
-        "MT-II",
-        "SPED-T-I",
-        "SPED-T-II",
-        "SPED-T-III",
-        "SST-I",
-      ];
-  
-      const maleData = data.datasets[0].data; // Assuming male data is in the first dataset
-      const femaleData = data.datasets[1].data; // Assuming female data is in the second dataset
-  
+  }
+
+  // Function to update the chart with fetched data
+  function updateChart(data) {
+      // Destroy existing chart if it exists
+      if (myChart) {
+          myChart.destroy();
+      }
+
+      const labels = ["T-I", "T-II", "T-III", "MT-I", "MT-II", "SPED-T-I", "SPED-T-II", "SPED-T-III", "SST-I"];
+      const maleData = data.datasets[0].data;
+      const femaleData = data.datasets[1].data;
+
       const config = {
-        type: "bar",
-        data: {
-          labels: labels,
-          datasets: [
-            {
-              label: "Male",
-              data: maleData,
-              backgroundColor: "rgba(63, 182, 255, 0.2)",
-              borderColor: "rgba(63, 182, 255, 1)",
-              borderWidth: 3,
-              stack: "stack1",
-            },
-            {
-              label: "Female",
-              data: femaleData,
-              backgroundColor: "rgba(227, 0, 72, 0.2)",
-              borderColor: "rgba(227, 0, 72, 1)",
-              borderWidth: 3,
-              stack: "stack1",
-            },
-          ],
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true,
-              grace: 100,
-            },
+          type: "bar",
+          data: {
+              labels: labels,
+              datasets: [{
+                      label: "Male",
+                      data: maleData,
+                      backgroundColor: "rgba(63, 182, 255, 0.2)",
+                      borderColor: "rgba(63, 182, 255, 1)",
+                      borderWidth: 3,
+                      stack: "stack1",
+                  },
+                  {
+                      label: "Female",
+                      data: femaleData,
+                      backgroundColor: "rgba(227, 0, 72, 0.2)",
+                      borderColor: "rgba(227, 0, 72, 1)",
+                      borderWidth: 3,
+                      stack: "stack1",
+                  },
+              ],
           },
-          plugins: {
-            datalabels: {
-              anchor: "end",
-              align: "top",
-              formatter: (value, context) => {
-                const datasetArray = [];
-                context.chart.data.datasets.forEach((dataset) => {
-                    if (dataset.data[context.dataIndex] !== undefined) {
-                        datasetArray.push(parseFloat(dataset.data[context.dataIndex])); // Parse values as numbers
-                    }
-                });
-            
-                // Function to calculate the sum of an array of numbers
-                function totalSum(datasetArray) {
-                    let sum = 0;
-                    for (let i = 0; i < datasetArray.length; i++) {
-                        sum += datasetArray[i];
-                    }
-                    return sum;
-                }
-            
-                let sum = totalSum(datasetArray);
-            
-                // Check if context is at the last dataset index
-                if (context.datasetIndex === context.chart.data.datasets.length - 1) {
-                    // Check if sum is a valid number
-                    if (!isNaN(sum) && isFinite(sum)) {
-                        return sum.toFixed(0);
-                    } else {
-                        return "";
-                    }
-                } else {
-                    return "";
-                }
-            },
-            
-            
-            
-              font: {
-                weight: "bolder",
-                size: 14, // without "px"
-                family: "Kameron", // enclosed within quotes
+          options: {
+              scales: {
+                  y: {
+                      beginAtZero: true,
+                      grace: 100,
+                  },
               },
-            },
+              plugins: {
+                datalabels: {
+                  anchor: "end",
+                  align: "top",
+                  formatter: (value, context) => {
+                      const datasetArray = [];
+                      context.chart.data.datasets.forEach((dataset) => {
+                          if (dataset.data[context.dataIndex] !== undefined) {
+                              datasetArray.push(dataset.data[context.dataIndex]);
+                          }
+                      });
+  
+                      function totalSum(total, datapoint) {
+                          return total + datapoint;
+                      }
+                      let sum = datasetArray.reduce(totalSum, 0);
+  
+                      if (context.datasetIndex === datasetArray.length - 1) {
+                          return sum.toString();
+                      } else {
+                          return "";
+                      }
+                  },
+                  font: {
+                      weight: "bolder",
+                      size: 14, // without "px"
+                      family: "Kameron", // enclosed within quotes
+                  },
+                  },
+                  title: {
+                      display: true,
+                      text: 'TEACHERS IN DISTRICT I',
+                      font: {
+                          size: 18,
+                          weight: 'bold'
+                      }
+                  }
+              },
+              intersect: true,
           },
-  
-          intersect: false, // Add intersect option here
-        },
-        plugins: [ChartDataLabels],
+          plugins: [ChartDataLabels],
       };
-  
+
       const ctx = document.getElementById("stackedbar");
-      // Setting the canvas size to fit the chart card
-      ctx.width = ctx.parentNode.clientWidth;
-  
-      new Chart(ctx, config);
-    }
-  
-    // Call the function to fetch data from PHP when the DOM content is loaded
-    fetchDataFromPHP();
-  });
-  
+
+      // Assign the new chart to the myChart variable
+      myChart = new Chart(ctx, config);
+  }
+
+  // Call the function to fetch data from PHP when the DOM content is loaded
+  fetchDataFromPHP();
+});
