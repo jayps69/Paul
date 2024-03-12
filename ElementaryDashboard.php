@@ -14,6 +14,7 @@ include 'Templates/head.php';
     #stackedbar6 {
         height: 400px !important;
         width: 80% !important;
+       
     }
 
     .cards {
@@ -23,6 +24,11 @@ include 'Templates/head.php';
         justify-content: center;
         margin-top: 20px;
 
+    }
+    .card__content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .cards .red {
@@ -101,14 +107,7 @@ include 'Templates/head.php';
 
     }
 
-    .Chartcard1 {
-        width: 400px;
-        height: 450px;
-        background-color: #F8FBFE;
-        border-radius: 8px;
-        z-index: 1;
-        margin-top: 20px;
-    }
+
 
     .Chartcard2 {
         width: 1200px;
@@ -117,7 +116,11 @@ include 'Templates/head.php';
         border-radius: 8px;
         z-index: 1;
         margin-top: 20px;
+        
+
     }
+
+
 
     .tools {
         display: flex;
@@ -149,6 +152,9 @@ include 'Templates/head.php';
     .green {
         background-color: #00ca4e;
     }
+
+
+
 </style>
 
 
@@ -169,7 +175,7 @@ include 'Templates/head.php';
             include 'Templates/header.php';
             ?>
 
-            <h1>Division Dashboard</h1>
+            <h1>Elementary Dashboard</h1>
 
             <div class="cycle-tab-container">
                 <ul class="nav nav-tabs">
@@ -218,15 +224,15 @@ include 'Templates/head.php';
 
                     // SQL query
                     $sql = "SELECT 
-            SUM(CASE WHEN `employmentstatus` = 'active' THEN 1 ELSE 0 END) AS active,
-            SUM(CASE WHEN `employmentstatus` = 'inactive' THEN 1 ELSE 0 END) AS inactive,
-            SUM(CASE WHEN DATEDIFF(CURDATE(), `birthday`) > 59*365 THEN 1 ELSE 0 END) AS retired,
-            SUM(CASE WHEN `statusofappointment` = 'PERMANENT' THEN 1 ELSE 0 END) AS PERMANENT,
-            SUM(CASE WHEN `statusofappointment` = 'SUBSTITUTE' THEN 1 ELSE 0 END) AS SUBSTITUTE,
-            SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
-            
-            FROM personalinfotbl
-            Where schooldistrict = 1";
+                        SUM(CASE WHEN `employmentstatus` = 'active' THEN 1 ELSE 0 END) AS active,
+                        SUM(CASE WHEN `employmentstatus` = 'inactive' THEN 1 ELSE 0 END) AS inactive,
+                        SUM(CASE WHEN DATEDIFF(CURDATE(), `birthday`) > 59*365 THEN 1 ELSE 0 END) AS retired,
+                        SUM(CASE WHEN `statusofappointment` = 'PERMANENT' THEN 1 ELSE 0 END) AS PERMANENT,
+                        SUM(CASE WHEN `statusofappointment` = 'SUBSTITUTE' THEN 1 ELSE 0 END) AS SUBSTITUTE,
+                        SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
+                        
+                        FROM personalinfotbl
+                        Where schooldistrict = 1 And level = 'Elementary'";
 
                     $result = $conn->query($sql);
 
@@ -266,35 +272,9 @@ include 'Templates/head.php';
                     } else {
                         echo "0 results";
                     }
-
-
-
-
-
                     ?>
-
-
-
-
-                    <div class="Chartcards">
-                        <div class="Chartcard1">
-                            <div class="tools">
-                                <div class="circle">
-                                    <span class="red box"></span>
-                                </div>
-                                <div class="circle">
-                                    <span class="yellow box"></span>
-                                </div>
-                                <div class="circle">
-                                    <span class="green box"></span>
-                                </div>
-                            </div>
-                            <div class="card__content">
-                                <canvas id="piechart"></canvas>
-                            </div>
-                        </div>
-                    
-
+               
+               <div class="Chartcards">
                         <div class="Chartcard2">
                             <div class="tools">
                                 <div class="circle">
@@ -312,8 +292,8 @@ include 'Templates/head.php';
                                 <canvas id="stackedbar"></canvas>
                             </div>
                         </div>
-                    </div>
-
+                </div>
+                
 
                 </div>
                 <div class="tab-pane" id="DISTRICTII" role="tabpanel" aria-labelledby="DISTRICTII-tab">
@@ -321,15 +301,15 @@ include 'Templates/head.php';
 
                     // SQL query
                     $sql = "SELECT 
-                    SUM(CASE WHEN `employmentstatus` = 'active' THEN 1 ELSE 0 END) AS active,
-                    SUM(CASE WHEN `employmentstatus` = 'inactive' THEN 1 ELSE 0 END) AS inactive,
-                    SUM(CASE WHEN DATEDIFF(CURDATE(), `birthday`) > 59*365 THEN 1 ELSE 0 END) AS retired,
-                    SUM(CASE WHEN `statusofappointment` = 'PERMANENT' THEN 1 ELSE 0 END) AS PERMANENT,
-                    SUM(CASE WHEN `statusofappointment` = 'SUBSTITUTE' THEN 1 ELSE 0 END) AS SUBSTITUTE,
-                    SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
-
-                    FROM personalinfotbl
-                    Where schooldistrict = 2";
+                        SUM(CASE WHEN `employmentstatus` = 'active' THEN 1 ELSE 0 END) AS active,
+                        SUM(CASE WHEN `employmentstatus` = 'inactive' THEN 1 ELSE 0 END) AS inactive,
+                        SUM(CASE WHEN DATEDIFF(CURDATE(), `birthday`) > 59*365 THEN 1 ELSE 0 END) AS retired,
+                        SUM(CASE WHEN `statusofappointment` = 'PERMANENT' THEN 1 ELSE 0 END) AS PERMANENT,
+                        SUM(CASE WHEN `statusofappointment` = 'SUBSTITUTE' THEN 1 ELSE 0 END) AS SUBSTITUTE,
+                        SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
+                        
+                        FROM personalinfotbl
+                        Where schooldistrict = 2 And level = 'Elementary'";
 
                     $result = $conn->query($sql);
 
@@ -369,50 +349,23 @@ include 'Templates/head.php';
                     } else {
                         echo "0 results";
                     }
-                  
-
-
-
-
                     ?>
 
-
-
-
-                    <div class="Chartcards">
-                        <div class="Chartcard1">
-                            <div class="tools">
-                                <div class="circle">
-                                    <span class="red box"></span>
-                                </div>
-                                <div class="circle">
-                                    <span class="yellow box"></span>
-                                </div>
-                                <div class="circle">
-                                    <span class="green box"></span>
-                                </div>
+                    <div class="Chartcard2">
+                        <div class="tools">
+                            <div class="circle">
+                                <span class="red box"></span>
                             </div>
-                            <div class="card__content">
-                                <canvas id="piechart2"></canvas>
+                            <div class="circle">
+                                <span class="yellow box"></span>
+                            </div>
+                            <div class="circle">
+                                <span class="green box"></span>
                             </div>
                         </div>
 
-                        <div class="Chartcard2">
-                            <div class="tools">
-                                <div class="circle">
-                                    <span class="red box"></span>
-                                </div>
-                                <div class="circle">
-                                    <span class="yellow box"></span>
-                                </div>
-                                <div class="circle">
-                                    <span class="green box"></span>
-                                </div>
-                            </div>
-
-                            <div class="card__content">
-                                <canvas id="stackedbar2"></canvas>
-                            </div>
+                        <div class="card__content">
+                            <canvas id="stackedbar"></canvas>
                         </div>
                     </div>
 
@@ -425,15 +378,15 @@ include 'Templates/head.php';
 
                     // SQL query
                     $sql = "SELECT 
-SUM(CASE WHEN `employmentstatus` = 'active' THEN 1 ELSE 0 END) AS active,
-SUM(CASE WHEN `employmentstatus` = 'inactive' THEN 1 ELSE 0 END) AS inactive,
-SUM(CASE WHEN DATEDIFF(CURDATE(), `birthday`) > 59*365 THEN 1 ELSE 0 END) AS retired,
-SUM(CASE WHEN `statusofappointment` = 'PERMANENT' THEN 1 ELSE 0 END) AS PERMANENT,
-SUM(CASE WHEN `statusofappointment` = 'SUBSTITUTE' THEN 1 ELSE 0 END) AS SUBSTITUTE,
-SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
-
-FROM personalinfotbl
-Where schooldistrict = 3";
+                        SUM(CASE WHEN `employmentstatus` = 'active' THEN 1 ELSE 0 END) AS active,
+                        SUM(CASE WHEN `employmentstatus` = 'inactive' THEN 1 ELSE 0 END) AS inactive,
+                        SUM(CASE WHEN DATEDIFF(CURDATE(), `birthday`) > 59*365 THEN 1 ELSE 0 END) AS retired,
+                        SUM(CASE WHEN `statusofappointment` = 'PERMANENT' THEN 1 ELSE 0 END) AS PERMANENT,
+                        SUM(CASE WHEN `statusofappointment` = 'SUBSTITUTE' THEN 1 ELSE 0 END) AS SUBSTITUTE,
+                        SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
+                        
+                        FROM personalinfotbl
+                        Where schooldistrict = 3 And level = 'Elementary'";
 
                     $result = $conn->query($sql);
 
@@ -473,50 +426,23 @@ Where schooldistrict = 3";
                     } else {
                         echo "0 results";
                     }
-
-
-
-
-
                     ?>
 
-
-
-
-                    <div class="Chartcards">
-                        <div class="Chartcard1">
-                            <div class="tools">
-                                <div class="circle">
-                                    <span class="red box"></span>
-                                </div>
-                                <div class="circle">
-                                    <span class="yellow box"></span>
-                                </div>
-                                <div class="circle">
-                                    <span class="green box"></span>
-                                </div>
+                    <div class="Chartcard2">
+                        <div class="tools">
+                            <div class="circle">
+                                <span class="red box"></span>
                             </div>
-                            <div class="card__content">
-                                <canvas id="piechart3"></canvas>
+                            <div class="circle">
+                                <span class="yellow box"></span>
+                            </div>
+                            <div class="circle">
+                                <span class="green box"></span>
                             </div>
                         </div>
 
-                        <div class="Chartcard2">
-                            <div class="tools">
-                                <div class="circle">
-                                    <span class="red box"></span>
-                                </div>
-                                <div class="circle">
-                                    <span class="yellow box"></span>
-                                </div>
-                                <div class="circle">
-                                    <span class="green box"></span>
-                                </div>
-                            </div>
-
-                            <div class="card__content">
-                                <canvas id="stackedbar3"></canvas>
-                            </div>
+                        <div class="card__content">
+                            <canvas id="stackedbar"></canvas>
                         </div>
                     </div>
 
@@ -528,15 +454,15 @@ Where schooldistrict = 3";
 
                     // SQL query
                     $sql = "SELECT 
-SUM(CASE WHEN `employmentstatus` = 'active' THEN 1 ELSE 0 END) AS active,
-SUM(CASE WHEN `employmentstatus` = 'inactive' THEN 1 ELSE 0 END) AS inactive,
-SUM(CASE WHEN DATEDIFF(CURDATE(), `birthday`) > 59*365 THEN 1 ELSE 0 END) AS retired,
-SUM(CASE WHEN `statusofappointment` = 'PERMANENT' THEN 1 ELSE 0 END) AS PERMANENT,
-SUM(CASE WHEN `statusofappointment` = 'SUBSTITUTE' THEN 1 ELSE 0 END) AS SUBSTITUTE,
-SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
-
-FROM personalinfotbl
-Where schooldistrict = 4";
+                        SUM(CASE WHEN `employmentstatus` = 'active' THEN 1 ELSE 0 END) AS active,
+                        SUM(CASE WHEN `employmentstatus` = 'inactive' THEN 1 ELSE 0 END) AS inactive,
+                        SUM(CASE WHEN DATEDIFF(CURDATE(), `birthday`) > 59*365 THEN 1 ELSE 0 END) AS retired,
+                        SUM(CASE WHEN `statusofappointment` = 'PERMANENT' THEN 1 ELSE 0 END) AS PERMANENT,
+                        SUM(CASE WHEN `statusofappointment` = 'SUBSTITUTE' THEN 1 ELSE 0 END) AS SUBSTITUTE,
+                        SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
+                        
+                        FROM personalinfotbl
+                        Where schooldistrict = 4 And level = 'Elementary'";
 
                     $result = $conn->query($sql);
 
@@ -576,50 +502,23 @@ Where schooldistrict = 4";
                     } else {
                         echo "0 results";
                     }
-
-
-
-
-
                     ?>
 
-
-
-
-                    <div class="Chartcards">
-                        <div class="Chartcard1">
-                            <div class="tools">
-                                <div class="circle">
-                                    <span class="red box"></span>
-                                </div>
-                                <div class="circle">
-                                    <span class="yellow box"></span>
-                                </div>
-                                <div class="circle">
-                                    <span class="green box"></span>
-                                </div>
+                    <div class="Chartcard2">
+                        <div class="tools">
+                            <div class="circle">
+                                <span class="red box"></span>
                             </div>
-                            <div class="card__content">
-                                <canvas id="piechart4"></canvas>
+                            <div class="circle">
+                                <span class="yellow box"></span>
+                            </div>
+                            <div class="circle">
+                                <span class="green box"></span>
                             </div>
                         </div>
 
-                        <div class="Chartcard2">
-                            <div class="tools">
-                                <div class="circle">
-                                    <span class="red box"></span>
-                                </div>
-                                <div class="circle">
-                                    <span class="yellow box"></span>
-                                </div>
-                                <div class="circle">
-                                    <span class="green box"></span>
-                                </div>
-                            </div>
-
-                            <div class="card__content">
-                                <canvas id="stackedbar4"></canvas>
-                            </div>
+                        <div class="card__content">
+                            <canvas id="stackedbar"></canvas>
                         </div>
                     </div>
 
@@ -631,15 +530,15 @@ Where schooldistrict = 4";
 
                     // SQL query
                     $sql = "SELECT 
-SUM(CASE WHEN `employmentstatus` = 'active' THEN 1 ELSE 0 END) AS active,
-SUM(CASE WHEN `employmentstatus` = 'inactive' THEN 1 ELSE 0 END) AS inactive,
-SUM(CASE WHEN DATEDIFF(CURDATE(), `birthday`) > 59*365 THEN 1 ELSE 0 END) AS retired,
-SUM(CASE WHEN `statusofappointment` = 'PERMANENT' THEN 1 ELSE 0 END) AS PERMANENT,
-SUM(CASE WHEN `statusofappointment` = 'SUBSTITUTE' THEN 1 ELSE 0 END) AS SUBSTITUTE,
-SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
-
-FROM personalinfotbl
-Where schooldistrict = 5";
+                        SUM(CASE WHEN `employmentstatus` = 'active' THEN 1 ELSE 0 END) AS active,
+                        SUM(CASE WHEN `employmentstatus` = 'inactive' THEN 1 ELSE 0 END) AS inactive,
+                        SUM(CASE WHEN DATEDIFF(CURDATE(), `birthday`) > 59*365 THEN 1 ELSE 0 END) AS retired,
+                        SUM(CASE WHEN `statusofappointment` = 'PERMANENT' THEN 1 ELSE 0 END) AS PERMANENT,
+                        SUM(CASE WHEN `statusofappointment` = 'SUBSTITUTE' THEN 1 ELSE 0 END) AS SUBSTITUTE,
+                        SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
+                        
+                        FROM personalinfotbl
+                        Where schooldistrict = 5 And level = 'Elementary'";
 
                     $result = $conn->query($sql);
 
@@ -679,53 +578,25 @@ Where schooldistrict = 5";
                     } else {
                         echo "0 results";
                     }
-
-
-
-
-
                     ?>
 
-
-
-
-                    <div class="Chartcards">
-                        <div class="Chartcard1">
-                            <div class="tools">
-                                <div class="circle">
-                                    <span class="red box"></span>
-                                </div>
-                                <div class="circle">
-                                    <span class="yellow box"></span>
-                                </div>
-                                <div class="circle">
-                                    <span class="green box"></span>
-                                </div>
+                    <div class="Chartcard2">
+                        <div class="tools">
+                            <div class="circle">
+                                <span class="red box"></span>
                             </div>
-                            <div class="card__content">
-                                <canvas id="piechart5"></canvas>
+                            <div class="circle">
+                                <span class="yellow box"></span>
+                            </div>
+                            <div class="circle">
+                                <span class="green box"></span>
                             </div>
                         </div>
 
-                        <div class="Chartcard2">
-                            <div class="tools">
-                                <div class="circle">
-                                    <span class="red box"></span>
-                                </div>
-                                <div class="circle">
-                                    <span class="yellow box"></span>
-                                </div>
-                                <div class="circle">
-                                    <span class="green box"></span>
-                                </div>
-                            </div>
-
-                            <div class="card__content">
-                                <canvas id="stackedbar5"></canvas>
-                            </div>
+                        <div class="card__content">
+                            <canvas id="stackedbar"></canvas>
                         </div>
                     </div>
-
 
                 </div>
                 <div class="tab-pane" id="DISTRICTVI" role="tabpanel" aria-labelledby="DISTRICTVI-tab">
@@ -734,15 +605,15 @@ Where schooldistrict = 5";
 
                     // SQL query
                     $sql = "SELECT 
-SUM(CASE WHEN `employmentstatus` = 'active' THEN 1 ELSE 0 END) AS active,
-SUM(CASE WHEN `employmentstatus` = 'inactive' THEN 1 ELSE 0 END) AS inactive,
-SUM(CASE WHEN DATEDIFF(CURDATE(), `birthday`) > 59*365 THEN 1 ELSE 0 END) AS retired,
-SUM(CASE WHEN `statusofappointment` = 'PERMANENT' THEN 1 ELSE 0 END) AS PERMANENT,
-SUM(CASE WHEN `statusofappointment` = 'SUBSTITUTE' THEN 1 ELSE 0 END) AS SUBSTITUTE,
-SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
-
-FROM personalinfotbl
-Where schooldistrict = 6";
+                        SUM(CASE WHEN `employmentstatus` = 'active' THEN 1 ELSE 0 END) AS active,
+                        SUM(CASE WHEN `employmentstatus` = 'inactive' THEN 1 ELSE 0 END) AS inactive,
+                        SUM(CASE WHEN DATEDIFF(CURDATE(), `birthday`) > 59*365 THEN 1 ELSE 0 END) AS retired,
+                        SUM(CASE WHEN `statusofappointment` = 'PERMANENT' THEN 1 ELSE 0 END) AS PERMANENT,
+                        SUM(CASE WHEN `statusofappointment` = 'SUBSTITUTE' THEN 1 ELSE 0 END) AS SUBSTITUTE,
+                        SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
+    
+                        FROM personalinfotbl
+                        Where schooldistrict = 6 And level = 'Elementary'";
 
                     $result = $conn->query($sql);
 
@@ -782,50 +653,23 @@ Where schooldistrict = 6";
                     } else {
                         echo "0 results";
                     }
-                    $conn->close();
-
-
-
-
                     ?>
 
-
-
-
-                    <div class="Chartcards">
-                        <div class="Chartcard1">
-                            <div class="tools">
-                                <div class="circle">
-                                    <span class="red box"></span>
-                                </div>
-                                <div class="circle">
-                                    <span class="yellow box"></span>
-                                </div>
-                                <div class="circle">
-                                    <span class="green box"></span>
-                                </div>
+                    <div class="Chartcard2">
+                        <div class="tools">
+                            <div class="circle">
+                                <span class="red box"></span>
                             </div>
-                            <div class="card__content">
-                                <canvas id="piechart6"></canvas>
+                            <div class="circle">
+                                <span class="yellow box"></span>
+                            </div>
+                            <div class="circle">
+                                <span class="green box"></span>
                             </div>
                         </div>
 
-                        <div class="Chartcard2">
-                            <div class="tools">
-                                <div class="circle">
-                                    <span class="red box"></span>
-                                </div>
-                                <div class="circle">
-                                    <span class="yellow box"></span>
-                                </div>
-                                <div class="circle">
-                                    <span class="green box"></span>
-                                </div>
-                            </div>
-
-                            <div class="card__content">
-                                <canvas id="stackedbar6"></canvas>
-                            </div>
+                        <div class="card__content">
+                            <canvas id="stackedbar"></canvas>
                         </div>
                     </div>
 
@@ -840,7 +684,7 @@ Where schooldistrict = 6";
 
 
         <script src="charts/DivisionCharts/stackedbar.js"></script>
-        <script src="charts/DivisionCharts/piechart.js"></script>
+
         <script src="charts/DivisionCharts/stackedbar2.js"></script>
         <script src="charts/DivisionCharts/piechart2.js"></script>
 

@@ -66,7 +66,10 @@ include 'Templates/head.php';
           <div class="col-md-6 ">
             <div class="AccountPicture-box" id="AccountPicture-box">
               <!-- Content for AccountPicture-box goes here -->
-              <img src="<?php echo $picture; ?>" alt="Profile Photo" />
+              <img src="images/enano.jpg" alt="Profile Photo" />
+              <input type="file" id="upload" style="display: none;" accept="image/*">
+              <label for="upload" class="button btn-primary btn">Change Photo</label>
+              
             </div>
             <div class="Changepasswordbtn" id="Changepasswordbtn">
               <button class="btn btn-primary">CHANGE PASSWORD</button>
@@ -84,6 +87,13 @@ include 'Templates/head.php';
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+  document.getElementById("upload").addEventListener("change", function() {
+    // Handle file selection here
+    console.log("File selected:", this.files[0]);
+  });
+
+</script>
 </body>
 
 </html>

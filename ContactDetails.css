@@ -52,11 +52,10 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    border-left: 5px solid #007bff;
-    border-right: 5px solid #007bff;
-    border-bottom: 5px solid #007bff;
+    border: 1px solid #007bff;
     padding: 10px;
     border-radius: 25px;
+    box-shadow: 16px 12px 9px 0px rgba(0, 0, 0, 0.18);
   }
   
   header div {
@@ -107,10 +106,11 @@ body {
   h1 {
     margin-top: 20px;
     font-weight: bold;
+    text-shadow: 3px 2px rgba(0, 0, 0, 0.18);
   }
   
   .ContactDetails-box {
-    border: 3px solid #007bff;
+    border: 1px solid #007bff;
     padding: 10px;
     margin-top: 20px;
     border-radius: 25px;
@@ -119,32 +119,60 @@ body {
     margin: 0 auto;
     width: 100%;
     transition: height 0.5s ease;
+    box-shadow: 16px 12px 9px 0px rgba(0, 0, 0, 0.18);
   }
-  
-  .ContactDetails-box input {
-    font-family: "kameron"; /* Replace 'YourChosenFont' with the desired font */
-    font-size: 14px; /* Adjust the font size as needed */
-    width: 250px;
-    height: 20px;
-    margin-left: 5px;
-    border: 1px solid;
-    margin-top: 20px;
-    text-align: center;
-    z-index: 2;
-  }
-  
-  
-  .ContactDetails-box label {
-    font-family: "kameron", sans-serif; /* Replace 'YourChosenFont' with the desired font */
-    font-size: 14px; /* Adjust the font size as needed */
-    font-weight: bold; /* Optional: add bold font weight */
-    margin-top: 20px;
-  }
-  
+
   .btn-primary {
     border-radius: 25px;
     font-size: 16px;
   }
+
+  .inputGroup {
+    font-family: "Segoe UI", sans-serif;
+    margin: 1em 0 1em 0;
+    max-width: 190px;
+    position: relative;
+}
+
+.inputGroup input {
+    font-size: 100%;
+    padding: 0.5em;
+    outline: none;
+    border: 2px solid rgb(200, 200, 200);
+    background-color: white;
+    border-radius: 20px;
+    width: 400px;
+}
+
+.inputGroup label {
+    font-size: 70%;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    padding: 0.8em;
+    margin-left: 0.5em;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    color: rgb(100, 100, 100);
+    top: 0;
+    z-index: 2;
+    /* Add this line */
+}
+.inputGroup label2 {
+    font-size: 100%;
+    font-weight: bold;
+    color: rgb(100, 100, 100);
+    margin-left: 1.3em;
+
+}
+
+.inputGroup :is(input:focus, input:valid)~label {
+    transform: translateY(-75%) scale(0.9);
+    margin: 0em;
+    margin-left: 1em;
+    padding: 0.1em;
+    background-color: transparent;
+}
 
   
   

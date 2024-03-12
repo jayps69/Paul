@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Function to fetch data from the PHP script
   function fetchDataFromPHP() {
       var xhr = new XMLHttpRequest();
-      xhr.open("GET", "charts/teachercount.php", true);
+      xhr.open("GET", "charts/DivisionCharts/teachercount.php", true);
       xhr.onreadystatechange = function () {
           if (xhr.readyState === XMLHttpRequest.DONE) {
               if (xhr.status === 200) {

@@ -11,50 +11,41 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="PersonalInfo.php">
+            <a class="nav-link" href="ElementaryDashboard.php">
               <i class="fas fa-address-card"></i><span>ELEMENTARY</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="ContactDetails.php">
+            <a class="nav-link" href="SecondaryDashboard.php">
               <i class="fas fa-phone"></i><span>SECONDARY</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="Education.php">
+            <a class="nav-link" href="ShsDashboard.php">
               <i class="fas fa-graduation-cap"></i><span>SHS</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="Eligibility.php">
+            <a class="nav-link" href="Summary.php">
               <i class="fas fa-check-circle"></i><span>SUMMARY</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="WorkExperience.php">
+            <a class="nav-link" href="FilterData.php">
               <i class="fas fa-briefcase"></i><span>FILTER DATA</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="VolunteerWork.php">
+            <a class="nav-link" href="Employee.php">
               <i class="fas fa-handshake"></i><span>EMPLOYEE</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="Trainings.php">
+            <a class="nav-link" href="SearchItem.php">
               <i class="fas fa-chalkboard"></i><span>SEARCH ITEM</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="SkillsAndHobbies.php">
-              <i class="fas fa-paint-brush"></i><span>SKILLS & HOBBIES</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="AboutUs.html">
-              <i class="fas fa-info-circle"></i><span>ABOUT US</span>
-            </a>
-          </li>
+         
           <li class="nav-item">
         <a class="nav-link" href="#" onclick="confirmLogout()">
           <i class="fas fa-sign-out-alt"></i><span> LOGOUT</span>

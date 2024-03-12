@@ -1,5 +1,5 @@
 <?php
-include("../connection.php");
+include("../../connection.php");
 
 // Query to count schools for each category
 $sql = "SELECT 
@@ -7,7 +7,7 @@ $sql = "SELECT
             SUM(CASE WHEN schoolname LIKE '%high school%' THEN 1 ELSE 0 END) AS high_school_count,
             SUM(CASE WHEN schoolname LIKE '%shs%' THEN 1 ELSE 0 END) AS shs_count
         FROM schooltbl
-        WHERE `district` = 2";
+        WHERE `district` = 1";
 
 $result = $conn->query($sql);
 

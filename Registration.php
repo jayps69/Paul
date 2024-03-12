@@ -65,11 +65,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+
     <style>
         .login-page {
-            padding: 8% 0 0;
+            padding: 5% 0 0;
+            justify-content: center;
         }
 
         .form {
@@ -79,21 +81,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             z-index: 1;
             background: #FFFFFF;
             margin: 0 auto 100px;
-            padding: 45px;
-            background-color: #9dc6ea;
+            padding: 60px;
+            background-color: white;
             box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+            justify-content: center;
         }
 
         .form button {
             font-family: Arial, sans-serif;
             background-color: #007bff;
-            width: 100%;
+            width: 7%;
             border: 0;
             padding: 15px;
             font-size: 14px;
             -webkit-transition: all 0.3 ease;
             transition: all 0.3 ease;
             cursor: pointer;
+            left: 50%;
         }
 
         .form .message {
@@ -141,35 +145,60 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             color: red !important;
         }
 
-        label {
-            width: 150px;
-            margin-right: 10px;
-            margin-bottom: 0.3rem;
-            font-size: .9rem;
+        .inputGroup {
+            font-family: "Segoe UI", sans-serif;
+            margin: 1em 0 1em 0;
+            max-width: 190px;
+            position: relative;
+        }
+
+        .inputGroup input {
+            font-size: 100%;
+            padding: 0.8em;
+            outline: none;
+            border: 2px solid rgb(200, 200, 200);
+            background-color: white;
+            border-radius: 20px;
+            width: 400px;
+        }
+
+        .inputGroup label {
+            font-size: 100%;
             font-weight: bold;
-            color: #05060f99;
-            transition: color .3s cubic-bezier(.25, .01, .25, 1) 0s;
+            position: absolute;
+            left: 0;
+            padding: 0.8em;
+            margin-left: 0.5em;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            color: rgb(100, 100, 100);
+            top: 0;
+            z-index: 2;
+            /* Add this line */
+        }
+        .inputGroup label2 {
+            font-size: 100%;
+            font-weight: bold;
+            color: rgb(100, 100, 100);
+            margin-left: 1.3em;
+
         }
 
-        .input-group {
-            margin-top: 0.5rem !important;
-            display: flex;
-            align-items: center;
+        .inputGroup :is(input:focus, input:valid)~label {
+            transform: translateY(-75%) scale(0.9);
+            margin: 0em;
+            margin-left: 1em;
+            padding: 0.1em;
+            background-color: transparent;
         }
 
-        input {
-            max-width: 200px;
-            height: 25.5px;
-            padding-right: 25px;
-            background-color: #FFFFFF;
-            font-family: Kameron;
-            text-align: center;
-            border-radius: 0.5rem;
-            padding: 0 1rem;
-            border: 2px solid transparent;
-            font-size: 1rem;
-            transition: border-color .3s cubic-bezier(.25, .01, .25, 1) 0s, color .3s cubic-bezier(.25, .01, .25, 1) 0s, background .2s cubic-bezier(.25, .01, .25, 1) 0s;
+        .imglabel {
+            border: 1px solid #ccc;
+            display: inline-block;
+            padding: 6px 12px;
+            cursor: pointer;
         }
+
     </style>
     <title>SDOQC Teacher's Portal Login Page</title>
 </head>
@@ -180,81 +209,80 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="form">
             <div class="login">
                 <div class="login-header">
+                    <h3><b>Registration Page</b></h3>
                 </div>
             </div>
             <form method="post" action="">
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="input-group">
-                            <div class="col-sm-2 col-form-label">
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="col-sm-10">
-                                <input type="text" name="email" id="email" placeholder="Email">
-                            </div>
+                    <div class="col-md-4">
+                        <div class="inputGroup">
+                            <input type="text" name="fname" id="fname" required="" autocomplete="off">
+                            <label for="email">Email Address</label>
                         </div>
-                        <div class="input-group">
-                            <div class="col-sm-2 col-form-label">
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="col-sm-10">
-                                <input type="text" name="email" id="email" placeholder="Email">
-                            </div>
+                        <div class="inputGroup">
+                            <input type="text" name="mname" id="mname" required="" autocomplete="off">
+                            <label for="email">Password</label>
                         </div>
-                        <div class="input-group">
-                            <div class="col-sm-2 col-form-label">
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="col-sm-10">
-                                <input type="text" name="email" id="email" placeholder="Email">
-                            </div>
+                        <div class="inputGroup">
+                            <input type="text" name="lname" id="lname" required="" autocomplete="off">
+                            <label for="email">Re-enter Password</label>
                         </div>
-                        <div class="input-group">
-                            <div class="col-sm-2 col-form-label">
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="col-sm-10">
-                                <input type="text" name="email" id="email" placeholder="Email">
-                            </div>
-                        </div>                   
+                        <div class="inputGroup">
+                            <input type="text" name="employeeno" id="employeeno" required="" autocomplete="off">
+                            <label for="email">School</label>
+                        </div>
+
                     </div>
-                    <div class="col-md-6">
-                        <div class="input-group">
-                            <div class="col-sm-2 col-form-label">
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="col-sm-10">
-                                <input type="text" name="email" id="email" placeholder="Email">
-                            </div>
+                    <div class="col-md-4">
+                        <div class="inputGroup">
+                            <input type="text" name="fname" id="fname" required="" autocomplete="off">
+                            <label for="email">First Name</label>
                         </div>
-                        <div class="input-group">
-                            <div class="col-sm-2 col-form-label">
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="col-sm-10">
-                                <input type="text" name="email" id="email" placeholder="Email">
-                            </div>
+                        <div class="inputGroup">
+                            <input type="text" name="lname" id="lname" required="" autocomplete="off">
+                            <label for="email">Last Name</label>
                         </div>
-                        <div class="input-group">
-                            <div class="col-sm-2 col-form-label">
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="col-sm-10">
-                                <input type="text" name="email" id="email" placeholder="Email">
-                            </div>
+                        <div class="inputGroup">
+                            <input type="text" name="employeeno" id="employeeno" required="" autocomplete="off">
+                            <label for="email">Employee Number</label>
                         </div>
-                        <div class="input-group">
-                            <div class="col-sm-2 col-form-label">
-                                <label for="email">Email</label>
-                            </div>
-                            <div class="col-sm-10">
-                                <input type="text" name="email" id="email" placeholder="Email">
-                            </div>
-                        </div>                   
+                        <div class="inputGroup">
+                            <input type="text" name="birthday" id="birthday" required="" autocomplete="off">
+                            <label for="email">Date of Birth</label>
+                        </div>
+
                     </div>
+                    <div class="col-md-4">
+                        <div class="inputGroup">
+                            <input type="text" name="employeeno" id="employeeno" required="" autocomplete="off">
+                            <label for="email">Security Question</label>
+                        </div>
+                        <div class="inputGroup">
+                            <input type="text" name="employeeno" id="employeeno" required="" autocomplete="off" placeholder="Answer">
+                        </div>
+                        <div class="inputGroup">
+                            <input type="text" name="birthday" id="birthday" required="" autocomplete="off">
+                            <label for="email">Security Question</label>
+                        </div>
+                        <div class="inputGroup">
+                            <input type="text" name="employeeno" id="employeeno" required="" autocomplete="off" placeholder="Answer">
+                        </div>
+                    </div>
+
+
                 </div>
-            </form>
+                <div class="row">
+                    <div class="inputGroup">
+                        <label2 for="photo">Add Photo</label2>
+                        <input type="file" name="photo" id="photo" class="form-control" value="Add Photo">
+                    </div>
+                </div>  
+                <div class="row justify-content-center">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
         </div>
+        </form>
+    </div>
     </div>
 
     <?php
@@ -263,7 +291,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<p>$error_message</p>";
     }
     ?>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/3.0.0/js/responsive.bootstrap5.js"></script>
 </body>
 
 </html>

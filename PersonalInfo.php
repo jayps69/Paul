@@ -7,14 +7,8 @@ session_start();
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Personal Information</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
 
     <style>
       body {
@@ -146,22 +140,52 @@ session_start();
         transition: height 0.5s ease;
       }
 
-      .PersonalInfo-box input {
-      font-family: 'kameron', sans-serif; /* Replace 'YourChosenFont' with the desired font */
-      font-size: 14px; /* Adjust the font size as needed */
-      width: 180px;
-      height: 20px;
-      margin-left: 5px;
-      border: 1px solid #000;
-      
-    }
+      .inputGroup {
+            font-family: "Segoe UI", sans-serif;
+            margin: 1em 0 1em 0;
+            max-width: 190px;
+            position: relative;
+        }
 
-    .PersonalInfo-box label {
-      font-family: 'kameron', sans-serif; /* Replace 'YourChosenFont' with the desired font */
-      font-size: 14px; /* Adjust the font size as needed */
-      font-weight: bold; /* Optional: add bold font weight */
-    }
+        .inputGroup input {
+            font-size: 100%;
+            padding: 0.5em;
+            outline: none;
+            border: 2px solid rgb(200, 200, 200);
+            background-color: white;
+            border-radius: 20px;
+            width: 400px;
+        }
 
+        .inputGroup label {
+            font-size: 80%;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            padding: 0.8em;
+            margin-left: 0.5em;
+            pointer-events: none;
+            transition: all 0.3s ease;
+            color: rgb(100, 100, 100);
+            top: 0;
+            z-index: 2;
+            /* Add this line */
+        }
+        .inputGroup label2 {
+            font-size: 100%;
+            font-weight: bold;
+            color: rgb(100, 100, 100);
+            margin-left: 1.3em;
+
+        }
+
+        .inputGroup :is(input:focus, input:valid)~label {
+            transform: translateY(-75%) scale(0.9);
+            margin: 0em;
+            margin-left: 1em;
+            padding: 0.1em;
+            background-color: transparent;
+        }
     .btn-primary {
         border-radius: 25px;
         font-size: 16px;
@@ -294,9 +318,10 @@ height: 1500px ;
               <div class="row">
                 <div class="col-md-4 responsive-col">
                   <!-------First section------->
-                  <div class="form-group d-flex ">
-                    <label for="Employeenotb">Employee No.: </label>
-                    <input type="text" class="form-control" id="Employeenotb" name="Employeenotb">
+                  <div class="inputGroup d-flex ">
+                    
+                    <input type="text" class="form-control" id="Employeenotb" name="Employeenotb" autocomplete="off" required="">
+                    <label for="Employeenotb">Employee No. </label>
                   </div>
 
                   <div class="form-group d-flex ">
@@ -316,7 +341,7 @@ height: 1500px ;
 
                   <div class="form-group d-flex ">
                       <label for="extensionnametb">Extension Name: </label>
-                      <input type="text" class="form-control" id="extensionnametb" name="extensionnametb">
+                      <input type="text" class="form-control" id="extensionnametb" name="extensionnametb" autocomplete="off" required="">
                   </div>
 
                   <div class="form-group d-flex ">
@@ -471,8 +496,8 @@ height: 1500px ;
       </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/3.0.0/js/responsive.bootstrap5.js"></script>
   </body>
 </html>

@@ -1,6 +1,5 @@
 <?php
-include("../connection.php");
-
+include("../../connection.php");
 // Your PHP code to fetch data from the database
 $sql = "SELECT 
     COUNT(CASE WHEN `presentposition` = 'T-I' AND `gender` = 'MALE' THEN 1 END) AS T_I_Male,
@@ -24,7 +23,7 @@ $sql = "SELECT
     FROM 
     personalinfotbl
     WHERE 
-    `schooldistrict` = '2'
+    `schooldistrict` = '4'
     AND `employmentstatus` = 'ACTIVE'";
 
 $result = $conn->query($sql);

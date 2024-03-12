@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Function to fetch data from the PHP script
     function fetchDataFromPHP() {
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'charts/schoolcount2.php', true); // Replace 'your_php_script.php' with the path to your PHP script
+        xhr.open('GET', 'charts/DivisionCharts/schoolcount2.php', true); // Replace 'your_php_script.php' with the path to your PHP script
         xhr.onreadystatechange = function() {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 plugins: {
                     title: {
                         display: true,
-                        text: 'DISTRICT I SCHOOLS' // Your desired title here
+                        text: 'DISTRICT II SCHOOLS' // Your desired title here
                     },
                     tooltip: {
                         callbacks: {
@@ -60,13 +60,13 @@ document.addEventListener("DOMContentLoaded", function() {
                             },
                             afterLabel: function(context) {
                                 if (context.dataIndex === 0) {
-                                    return 'Total Elementary: ' + elementarySum, 'Total School in DISTRICT I: '  + overallTotal ;
+                                    return 'Total Elementary: ' + elementarySum, 'Total School in DISTRICT II: '  + overallTotal ;
                                    
                                 } else if (context.dataIndex === 1) {
-                                    return 'Total High School: ' + highSchoolSum, 'Total School in DISTRICT I: '  + overallTotal ;
+                                    return 'Total High School: ' + highSchoolSum, 'Total School in DISTRICT II: '  + overallTotal ;
                                     
                                 } else if (context.dataIndex === 2) {
-                                    return 'Total SHS: ' + shsSum, 'Total School in DISTRICT I: ' + overallTotal;
+                                    return 'Total SHS: ' + shsSum, 'Total School in DISTRICT II: ' + overallTotal;
                                     
                                 } 
                             }

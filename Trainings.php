@@ -52,7 +52,7 @@ session_start();
             </div>
 
 
-            <table id="example" class="table table-striped " style="width:100%;">
+            <table id="example" class="table table-striped " style="width:100%; ">
                 <thead>
                     <tr>
 

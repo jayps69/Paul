@@ -56,70 +56,35 @@ include 'Templates/head.php';
         <div class="row">
           <div class="col-md-4">
             <!-------First section------->
-            <div class="form-group d-flex">
-              <div class="col-md-6">
-                <label for="AltEmail">Alternate Email : </label>
-              </div>
-              <div class="input-group mb-3">
-                <div class="col-md-4">
-                  <input type="text" class="form-control" id="AltEmail" name="AltEmail"
-                    value="<?php echo $AltEmail; ?>" />
-                </div>
-
-                <div class="col-md-6">
-                  <label for="AltEmail2"></label>
-                </div>
-                <div class="col-md-4">
-                  <input type="text" class="form-control" id="AltEmail2" name="AltEmail2" value="<?php echo $AltEmail2; ?>" />
-                </div>
-              </div>
+            <div class="inputGroup d-flex">
+                <input type="text" class="form-control" id="AltEmail" name="AltEmail" value="<?php echo $AltEmail; ?>" required="" autocomplete="off"/>
+                <label for="AltEmail">Alternate Email</label>
             </div>
-            <div class="form-group d-flex">
-              <div class="col-md-6">
-                <label for="QCSim">QC Sim Card No.: </label>
-              </div>
-              <div class="col-md-4">
-                <input type="text" class="form-control" id="QCSim" name="QCSim" value="<?php echo $QCSim; ?>" />
-              </div>
+            <div class="inputGroup d-flex">
+                <input type="text" class="form-control" id="AltEmail2" name="AltEmail2" value="<?php echo $AltEmail2; ?>" required="" autocomplete="off"/>
             </div>
-            <div class="form-group d-flex">
-              <div class="col-md-6">
-                <label for="DEPEDSim">DEPED Sim Card No.: </label>
-              </div>
-              <div class="col-md-4">
-                <input type="text" class="form-control" id="DEPEDSim" name="DEPEDSim"  value="<?php echo $DEPEDSim; ?>"/>
-              </div>
+            <div class="inputGroup d-flex">
+              <input type="text" class="form-control" id="QCSim" name="QCSim" value="<?php echo $QCSim; ?>" required="" autocomplete="off"/>
+              <label for="QCSim">QC Sim Card No.</label>
             </div>
-            <div class="form-group d-flex">
-              <div class="col-md-6">
-                <label for="NEAPSim">NEAP Sim Card No.: </label>
-              </div>
-              <div class="col-md-4">
-                <input type="text" class="form-control" id="NEAPSim" name="NEAPSim" value="<?php echo $NEAPSim; ?>" />
-              </div>
+            <div class="inputGroup d-flex">
+              <input type="text" class="form-control" id="DEPEDSim" name="DEPEDSim"  value="<?php echo $DEPEDSim; ?>" required="" autocomplete="off"/>
+              <label for="DEPEDSim">DEPED Sim Card No.</label>
             </div>
-            <div class="form-group d-flex">
-              <div class="col-md-6">
-                <label for="OtherContactNo">Other Contact No.: </label>
-              </div>
-              <div class="col-md-4">
-                <input type="text" class="form-control" id="OtherContactNo" name="OtherContactNo" value="<?php echo $OtherContactNo; ?>" />
-              </div>
+            <div class="inputGroup d-flex">
+              <input type="text" class="form-control" id="NEAPSim" name="NEAPSim" value="<?php echo $NEAPSim; ?>" required="" autocomplete="off"/>
+              <label for="NEAPSim">NEAP Sim Card No.</label>
             </div>
-            <div class="form-group d-flex">
-              <div class="col-md-6">
-                <label for="FBName">Name on Facebook Profile: </label>
-              </div>
-              <div class="col-md-4">
-                <input type="text" class="form-control" id="FBName" name="FBName" value="<?php echo $FBName; ?>" />
-              </div>
+            <div class="inputGroup d-flex">
+              <input type="text" class="form-control" id="OtherContactNo" name="OtherContactNo" value="<?php echo $OtherContactNo; ?>" required="" autocomplete="off"/>
+              <label for="OtherContactNo">Other Contact No.</label>
             </div>
-
-            <div class="form-group d-flex">
-              <div class="col-md-6"></div>
-              <div class="col-md-6 saveupdatebtn text-center" id="saveupdatebtn">
-                <button class="btn btn-primary">SAVE / UPDATE</button>
-              </div>
+            <div class="inputGroup d-flex">
+              <input type="text" class="form-control" id="FBName" name="FBName" value="<?php echo $FBName; ?>" required="" autocomplete="off"/>
+              <label for="FBName">Name on Facebook Profile</label>
+            </div>
+            <div class="inputGroup d-flex">
+              <button class="btn btn-primary">SAVE / UPDATE</button>
             </div>
           </div>
         </div>
@@ -128,8 +93,8 @@ include 'Templates/head.php';
   </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 
 </html>

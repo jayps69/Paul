@@ -1,5 +1,5 @@
 <?php
-include("../connection.php");
+include("../../connection.php");
 
 // Your PHP code to fetch data from the database
 $sql = "SELECT 
@@ -24,7 +24,7 @@ $sql = "SELECT
     FROM 
     personalinfotbl
     WHERE 
-    `schooldistrict` = '1'
+    `schooldistrict` = '6'
     AND `employmentstatus` = 'ACTIVE'";
 
 $result = $conn->query($sql);
