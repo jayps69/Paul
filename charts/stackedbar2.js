@@ -23,8 +23,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to update the chart with fetched data
     function updateChart(data) {
         // Destroy existing chart if it exists
-        if (myChart) {
-            myChart.destroy();
+        if (stackedbar2) {
+            stackedbar2.destroy();
         }
   
         const labels = ["T-I", "T-II", "T-III", "MT-I", "MT-II", "SPED-T-I", "SPED-T-II", "SPED-T-III", "SST-I"];
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const ctx = document.getElementById("stackedbar2");
   
         // Assign the new chart to the myChart variable
-        myChart = new Chart(ctx, config);
+       
     }
   
     // Call the function to fetch data from PHP when the DOM content is loaded
