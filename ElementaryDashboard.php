@@ -14,7 +14,7 @@ include 'Templates/head.php';
     #stackedbar6 {
         height: 400px !important;
         width: 80% !important;
-       
+
     }
 
     .cards {
@@ -25,6 +25,7 @@ include 'Templates/head.php';
         margin-top: 20px;
 
     }
+
     .card__content {
         display: flex;
         align-items: center;
@@ -116,7 +117,7 @@ include 'Templates/head.php';
         border-radius: 8px;
         z-index: 1;
         margin-top: 20px;
-        
+
 
     }
 
@@ -152,9 +153,6 @@ include 'Templates/head.php';
     .green {
         background-color: #00ca4e;
     }
-
-
-
 </style>
 
 
@@ -273,8 +271,8 @@ include 'Templates/head.php';
                         echo "0 results";
                     }
                     ?>
-               
-               <div class="Chartcards">
+
+                    <div class="Chartcards">
                         <div class="Chartcard2">
                             <div class="tools">
                                 <div class="circle">
@@ -292,8 +290,8 @@ include 'Templates/head.php';
                                 <canvas id="stackedbar"></canvas>
                             </div>
                         </div>
-                </div>
-                
+                    </div>
+
 
                 </div>
                 <div class="tab-pane" id="DISTRICTII" role="tabpanel" aria-labelledby="DISTRICTII-tab">
@@ -351,23 +349,26 @@ include 'Templates/head.php';
                     }
                     ?>
 
-                    <div class="Chartcard2">
-                        <div class="tools">
-                            <div class="circle">
-                                <span class="red box"></span>
+                    <div class="Chartcards">
+                        <div class="Chartcard2">
+                            <div class="tools">
+                                <div class="circle">
+                                    <span class="red box"></span>
+                                </div>
+                                <div class="circle">
+                                    <span class="yellow box"></span>
+                                </div>
+                                <div class="circle">
+                                    <span class="green box"></span>
+                                </div>
                             </div>
-                            <div class="circle">
-                                <span class="yellow box"></span>
-                            </div>
-                            <div class="circle">
-                                <span class="green box"></span>
-                            </div>
-                        </div>
 
-                        <div class="card__content">
-                            <canvas id="stackedbar"></canvas>
+                            <div class="card__content">
+                                <canvas id="stackedbar2"></canvas>
+                            </div>
                         </div>
                     </div>
+
 
 
 
@@ -428,23 +429,26 @@ include 'Templates/head.php';
                     }
                     ?>
 
-                    <div class="Chartcard2">
-                        <div class="tools">
-                            <div class="circle">
-                                <span class="red box"></span>
+                    <div class="Chartcards">
+                        <div class="Chartcard2">
+                            <div class="tools">
+                                <div class="circle">
+                                    <span class="red box"></span>
+                                </div>
+                                <div class="circle">
+                                    <span class="yellow box"></span>
+                                </div>
+                                <div class="circle">
+                                    <span class="green box"></span>
+                                </div>
                             </div>
-                            <div class="circle">
-                                <span class="yellow box"></span>
-                            </div>
-                            <div class="circle">
-                                <span class="green box"></span>
-                            </div>
-                        </div>
 
-                        <div class="card__content">
-                            <canvas id="stackedbar"></canvas>
+                            <div class="card__content">
+                                <canvas id="stackedbar3"></canvas>
+                            </div>
                         </div>
                     </div>
+
 
 
                 </div>
@@ -504,23 +508,26 @@ include 'Templates/head.php';
                     }
                     ?>
 
-                    <div class="Chartcard2">
-                        <div class="tools">
-                            <div class="circle">
-                                <span class="red box"></span>
+                    <div class="Chartcards">
+                        <div class="Chartcard2">
+                            <div class="tools">
+                                <div class="circle">
+                                    <span class="red box"></span>
+                                </div>
+                                <div class="circle">
+                                    <span class="yellow box"></span>
+                                </div>
+                                <div class="circle">
+                                    <span class="green box"></span>
+                                </div>
                             </div>
-                            <div class="circle">
-                                <span class="yellow box"></span>
-                            </div>
-                            <div class="circle">
-                                <span class="green box"></span>
-                            </div>
-                        </div>
 
-                        <div class="card__content">
-                            <canvas id="stackedbar"></canvas>
+                            <div class="card__content">
+                                <canvas id="stackedbar4"></canvas>
+                            </div>
                         </div>
                     </div>
+
 
 
                 </div>
@@ -580,23 +587,26 @@ include 'Templates/head.php';
                     }
                     ?>
 
-                    <div class="Chartcard2">
-                        <div class="tools">
-                            <div class="circle">
-                                <span class="red box"></span>
+                    <div class="Chartcards">
+                        <div class="Chartcard2">
+                            <div class="tools">
+                                <div class="circle">
+                                    <span class="red box"></span>
+                                </div>
+                                <div class="circle">
+                                    <span class="yellow box"></span>
+                                </div>
+                                <div class="circle">
+                                    <span class="green box"></span>
+                                </div>
                             </div>
-                            <div class="circle">
-                                <span class="yellow box"></span>
-                            </div>
-                            <div class="circle">
-                                <span class="green box"></span>
-                            </div>
-                        </div>
 
-                        <div class="card__content">
-                            <canvas id="stackedbar"></canvas>
+                            <div class="card__content">
+                                <canvas id="stackedbar5"></canvas>
+                            </div>
                         </div>
                     </div>
+
 
                 </div>
                 <div class="tab-pane" id="DISTRICTVI" role="tabpanel" aria-labelledby="DISTRICTVI-tab">
@@ -655,23 +665,26 @@ include 'Templates/head.php';
                     }
                     ?>
 
-                    <div class="Chartcard2">
-                        <div class="tools">
-                            <div class="circle">
-                                <span class="red box"></span>
+                    <div class="Chartcards">
+                        <div class="Chartcard2">
+                            <div class="tools">
+                                <div class="circle">
+                                    <span class="red box"></span>
+                                </div>
+                                <div class="circle">
+                                    <span class="yellow box"></span>
+                                </div>
+                                <div class="circle">
+                                    <span class="green box"></span>
+                                </div>
                             </div>
-                            <div class="circle">
-                                <span class="yellow box"></span>
-                            </div>
-                            <div class="circle">
-                                <span class="green box"></span>
-                            </div>
-                        </div>
 
-                        <div class="card__content">
-                            <canvas id="stackedbar"></canvas>
+                            <div class="card__content">
+                                <canvas id="stackedbar6"></canvas>
+                            </div>
                         </div>
                     </div>
+
 
 
                 </div>
@@ -683,22 +696,12 @@ include 'Templates/head.php';
 
 
 
-        <script src="charts/DivisionCharts/stackedbar.js"></script>
-
-        <script src="charts/DivisionCharts/stackedbar2.js"></script>
-        <script src="charts/DivisionCharts/piechart2.js"></script>
-
-        <script src="charts/DivisionCharts/stackedbar3.js"></script>
-        <script src="charts/DivisionCharts/piechart3.js"></script>
-
-        <script src="charts/DivisionCharts/stackedbar4.js"></script>
-        <script src="charts/DivisionCharts/piechart4.js"></script>
-
-        <script src="charts/DivisionCharts/stackedbar5.js"></script>
-        <script src="charts/DivisionCharts/piechart5.js"></script>
-
-        <script src="charts/DivisionCharts/stackedbar6.js"></script>
-        <script src="charts/DivisionCharts/piechart6.js"></script>
+        <script src="charts/ElementaryCharts/stackedbar.js"></script>
+        <script src="charts/ElementaryCharts/stackedbar2.js"></script>
+        <script src="charts/ElementaryCharts/stackedbar3.js"></script>
+        <script src="charts/ElementaryCharts/stackedbar4.js"></script>
+        <script src="charts/ElementaryCharts/stackedbar5.js"></script>
+        <script src="charts/ElementaryCharts/stackedbar6.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
