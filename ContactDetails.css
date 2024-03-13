@@ -125,8 +125,18 @@ body {
   .btn-primary {
     border-radius: 25px;
     font-size: 16px;
+    margin-top: 0 !important;
   }
 
+  .savebtn{
+    position: absolute !important;
+    right: 43%;
+    bottom: 10% !important;
+  }
+
+  .row{
+    justify-content: center !important;
+  }
   .inputGroup {
     font-family: "Segoe UI", sans-serif;
     margin: 1em 0 1em 0;

@@ -7,13 +7,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Loop through each district number and fetch data
     districtNumbers.forEach(function(districtNumber) {
-        fetchDataFromPHP(districtNumber, 'stackedbar69_district' + districtNumber);
+        fetchDataFromPHP(districtNumber, 'stackedbarSecondary_district' + districtNumber);
     });
 
     // Function to fetch data from the PHP script for a specific district
     function fetchDataFromPHP(value, canvasId) {
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", "buttonclicked.php", true);
+        xhr.open("POST", "charts/SecondaryCharts/buttonclicked.php", true);
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.onreadystatechange = function () {
             if (xhr.readyState === XMLHttpRequest.DONE) {

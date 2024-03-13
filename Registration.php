@@ -216,56 +216,56 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="row">
                     <div class="col-md-4">
                         <div class="inputGroup">
-                            <input type="text" name="fname" id="fname" required="" autocomplete="off">
+                            <input type="email" name="email" id="email" required="" autocomplete="off">
                             <label for="email">Email Address</label>
                         </div>
                         <div class="inputGroup">
-                            <input type="text" name="mname" id="mname" required="" autocomplete="off">
-                            <label for="email">Password</label>
+                            <input type="text" name="password" id="password" required="" autocomplete="off">
+                            <label for="password">Password</label>
                         </div>
                         <div class="inputGroup">
-                            <input type="text" name="lname" id="lname" required="" autocomplete="off">
-                            <label for="email">Re-enter Password</label>
+                            <input type="text" name="password2" id="password2" required="" autocomplete="off">
+                            <label for="password2">Re-enter Password</label>
                         </div>
                         <div class="inputGroup">
-                            <input type="text" name="employeeno" id="employeeno" required="" autocomplete="off">
-                            <label for="email">School</label>
+                            <input type="text" name="school" id="school" required="" autocomplete="off">
+                            <label for="school">School</label>
                         </div>
 
                     </div>
                     <div class="col-md-4">
                         <div class="inputGroup">
                             <input type="text" name="fname" id="fname" required="" autocomplete="off">
-                            <label for="email">First Name</label>
+                            <label for="fname">First Name</label>
                         </div>
                         <div class="inputGroup">
                             <input type="text" name="lname" id="lname" required="" autocomplete="off">
-                            <label for="email">Last Name</label>
+                            <label for="lname">Last Name</label>
                         </div>
                         <div class="inputGroup">
                             <input type="text" name="employeeno" id="employeeno" required="" autocomplete="off">
-                            <label for="email">Employee Number</label>
+                            <label for="employeeno">Employee Number</label>
                         </div>
                         <div class="inputGroup">
-                            <input type="text" name="birthday" id="birthday" required="" autocomplete="off">
-                            <label for="email">Date of Birth</label>
+                            <input type="date" name="birthday" id="birthday" required="" autocomplete="off">
+                            <label for="birthday">Date of Birth</label>
                         </div>
 
                     </div>
                     <div class="col-md-4">
                         <div class="inputGroup">
-                            <input type="text" name="employeeno" id="employeeno" required="" autocomplete="off">
-                            <label for="email">Security Question</label>
+                            <input type="text" name="question" id="question" required="" autocomplete="off">
+                            <label for="question">Security Question</label>
                         </div>
                         <div class="inputGroup">
-                            <input type="text" name="employeeno" id="employeeno" required="" autocomplete="off" placeholder="Answer">
+                            <input type="text" name="answer" id="answer" required="" autocomplete="off" placeholder="Answer">
                         </div>
                         <div class="inputGroup">
-                            <input type="text" name="birthday" id="birthday" required="" autocomplete="off">
-                            <label for="email">Security Question</label>
+                            <input type="text" name="question2" id="question2" required="" autocomplete="off">
+                            <label for="question2">Security Question</label>
                         </div>
                         <div class="inputGroup">
-                            <input type="text" name="employeeno" id="employeeno" required="" autocomplete="off" placeholder="Answer">
+                            <input type="text" name="answer2" id="answer2" required="" autocomplete="off" placeholder="Answer">
                         </div>
                     </div>
 

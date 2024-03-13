@@ -6,12 +6,12 @@ session_start();
 include 'Templates/head.php';
 ?>
 <style>
-   #stackedbar69_district1,
-   #stackedbar69_district2,
-   #stackedbar69_district3,
-   #stackedbar69_district4,
-   #stackedbar69_district5,
-    #stackedbar69_district6 {
+    #stackedbarSecondary_district1,
+    #stackedbarSecondary_district2,
+    #stackedbarSecondary_district3,
+    #stackedbarSecondary_district4,
+    #stackedbarSecondary_district5,
+    #stackedbarSecondary_district6 {
         height: 400px !important;
         width: 80% !important;
 
@@ -287,7 +287,7 @@ include 'Templates/head.php';
                             </div>
 
                             <div class="card__content">
-                                <canvas id="stackedbar69_district1"></canvas>
+                                <canvas id="stackedbarSecondary_district1"></canvas>
                             </div>
                         </div>
                     </div>
@@ -364,7 +364,7 @@ include 'Templates/head.php';
                             </div>
 
                             <div class="card__content">
-                                <canvas id="stackedbar69_district2"></canvas>
+                                <canvas id="stackedbarSecondary_district2"></canvas>
                             </div>
                         </div>
                     </div>
@@ -444,7 +444,7 @@ include 'Templates/head.php';
                             </div>
 
                             <div class="card__content">
-                                <canvas id="stackedbar69_district3"></canvas>
+                                <canvas id="stackedbarSecondary_district3"></canvas>
                             </div>
                         </div>
                     </div>
@@ -523,7 +523,7 @@ include 'Templates/head.php';
                             </div>
 
                             <div class="card__content">
-                                <canvas id="stackedbar69_district4"></canvas>
+                                <canvas id="stackedbarSecondary_district4"></canvas>
                             </div>
                         </div>
                     </div>
@@ -602,7 +602,7 @@ include 'Templates/head.php';
                             </div>
 
                             <div class="card__content">
-                                <canvas id="stackedbar69_district5"></canvas>
+                                <canvas id="stackedbarSecondary_district5"></canvas>
                             </div>
                         </div>
                     </div>
@@ -680,7 +680,7 @@ include 'Templates/head.php';
                             </div>
 
                             <div class="card__content">
-                                <canvas id="stackedbar69_district6"></canvas>
+                                <canvas id="stackedbarSecondary_district6"></canvas>
                             </div>
                         </div>
                     </div>
@@ -696,35 +696,37 @@ include 'Templates/head.php';
 
 
 
-        <script src="stackedbar69.js"></script>
-        
+        <script src="charts/SecondaryCharts/stackedbarSecondary.js"></script>
+
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <script>
             var $j = jQuery.noConflict();
-        $(document).ready(function() {
-            // Function to handle click event on tab items
-            $('.nav-link').click(function() {
-                var value = $(this).attr('value');
-                // Send value to PHP file using AJAX
-                $.ajax({
-                    url: 'buttonclicked.php', // Change this to your PHP file path
-                    method: 'POST',
-                    data: { value: value },
-                    success: function(response) {
-                        // Handle success response if needed
-                        console.log(response);
-                    },
-                    error: function(xhr, status, error) {
-                        // Handle error if needed
-                        console.error(xhr.responseText);
-                    }
+            $(document).ready(function() {
+                // Function to handle click event on tab items
+                $('.nav-link').click(function() {
+                    var value = $(this).attr('value');
+                    // Send value to PHP file using AJAX
+                    $.ajax({
+                        url: 'charts/SecondaryCharts/buttonclicked.php', // Change this to your PHP file path
+                        method: 'POST',
+                        data: {
+                            value: value
+                        },
+                        success: function(response) {
+                            // Handle success response if needed
+                            console.log(response);
+                        },
+                        error: function(xhr, status, error) {
+                            // Handle error if needed
+                            console.error(xhr.responseText);
+                        }
+                    });
                 });
             });
-        });
-    </script>
+        </script>
 </body>
 
 </html>

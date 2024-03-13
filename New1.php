@@ -6,12 +6,12 @@ session_start();
 include 'Templates/head.php';
 ?>
 <style>
-    #stackedbar,
-    #stackedbar2,
-    #stackedbar3,
-    #stackedbar4,
-    #stackedbar5,
-    #stackedbar6 {
+    #stackedbarDivision_district1,
+    #stackedbarDivision_district2,
+    #stackedbarDivision_district3,
+    #stackedbarDivision_district4,
+    #stackedbarDivision_district5,
+    #stackedbarDivision_district6 {
         height: 400px !important;
         width: 80% !important;
     }
@@ -290,7 +290,7 @@ include 'Templates/head.php';
                                 </div>
                             </div>
                             <div class="card__content">
-                                <canvas id="piechart"></canvas>
+                                <canvas id="piechartDivision_district1"></canvas>
                             </div>
                         </div>
                     
@@ -309,7 +309,7 @@ include 'Templates/head.php';
                             </div>
 
                             <div class="card__content">
-                                <canvas id="stackedbar"></canvas>
+                                <canvas id="stackedbarDivision_district1"></canvas>
                             </div>
                         </div>
                     </div>
@@ -393,7 +393,7 @@ include 'Templates/head.php';
                                 </div>
                             </div>
                             <div class="card__content">
-                                <canvas id="piechart2"></canvas>
+                                <canvas id="piechartDivision_district2"></canvas>
                             </div>
                         </div>
 
@@ -411,7 +411,7 @@ include 'Templates/head.php';
                             </div>
 
                             <div class="card__content">
-                                <canvas id="stackedbar2"></canvas>
+                                <canvas id="stackedbarDivision_district2"></canvas>
                             </div>
                         </div>
                     </div>
@@ -497,7 +497,7 @@ Where schooldistrict = 3";
                                 </div>
                             </div>
                             <div class="card__content">
-                                <canvas id="piechart3"></canvas>
+                                <canvas id="piechartDivision_district3"></canvas>
                             </div>
                         </div>
 
@@ -515,7 +515,7 @@ Where schooldistrict = 3";
                             </div>
 
                             <div class="card__content">
-                                <canvas id="stackedbar3"></canvas>
+                                <canvas id="stackedbarDivision_district3"></canvas>
                             </div>
                         </div>
                     </div>
@@ -600,7 +600,7 @@ Where schooldistrict = 4";
                                 </div>
                             </div>
                             <div class="card__content">
-                                <canvas id="piechart4"></canvas>
+                                <canvas id="piechartDivision_district4"></canvas>
                             </div>
                         </div>
 
@@ -618,7 +618,7 @@ Where schooldistrict = 4";
                             </div>
 
                             <div class="card__content">
-                                <canvas id="stackedbar4"></canvas>
+                                <canvas id="stackedbarDivision_district4"></canvas>
                             </div>
                         </div>
                     </div>
@@ -703,7 +703,7 @@ Where schooldistrict = 5";
                                 </div>
                             </div>
                             <div class="card__content">
-                                <canvas id="piechart5"></canvas>
+                                <canvas id="piechartDivision_district5"></canvas>
                             </div>
                         </div>
 
@@ -721,7 +721,7 @@ Where schooldistrict = 5";
                             </div>
 
                             <div class="card__content">
-                                <canvas id="stackedbar5"></canvas>
+                                <canvas id="stackedbarDivision_district5"></canvas>
                             </div>
                         </div>
                     </div>
@@ -806,7 +806,7 @@ Where schooldistrict = 6";
                                 </div>
                             </div>
                             <div class="card__content">
-                                <canvas id="piechart6"></canvas>
+                                <canvas id="piechartDivision_district6"></canvas>
                             </div>
                         </div>
 
@@ -824,7 +824,7 @@ Where schooldistrict = 6";
                             </div>
 
                             <div class="card__content">
-                                <canvas id="stackedbar6"></canvas>
+                                <canvas id="stackedbarDivision_district6"></canvas>
                             </div>
                         </div>
                     </div>
@@ -839,26 +839,45 @@ Where schooldistrict = 6";
 
 
 
-        <script src="charts/DivisionCharts/stackedbar.js"></script>
-        <script src="charts/DivisionCharts/piechart.js"></script>
-        <script src="charts/DivisionCharts/stackedbar2.js"></script>
-        <script src="charts/DivisionCharts/piechart2.js"></script>
-
-        <script src="charts/DivisionCharts/stackedbar3.js"></script>
-        <script src="charts/DivisionCharts/piechart3.js"></script>
-
-        <script src="charts/DivisionCharts/stackedbar4.js"></script>
-        <script src="charts/DivisionCharts/piechart4.js"></script>
-
-        <script src="charts/DivisionCharts/stackedbar5.js"></script>
-        <script src="charts/DivisionCharts/piechart5.js"></script>
-
-        <script src="charts/DivisionCharts/stackedbar6.js"></script>
-        <script src="charts/DivisionCharts/piechart6.js"></script>
+        <script src="charts/DivisionCharts/stackedbarDivision.js"></script>
+        <script src="charts/DivisionCharts/piechartDivision.js"></script>
+        
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script>
+    var $j = jQuery.noConflict();
+    $(document).ready(function() {
+        // Define an array of URLs
+        var urls = ['charts/DivisionCharts/buttonclickstackedbar.php', 'charts/DivisionCharts/buttonclickpiechart.php'];
+
+        // Function to handle click event on tab items
+        $('.nav-link').click(function() {
+            var value = $(this).attr('value');
+
+            // Iterate over each URL and send AJAX request
+            urls.forEach(function(url) {
+                $.ajax({
+                    url: url, // Use the current URL in the iteration
+                    method: 'POST',
+                    data: {
+                        value: value
+                    },
+                    success: function(response) {
+                        // Handle success response if needed
+                        console.log(response);
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle error if needed
+                        console.error(xhr.responseText);
+                    }
+                });
+            });
+        });
+    });
+</script>
+
 </body>
 
 </html>

@@ -1,28 +1,45 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Function to fetch data from the PHP script
-    function fetchDataFromPHP() {
+     // Declare an array to store myChart instances
+     var myCharts = {};
+
+     // Array of district numbers
+     var districtNumbers = ['1', '2', '3', '4', '5', '6'];
+ 
+     // Loop through each district number and fetch data
+     districtNumbers.forEach(function(districtNumber) {
+         fetchDataFromPHP(districtNumber, 'piechartDivision_district' + districtNumber);
+     });
+
+
+
+    // Function to fetch data from the PHP script for a specific district
+    function fetchDataFromPHP(value, canvasId) {
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'charts/DivisionCharts/schoolcount5.php', true); // Replace 'your_php_script.php' with the path to your PHP script
-        xhr.onreadystatechange = function() {
+        xhr.open("POST", "charts/DivisionCharts/buttonclickpiechart.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function () {
             if (xhr.readyState === XMLHttpRequest.DONE) {
                 if (xhr.status === 200) {
+                    console.log(xhr.responseText); // Log the response from the server
+                    // Parse the response as JSON
                     var data = JSON.parse(xhr.responseText);
                     // Call function to update chart with fetched data
-                    updateChart(data);
+                    updateChart(data, canvasId, value);
                 } else {
-                    console.error('Error fetching data: ' + xhr.status);
+                    console.error("Error fetching data: " + xhr.status);
                 }
             }
         };
-        xhr.send();
+        xhr.send("value=" + encodeURIComponent(value));
     }
 
     // Function to update the chart with fetched data
-    function updateChart(data) {
+    function updateChart(data, canvasId, districtNumber) {
         // Calculate sums for Elementary, High School, and SHS categories
         const elementarySum = data.find(item => item.label === 'ELEMENTARY').value;
         const highSchoolSum = data.find(item => item.label === 'HIGH SCHOOL').value;
         const shsSum = data.find(item => item.label === 'SHS').value;
+        const districtName = getDistrictName(districtNumber);
 
         // Calculate overall total as the sum of Elementary, High School, and SHS counts
         const overallTotal = elementarySum + highSchoolSum + shsSum;
@@ -46,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 plugins: {
                     title: {
                         display: true,
-                        text: 'DISTRICT V SCHOOLS' // Your desired title here
+                        text: ' TEACHERS IN DISTRICT ' + districtName,
                     },
                     tooltip: {
                         callbacks: {
@@ -60,13 +77,13 @@ document.addEventListener("DOMContentLoaded", function() {
                             },
                             afterLabel: function(context) {
                                 if (context.dataIndex === 0) {
-                                    return 'Total Elementary: ' + elementarySum, 'Total School in DISTRICT V: '  + overallTotal ;
+                                    return 'Total Elementary: ' + elementarySum, 'Total School in DISTRICT I: '  + overallTotal ;
                                    
                                 } else if (context.dataIndex === 1) {
-                                    return 'Total High School: ' + highSchoolSum, 'Total School in DISTRICT V: '  + overallTotal ;
+                                    return 'Total High School: ' + highSchoolSum, 'Total School in DISTRICT I: '  + overallTotal ;
                                     
                                 } else if (context.dataIndex === 2) {
-                                    return 'Total SHS: ' + shsSum, 'Total School in DISTRICT V: ' + overallTotal;
+                                    return 'Total SHS: ' + shsSum, 'Total School in DISTRICT I: ' + overallTotal;
                                     
                                 } 
                             }
@@ -76,10 +93,20 @@ document.addEventListener("DOMContentLoaded", function() {
             } // Close options object
         }; // Close config object
 
-        const ctx = document.getElementById('piechart5');
-        new Chart(ctx, config);
-    } // Close updateChart function
+       const ctx = document.getElementById(canvasId);
 
-    // Call the function to fetch data from PHP when the DOM content is loaded
-    fetchDataFromPHP();
+        // Check if myChart for the specified index already exists
+        if (myCharts[canvasId]) {
+            myCharts[canvasId].destroy(); // Destroy existing chart
+        }
+
+        // Create a new chart instance and store it in the array
+        myCharts[canvasId] = new Chart(ctx, config);
+    }
+
+    // Function to get the district name based on the district number
+    function getDistrictName(districtNumber) {
+        const romanNumerals = ["I", "II", "III", "IV", "V", "VI"]; // Roman numerals for districts
+        return romanNumerals[districtNumber - 1]; // Adjust index since array starts from 0
+    }
 });

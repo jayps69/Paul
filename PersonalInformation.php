@@ -394,7 +394,7 @@ session_start();
             <h1>PERSONAL INFORMATION</h1>
 
             <div class="PersonalInfo-box">
-                <div class="row">
+                <div class="row" style="margin-left:30px;">
                     <div class="col-md-3 responsive-col">
                         <!-------First section------->
                         <div class="inputGroup d-flex ">  

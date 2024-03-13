@@ -60,7 +60,7 @@ function confirmLogout() {
   var result = confirm("Are you sure you want to logout?");
   if (result) {
     // If user confirms, redirect to logout page
-    window.location.href = "logout.php"; // Redirect to logout.php for server-side logout
+    window.location.href = "logout1.php"; // Redirect to logout.php for server-side logout
   }
 }
 </script>

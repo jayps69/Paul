@@ -6,12 +6,12 @@ session_start();
 include 'Templates/head.php';
 ?>
 <style>
-    #stackedbarElementary_district1,
-    #stackedbarElementary_district2,
-    #stackedbarElementary_district3,
-    #stackedbarElementary_district4,
-    #stackedbarElementary_district5,
-    #stackedbarElementary_district6 {
+    #stackedbarShs_district1,
+    #stackedbarShs_district2,
+    #stackedbarShs_district3,
+    #stackedbarShs_district4,
+    #stackedbarShs_district5,
+    #stackedbarShs_district6 {
         height: 400px !important;
         width: 80% !important;
 
@@ -173,7 +173,7 @@ include 'Templates/head.php';
             include 'Templates/header.php';
             ?>
 
-            <h1>Elementary Dashboard</h1>
+            <h1>SHS Dashboard</h1>
 
             <div class="cycle-tab-container">
                 <ul class="nav nav-tabs">
@@ -230,7 +230,7 @@ include 'Templates/head.php';
                         SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
                         
                         FROM personalinfotbl
-                        Where schooldistrict = 1 And level = 'Elementary'";
+                        Where schooldistrict = 1 And level = 'Shs'";
 
                     $result = $conn->query($sql);
 
@@ -287,7 +287,7 @@ include 'Templates/head.php';
                             </div>
 
                             <div class="card__content">
-                                <canvas id="stackedbarElementary_district1"></canvas>
+                                <canvas id="stackedbarShs_district1"></canvas>
                             </div>
                         </div>
                     </div>
@@ -307,7 +307,7 @@ include 'Templates/head.php';
                         SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
                         
                         FROM personalinfotbl
-                        Where schooldistrict = 2 And level = 'Elementary'";
+                        Where schooldistrict = 2 And level = 'Shs'";
 
                     $result = $conn->query($sql);
 
@@ -364,7 +364,7 @@ include 'Templates/head.php';
                             </div>
 
                             <div class="card__content">
-                                <canvas id="stackedbarElementary_district2"></canvas>
+                                <canvas id="stackedbarShs_district2"></canvas>
                             </div>
                         </div>
                     </div>
@@ -387,7 +387,7 @@ include 'Templates/head.php';
                         SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
                         
                         FROM personalinfotbl
-                        Where schooldistrict = 3 And level = 'Elementary'";
+                        Where schooldistrict = 3 And level = 'Shs'";
 
                     $result = $conn->query($sql);
 
@@ -444,7 +444,7 @@ include 'Templates/head.php';
                             </div>
 
                             <div class="card__content">
-                                <canvas id="stackedbarElementary_district3"></canvas>
+                                <canvas id="stackedbarShs_district3"></canvas>
                             </div>
                         </div>
                     </div>
@@ -466,7 +466,7 @@ include 'Templates/head.php';
                         SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
                         
                         FROM personalinfotbl
-                        Where schooldistrict = 4 And level = 'Elementary'";
+                        Where schooldistrict = 4 And level = 'Shs'";
 
                     $result = $conn->query($sql);
 
@@ -523,7 +523,7 @@ include 'Templates/head.php';
                             </div>
 
                             <div class="card__content">
-                                <canvas id="stackedbarElementary_district4"></canvas>
+                                <canvas id="stackedbarShs_district4"></canvas>
                             </div>
                         </div>
                     </div>
@@ -545,7 +545,7 @@ include 'Templates/head.php';
                         SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
                         
                         FROM personalinfotbl
-                        Where schooldistrict = 5 And level = 'Elementary'";
+                        Where schooldistrict = 5 And level = 'Shs'";
 
                     $result = $conn->query($sql);
 
@@ -602,7 +602,7 @@ include 'Templates/head.php';
                             </div>
 
                             <div class="card__content">
-                                <canvas id="stackedbarElementary_district5"></canvas>
+                                <canvas id="stackedbarShs_district5"></canvas>
                             </div>
                         </div>
                     </div>
@@ -623,7 +623,7 @@ include 'Templates/head.php';
                         SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
     
                         FROM personalinfotbl
-                        Where schooldistrict = 6 And level = 'Elementary'";
+                        Where schooldistrict = 6 And level = 'Shs'";
 
                     $result = $conn->query($sql);
 
@@ -680,7 +680,7 @@ include 'Templates/head.php';
                             </div>
 
                             <div class="card__content">
-                                <canvas id="stackedbarElementary_district6"></canvas>
+                                <canvas id="stackedbarShs_district6"></canvas>
                             </div>
                         </div>
                     </div>
@@ -696,7 +696,7 @@ include 'Templates/head.php';
 
 
 
-        <script src="charts/ElementaryCharts/stackedbarElementary.js"></script>
+        <script src="charts/ShsCharts/stackedbarShs.js"></script>
         
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 
@@ -706,7 +706,7 @@ include 'Templates/head.php';
     var $j = jQuery.noConflict();
     $(document).ready(function() {
         // Define an array of URLs
-        var urls = ['charts/ElementaryCharts/buttonclickstackedbar.php'];
+        var urls = ['charts/ShsCharts/buttonclickstackedbar.php'];
 
         // Function to handle click event on tab items
         $('.nav-link').click(function() {
