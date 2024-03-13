@@ -1,12 +1,12 @@
 
 <div id="sidebar">
       <div class="navbar-brand">
-        <img src="Images/Logonobg.gif" alt="Logo" class="d-inline-block align-top">
+        <img src="../Images/Logonobg.gif" alt="Logo" class="d-inline-block align-top">
       </div>
       <nav class="navbar">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="New1.php">
+            <a class="nav-link" href="DivisionDashboard.php">
               <i class="fas fa-user"></i><span>DIVISION</span>
             </a>
           </li>
@@ -60,7 +60,7 @@ function confirmLogout() {
   var result = confirm("Are you sure you want to logout?");
   if (result) {
     // If user confirms, redirect to logout page
-    window.location.href = "logout1.php"; // Redirect to logout.php for server-side logout
+    window.location.href = "Admin/logout1.php"; // Redirect to logout.php for server-side logout
   }
 }
 </script>

@@ -8,6 +8,6 @@ $_SESSION = array();
 session_destroy();
 
 // Redirect to the login page
-header("Location: adminlogin.php");
+header("Location: Admin/adminlogin.php");
 exit;
 ?>

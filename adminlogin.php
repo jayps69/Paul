@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Set session variable for picture
             $_SESSION["photo"] = $picture;
             // Redirect to home page or dashboard
-            header("location: New1.php");
+            header("location: Admin/DivisionDashboard.php");
         } else {
             // Password is incorrect
             $error_message = "Invalid username or password";

@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to fetch data from the PHP script for a specific district
     function fetchDataFromPHP(value, canvasId) {
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", "charts/SecondaryCharts/buttonclicked.php", true);
+        xhr.open("POST", "../charts/SecondaryCharts/buttonclicked.php", true);
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.onreadystatechange = function () {
             if (xhr.readyState === XMLHttpRequest.DONE) {

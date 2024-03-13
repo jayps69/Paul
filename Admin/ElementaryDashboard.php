@@ -3,15 +3,15 @@ session_start();
 ?>
 
 <?php
-include 'Templates/head.php';
+include '../Templates/adminhead.php';
 ?>
 <style>
-    #stackedbarSecondary_district1,
-    #stackedbarSecondary_district2,
-    #stackedbarSecondary_district3,
-    #stackedbarSecondary_district4,
-    #stackedbarSecondary_district5,
-    #stackedbarSecondary_district6 {
+    #stackedbarElementary_district1,
+    #stackedbarElementary_district2,
+    #stackedbarElementary_district3,
+    #stackedbarElementary_district4,
+    #stackedbarElementary_district5,
+    #stackedbarElementary_district6 {
         height: 400px !important;
         width: 80% !important;
 
@@ -164,40 +164,40 @@ include 'Templates/head.php';
 
         <!-- Sidebar -->
         <?php
-        include 'Templates/adminsidebar.php';
+         include '../Templates/adminsidebar.php';
         ?>
 
 
         <div id="content">
             <?php
-            include 'Templates/header.php';
+           include '../Templates/adminheader.php';
             ?>
 
-            <h1>Secondary Dashboard</h1>
+            <h1>Elementary Dashboard</h1>
 
             <div class="cycle-tab-container">
                 <ul class="nav nav-tabs">
                     <li class="cycle-tab-item ">
-                        <a class="nav-link active" role="tab" data-toggle="tab" href="#DISTRICTI" value="1" id="DISTRICT I-tab">DISTRICT I</a>
+                        <a class="nav-link active" role="tab" data-toggle="tab" href="#DISTRICTI" id="DISTRICT I-tab">DISTRICT I</a>
                     </li>
                     <li class="cycle-tab-item">
-                        <a class="nav-link" role="tab" data-toggle="tab" href="#DISTRICTII" value="2" id="DISTRICT II-tab">DISTRICT II</a>
+                        <a class="nav-link" role="tab" data-toggle="tab" href="#DISTRICTII" id="DISTRICT II-tab">DISTRICT II</a>
                     </li>
                     <li class="cycle-tab-item">
-                        <a class="nav-link" role="tab" data-toggle="tab" href="#DISTRICTIII" value="3" id="DISTRICT III-tab">DISTRICT
+                        <a class="nav-link" role="tab" data-toggle="tab" href="#DISTRICTIII" id="DISTRICT III-tab">DISTRICT
                             III</a>
                     </li>
                     <li class="cycle-tab-item">
-                        <a class="nav-link" role="tab" data-toggle="tab" href="#DISTRICTIV" value="4" id="DISTRICT IV-tab">DISTRICT
+                        <a class="nav-link" role="tab" data-toggle="tab" href="#DISTRICTIV" id="DISTRICT IV-tab">DISTRICT
                             IV</a>
 
                     </li>
                     <li class="cycle-tab-item">
-                        <a class="nav-link" role="tab" data-toggle="tab" href="#DISTRICTV" value="5" id="DISTRICT V-tab">DISTRICT
+                        <a class="nav-link" role="tab" data-toggle="tab" href="#DISTRICTV" id="DISTRICT V-tab">DISTRICT
                             V</a>
                     </li>
                     <li class="cycle-tab-item">
-                        <a class="nav-link" role="tab" data-toggle="tab" href="#DISTRICTVI" value="6" id="DISTRICT VI-tab">DISTRICT
+                        <a class="nav-link" role="tab" data-toggle="tab" href="#DISTRICTVI" id="DISTRICT VI-tab">DISTRICT
                             VI</a>
                     </li>
                 </ul>
@@ -230,7 +230,7 @@ include 'Templates/head.php';
                         SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
                         
                         FROM personalinfotbl
-                        Where schooldistrict = 1 And level = 'SECONDARY'";
+                        Where schooldistrict = 1 And level = 'Elementary'";
 
                     $result = $conn->query($sql);
 
@@ -287,7 +287,7 @@ include 'Templates/head.php';
                             </div>
 
                             <div class="card__content">
-                                <canvas id="stackedbarSecondary_district1"></canvas>
+                                <canvas id="stackedbarElementary_district1"></canvas>
                             </div>
                         </div>
                     </div>
@@ -307,7 +307,7 @@ include 'Templates/head.php';
                         SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
                         
                         FROM personalinfotbl
-                        Where schooldistrict = 2 And level = 'SECONDARY'";
+                        Where schooldistrict = 2 And level = 'Elementary'";
 
                     $result = $conn->query($sql);
 
@@ -364,7 +364,7 @@ include 'Templates/head.php';
                             </div>
 
                             <div class="card__content">
-                                <canvas id="stackedbarSecondary_district2"></canvas>
+                                <canvas id="stackedbarElementary_district2"></canvas>
                             </div>
                         </div>
                     </div>
@@ -387,7 +387,7 @@ include 'Templates/head.php';
                         SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
                         
                         FROM personalinfotbl
-                        Where schooldistrict = 3 And level = 'SECONDARY'";
+                        Where schooldistrict = 3 And level = 'Elementary'";
 
                     $result = $conn->query($sql);
 
@@ -444,7 +444,7 @@ include 'Templates/head.php';
                             </div>
 
                             <div class="card__content">
-                                <canvas id="stackedbarSecondary_district3"></canvas>
+                                <canvas id="stackedbarElementary_district3"></canvas>
                             </div>
                         </div>
                     </div>
@@ -466,7 +466,7 @@ include 'Templates/head.php';
                         SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
                         
                         FROM personalinfotbl
-                        Where schooldistrict = 4 And level = 'SECONDARY'";
+                        Where schooldistrict = 4 And level = 'Elementary'";
 
                     $result = $conn->query($sql);
 
@@ -523,7 +523,7 @@ include 'Templates/head.php';
                             </div>
 
                             <div class="card__content">
-                                <canvas id="stackedbarSecondary_district4"></canvas>
+                                <canvas id="stackedbarElementary_district4"></canvas>
                             </div>
                         </div>
                     </div>
@@ -545,7 +545,7 @@ include 'Templates/head.php';
                         SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
                         
                         FROM personalinfotbl
-                        Where schooldistrict = 5 And level = 'SECONDARY'";
+                        Where schooldistrict = 5 And level = 'Elementary'";
 
                     $result = $conn->query($sql);
 
@@ -602,7 +602,7 @@ include 'Templates/head.php';
                             </div>
 
                             <div class="card__content">
-                                <canvas id="stackedbarSecondary_district5"></canvas>
+                                <canvas id="stackedbarElementary_district5"></canvas>
                             </div>
                         </div>
                     </div>
@@ -623,7 +623,7 @@ include 'Templates/head.php';
                         SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
     
                         FROM personalinfotbl
-                        Where schooldistrict = 6 And level = 'SECONDARY'";
+                        Where schooldistrict = 6 And level = 'Elementary'";
 
                     $result = $conn->query($sql);
 
@@ -680,7 +680,7 @@ include 'Templates/head.php';
                             </div>
 
                             <div class="card__content">
-                                <canvas id="stackedbarSecondary_district6"></canvas>
+                                <canvas id="stackedbarElementary_district6"></canvas>
                             </div>
                         </div>
                     </div>
@@ -696,37 +696,43 @@ include 'Templates/head.php';
 
 
 
-        <script src="charts/SecondaryCharts/stackedbarSecondary.js"></script>
-
+        <script src="../charts/ElementaryCharts/stackedbarElementary.js"></script>
+        
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <script>
-            var $j = jQuery.noConflict();
-            $(document).ready(function() {
-                // Function to handle click event on tab items
-                $('.nav-link').click(function() {
-                    var value = $(this).attr('value');
-                    // Send value to PHP file using AJAX
-                    $.ajax({
-                        url: 'charts/SecondaryCharts/buttonclicked.php', // Change this to your PHP file path
-                        method: 'POST',
-                        data: {
-                            value: value
-                        },
-                        success: function(response) {
-                            // Handle success response if needed
-                            console.log(response);
-                        },
-                        error: function(xhr, status, error) {
-                            // Handle error if needed
-                            console.error(xhr.responseText);
-                        }
-                    });
+    var $j = jQuery.noConflict();
+    $(document).ready(function() {
+        // Define an array of URLs
+        var urls = ['../charts/ElementaryCharts/buttonclickstackedbar.php'];
+
+        // Function to handle click event on tab items
+        $('.nav-link').click(function() {
+            var value = $(this).attr('value');
+
+            // Iterate over each URL and send AJAX request
+            urls.forEach(function(url) {
+                $.ajax({
+                    url: url, // Use the current URL in the iteration
+                    method: 'POST',
+                    data: {
+                        value: value
+                    },
+                    success: function(response) {
+                        // Handle success response if needed
+                        console.log(response);
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle error if needed
+                        console.error(xhr.responseText);
+                    }
                 });
             });
-        </script>
+        });
+    });
+</script>
 </body>
 
 </html>

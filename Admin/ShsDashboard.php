@@ -3,7 +3,8 @@ session_start();
 ?>
 
 <?php
-include 'Templates/head.php';
+include '../Templates/adminhead.php';
+
 ?>
 <style>
     #stackedbarShs_district1,
@@ -164,13 +165,14 @@ include 'Templates/head.php';
 
         <!-- Sidebar -->
         <?php
-        include 'Templates/adminsidebar.php';
+        include '../Templates/adminsidebar.php';
         ?>
 
 
         <div id="content">
             <?php
-            include 'Templates/header.php';
+            include '../Templates/adminheader.php';
+
             ?>
 
             <h1>SHS Dashboard</h1>
@@ -696,7 +698,7 @@ include 'Templates/head.php';
 
 
 
-        <script src="charts/ShsCharts/stackedbarShs.js"></script>
+        <script src="../charts/ShsCharts/stackedbarShs.js"></script>
         
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 
@@ -706,7 +708,7 @@ include 'Templates/head.php';
     var $j = jQuery.noConflict();
     $(document).ready(function() {
         // Define an array of URLs
-        var urls = ['charts/ShsCharts/buttonclickstackedbar.php'];
+        var urls = ['../charts/ShsCharts/buttonclickstackedbar.php'];
 
         // Function to handle click event on tab items
         $('.nav-link').click(function() {

@@ -3,7 +3,7 @@ session_start();
 ?>
 
 <?php
-include 'Templates/head.php';
+include '../Templates/adminhead.php';
 ?>
 <style>
     #stackedbarDivision_district1,
@@ -160,13 +160,13 @@ include 'Templates/head.php';
 
         <!-- Sidebar -->
         <?php
-        include 'Templates/adminsidebar.php';
+        include '../Templates/adminsidebar.php';
         ?>
 
 
         <div id="content">
             <?php
-            include 'Templates/header.php';
+            include '../Templates/adminheader.php';
             ?>
 
             <h1>Division Dashboard</h1>
@@ -425,15 +425,15 @@ include 'Templates/head.php';
 
                     // SQL query
                     $sql = "SELECT 
-SUM(CASE WHEN `employmentstatus` = 'active' THEN 1 ELSE 0 END) AS active,
-SUM(CASE WHEN `employmentstatus` = 'inactive' THEN 1 ELSE 0 END) AS inactive,
-SUM(CASE WHEN DATEDIFF(CURDATE(), `birthday`) > 59*365 THEN 1 ELSE 0 END) AS retired,
-SUM(CASE WHEN `statusofappointment` = 'PERMANENT' THEN 1 ELSE 0 END) AS PERMANENT,
-SUM(CASE WHEN `statusofappointment` = 'SUBSTITUTE' THEN 1 ELSE 0 END) AS SUBSTITUTE,
-SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
+                    SUM(CASE WHEN `employmentstatus` = 'active' THEN 1 ELSE 0 END) AS active,
+                    SUM(CASE WHEN `employmentstatus` = 'inactive' THEN 1 ELSE 0 END) AS inactive,
+                    SUM(CASE WHEN DATEDIFF(CURDATE(), `birthday`) > 59*365 THEN 1 ELSE 0 END) AS retired,
+                    SUM(CASE WHEN `statusofappointment` = 'PERMANENT' THEN 1 ELSE 0 END) AS PERMANENT,
+                    SUM(CASE WHEN `statusofappointment` = 'SUBSTITUTE' THEN 1 ELSE 0 END) AS SUBSTITUTE,
+                    SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
 
-FROM personalinfotbl
-Where schooldistrict = 3";
+                        FROM personalinfotbl
+                        Where schooldistrict = 3";
 
                     $result = $conn->query($sql);
 
@@ -528,15 +528,15 @@ Where schooldistrict = 3";
 
                     // SQL query
                     $sql = "SELECT 
-SUM(CASE WHEN `employmentstatus` = 'active' THEN 1 ELSE 0 END) AS active,
-SUM(CASE WHEN `employmentstatus` = 'inactive' THEN 1 ELSE 0 END) AS inactive,
-SUM(CASE WHEN DATEDIFF(CURDATE(), `birthday`) > 59*365 THEN 1 ELSE 0 END) AS retired,
-SUM(CASE WHEN `statusofappointment` = 'PERMANENT' THEN 1 ELSE 0 END) AS PERMANENT,
-SUM(CASE WHEN `statusofappointment` = 'SUBSTITUTE' THEN 1 ELSE 0 END) AS SUBSTITUTE,
-SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
+                    SUM(CASE WHEN `employmentstatus` = 'active' THEN 1 ELSE 0 END) AS active,
+                    SUM(CASE WHEN `employmentstatus` = 'inactive' THEN 1 ELSE 0 END) AS inactive,
+                    SUM(CASE WHEN DATEDIFF(CURDATE(), `birthday`) > 59*365 THEN 1 ELSE 0 END) AS retired,
+                    SUM(CASE WHEN `statusofappointment` = 'PERMANENT' THEN 1 ELSE 0 END) AS PERMANENT,
+                    SUM(CASE WHEN `statusofappointment` = 'SUBSTITUTE' THEN 1 ELSE 0 END) AS SUBSTITUTE,
+                    SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
 
-FROM personalinfotbl
-Where schooldistrict = 4";
+                        FROM personalinfotbl
+                        Where schooldistrict = 4";
 
                     $result = $conn->query($sql);
 
@@ -631,15 +631,15 @@ Where schooldistrict = 4";
 
                     // SQL query
                     $sql = "SELECT 
-SUM(CASE WHEN `employmentstatus` = 'active' THEN 1 ELSE 0 END) AS active,
-SUM(CASE WHEN `employmentstatus` = 'inactive' THEN 1 ELSE 0 END) AS inactive,
-SUM(CASE WHEN DATEDIFF(CURDATE(), `birthday`) > 59*365 THEN 1 ELSE 0 END) AS retired,
-SUM(CASE WHEN `statusofappointment` = 'PERMANENT' THEN 1 ELSE 0 END) AS PERMANENT,
-SUM(CASE WHEN `statusofappointment` = 'SUBSTITUTE' THEN 1 ELSE 0 END) AS SUBSTITUTE,
-SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
+                    SUM(CASE WHEN `employmentstatus` = 'active' THEN 1 ELSE 0 END) AS active,
+                    SUM(CASE WHEN `employmentstatus` = 'inactive' THEN 1 ELSE 0 END) AS inactive,
+                    SUM(CASE WHEN DATEDIFF(CURDATE(), `birthday`) > 59*365 THEN 1 ELSE 0 END) AS retired,
+                    SUM(CASE WHEN `statusofappointment` = 'PERMANENT' THEN 1 ELSE 0 END) AS PERMANENT,
+                    SUM(CASE WHEN `statusofappointment` = 'SUBSTITUTE' THEN 1 ELSE 0 END) AS SUBSTITUTE,
+                    SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
 
-FROM personalinfotbl
-Where schooldistrict = 5";
+                        FROM personalinfotbl
+                        Where schooldistrict = 5";
 
                     $result = $conn->query($sql);
 
@@ -734,15 +734,15 @@ Where schooldistrict = 5";
 
                     // SQL query
                     $sql = "SELECT 
-SUM(CASE WHEN `employmentstatus` = 'active' THEN 1 ELSE 0 END) AS active,
-SUM(CASE WHEN `employmentstatus` = 'inactive' THEN 1 ELSE 0 END) AS inactive,
-SUM(CASE WHEN DATEDIFF(CURDATE(), `birthday`) > 59*365 THEN 1 ELSE 0 END) AS retired,
-SUM(CASE WHEN `statusofappointment` = 'PERMANENT' THEN 1 ELSE 0 END) AS PERMANENT,
-SUM(CASE WHEN `statusofappointment` = 'SUBSTITUTE' THEN 1 ELSE 0 END) AS SUBSTITUTE,
-SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
+                    SUM(CASE WHEN `employmentstatus` = 'active' THEN 1 ELSE 0 END) AS active,
+                    SUM(CASE WHEN `employmentstatus` = 'inactive' THEN 1 ELSE 0 END) AS inactive,
+                    SUM(CASE WHEN DATEDIFF(CURDATE(), `birthday`) > 59*365 THEN 1 ELSE 0 END) AS retired,
+                    SUM(CASE WHEN `statusofappointment` = 'PERMANENT' THEN 1 ELSE 0 END) AS PERMANENT,
+                    SUM(CASE WHEN `statusofappointment` = 'SUBSTITUTE' THEN 1 ELSE 0 END) AS SUBSTITUTE,
+                    SUM(CASE WHEN `statusofappointment` = 'PROVISIONARY' THEN 1 ELSE 0 END) AS PROVISIONARY
 
-FROM personalinfotbl
-Where schooldistrict = 6";
+                        FROM personalinfotbl
+                        Where schooldistrict = 6";
 
                     $result = $conn->query($sql);
 
@@ -839,8 +839,8 @@ Where schooldistrict = 6";
 
 
 
-        <script src="charts/DivisionCharts/stackedbarDivision.js"></script>
-        <script src="charts/DivisionCharts/piechartDivision.js"></script>
+        <script src="../charts/DivisionCharts/stackedbarDivision.js"></script>
+        <script src="../charts/DivisionCharts/piechartDivision.js"></script>
         
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 
@@ -850,7 +850,7 @@ Where schooldistrict = 6";
     var $j = jQuery.noConflict();
     $(document).ready(function() {
         // Define an array of URLs
-        var urls = ['charts/DivisionCharts/buttonclickstackedbar.php', 'charts/DivisionCharts/buttonclickpiechart.php'];
+        var urls = ['../charts/DivisionCharts/buttonclickstackedbar.php', '../charts/DivisionCharts/buttonclickpiechart.php'];
 
         // Function to handle click event on tab items
         $('.nav-link').click(function() {
