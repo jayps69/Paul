@@ -126,14 +126,14 @@ include '../Templates/adminhead.php';
                     <label2 for="level">Level</label2>
                 </div>
                 <div class="inputGroup">
-                    <select required="" autocomplete="off" id="district" name="district">
-                        <option value="ALL">ALL</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
+                    <select required="" autocomplete="off" id="district" name="district" >
+                        <option value="ALL" id="ALL">ALL</option>
+                        <option value="1" id="1">1</option>
+                        <option value="2" id="2">2</option>
+                        <option value="3" id="3">3</option>
+                        <option value="4" id="4">4</option>
+                        <option value="5" id="5">5</option>
+                        <option value="6" id="6">6</option>
                     </select>
                     <label2 for="district">District</label2>
                 </div>
@@ -152,7 +152,7 @@ include '../Templates/adminhead.php';
                                 echo "<option value='" . "". "'>" . "" . "</option>";
                                 while ($row = mysqli_fetch_assoc($result)) {
                                   
-                                    echo "<option value='" . $row['district'] . "'>" . $row['schoolname'] . "</option>";
+                                    echo "<option value='" . $row['schoolname'] . "' id='" . $row['district'] . "'>" . $row['schoolname'] . "</option>";
                                 }
 
                                 // Free result set
@@ -162,8 +162,7 @@ include '../Templates/adminhead.php';
                                 echo "<option value=''>Error retrieving schools</option>";
                             }
 
-                            // Close the database connection
-                            mysqli_close($conn);
+                          
                     ?>
                     </select>
                     <label2 for="school">School</label2>
@@ -195,12 +194,34 @@ include '../Templates/adminhead.php';
                 </div>
                 <div class="inputGroup">
                     <select required="" autocomplete="off" id="specialization" name="specialization">
-                        <option value="1">District 1</option>
-                        <option value="2">District 2</option>
-                        <option value="3">District 3</option>
-                        <option value="4">District 4</option>
-                        <option value="5">District 5</option>
-                        <option value="6">District 6</option>
+                        
+                    <?php
+                            // Assuming you've already connected to your database
+
+                            // Perform a query to fetch schools from your database
+                            $query = "SELECT specializationsubject FROM subjectstbl";
+                            $result = mysqli_query($conn, $query);
+
+                            // Check if the query was successful
+                            if ($result) {
+                                // Loop through the results and create an option for each school
+                                echo "<option value='" . "". "'>" . "" . "</option>";
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                  
+                                    echo "<option value='" . $row['specializationsubject'] . "' >" . $row['specializationsubject'] . "</option>";
+                                }
+
+                                // Free result set
+                                mysqli_free_result($result);
+                            } else {
+                                // If the query fails, display an error message
+                                echo "<option value=''>Error retrieving schools</option>";
+                            }
+
+                            // Close the database connection
+                            mysqli_close($conn);
+                    ?>
+
                     </select>
                     <label2 for="specialization">Specialization</label2>
                 </div>
@@ -226,6 +247,7 @@ include '../Templates/adminhead.php';
 
         </div>
     </div>
+    
 
     
 </body>
