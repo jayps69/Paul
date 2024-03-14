@@ -80,15 +80,15 @@ $(document).ready(function() {
         columns: [
             { data: 'itemnopinagtibay' },
             { data: 'full_name',
-              render: function(data, type, row, meta) {
-                  // Assuming the second column contains the full name
-                  if (type === 'display') {
-                      // Return a hyperlink
-                      return '<a href="another_page.php?id=' + row['id'] + '">' + data + '</a>';
-                  }
-                  return data;
+                render: function(data, type, row, meta) {
+              // Assuming the second column contains the full name
+              if (type === 'display') {
+                  // Return a hyperlink
+                  return '<a href="EmployeeDetails.php?id=' + row.userid + '">' + data + '</a>';
               }
-            },
+              return data;
+          }
+        },
             { data: 'presentposition' },
             { data: 'gender' },
             { data: 'schoolname' }
@@ -115,19 +115,28 @@ $(document).ready(function() {
         ]
     });
 
-    // Fetch data using AJAX
-    $.ajax({
-        url: 'Employeedatatable.php',
-        dataType: 'json',
-        success: function(data) {
+   // Fetch data using AJAX
+$.ajax({
+    url: 'Employeedatatable.php',
+    dataType: 'json',
+    success: function(data) {
+        if (data && data.length > 0) {
             table.clear().rows.add(data).draw();
+        } else {
+            console.error("No data returned from the server");
+            // You can show an alert or handle the absence of data in any appropriate way here
         }
-    });
+    },
+    error: function(xhr, status, error) {
+        console.error("An error occurred while fetching data:", status, error);
+        // You can show an alert or handle the error in any appropriate way here
+    }
+});
 
-   
+
     // Bind the search event for DataTables
     $('#example').on('search.dt', function() {
-        var searchValue = table.search().trim(); // Trim whitespace from search value
+        var searchValue = table.search().trim(); 
 
         // Hide the table body if the search value is empty
         if (searchValue === '') {
@@ -136,10 +145,9 @@ $(document).ready(function() {
             $('#example tbody').show();
         }
     });
-
-    
 });
 </script>
+
 
 
 

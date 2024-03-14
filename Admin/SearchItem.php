@@ -81,15 +81,15 @@ $(document).ready(function() {
         columns: [
             { data: 'itemnopinagtibay' },
             { data: 'full_name',
-              render: function(data, type, row, meta) {
-                  // Assuming the second column contains the full name
-                  if (type === 'display') {
-                      // Return a hyperlink
-                      return '<a href="another_page.php?id=' + row['id'] + '">' + data + '</a>';
-                  }
-                  return data;
+                render: function(data, type, row, meta) {
+              // Assuming the second column contains the full name
+              if (type === 'display') {
+                  // Return a hyperlink
+                  return '<a href="EmployeeDetails.php?id=' + row.userid + '">' + data + '</a>';
               }
-            },
+              return data;
+          }
+        },
             { data: 'presentposition' },
             { data: 'firstdayofservice' },
             { data: 'schooldistrict' },
