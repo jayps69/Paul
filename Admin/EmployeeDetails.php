@@ -10,6 +10,9 @@ session_start();
     <title>Personal Information</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.0/css/dataTables.bootstrap5.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.0/css/responsive.bootstrap5.css">
 
     <style>
         body {
@@ -122,6 +125,11 @@ session_start();
             font-size: 14px;
         }
 
+        .nav {
+
+            margin-bottom: 1rem;
+        }
+
         #content {
             width: 100%;
             padding: 15px;
@@ -132,6 +140,17 @@ session_start();
             font-weight: bold;
         }
 
+        thead,
+        th {
+
+            text-align: center !important;
+            vertical-align: middle !important;
+        }
+
+        td {
+            text-align: center !important;
+            vertical-align: middle !important;
+        }
 
         .PersonalInfo-box {
             border: 1px solid #007bff;
@@ -144,8 +163,10 @@ session_start();
             width: 100%;
             transition: height 0.5s ease;
             box-shadow: 10px 8px 5px 0px rgba(0, 0, 0, 0.18);
+            overflow-y: scroll;
+            overflow-x: hidden;
 
-      
+
 
         }
 
@@ -178,8 +199,9 @@ session_start();
             color: rgb(100, 100, 100);
             top: 0;
             z-index: 2;
-            /* Add this line */
+
         }
+
         .inputGroup label2 {
             font-size: 100%;
             font-weight: bold;
@@ -187,9 +209,10 @@ session_start();
             margin-left: 1.3em;
 
         }
-        
 
-        .inputGroup :is(input:focus, input:valid)~label {
+
+        .inputGroup :is(input:focus, input:valid)~label,
+        .inputGroup input[readonly]~label {
             transform: translateY(-75%) scale(0.9);
             margin: 0em;
             margin-left: 1em;
@@ -203,15 +226,14 @@ session_start();
             margin-top: 0.1rem;
             margin-bottom: 0.1rem;
         }
+
         .longlabel {
             font-size: 10px !important;
         }
 
-        .profilephoto{
-            height: 41.65%;
 
-        }
-        .profilephoto img{
+
+        .profilephoto img {
             margin-top: 2em;
             object-fit: contain;
             height: 150px;
@@ -219,6 +241,7 @@ session_start();
             border: 2px solid rgb(200, 200, 200);
             border-radius: 20px;
         }
+
         @media (max-width: 1250px) {
             .row {
                 justify-content: center;
@@ -279,7 +302,7 @@ session_start();
 
         @media (max-width: 875px) {
             #sidebar {
-                width: 70px;
+                width: 100px;
             }
 
             #sidebar .navbar-nav {
@@ -340,329 +363,269 @@ session_start();
 
         <div id="content">
             <?php
-            include '../Templates/adminheader.php'
+            include '../Templates/adminheader.php';
             ?>
-            <?php
-    // Check if the 'id' parameter exists in the URL
-if(isset($_GET['id'])) {
-    $userId = $_GET['id'];
 
-    // Query to retrieve the data from the database
-    $sql = "SELECT u.photo, p.employeeno, p.lastname, p.firstname, p.middlename,  p.extensionname, 
-            p.depedemail, p.addressstreet, p.addressbarangay, p.addressdistrict, p.addresscity, p.birthday, p.age, 
-            p.contactno, p.gender, p.civilstatus, p.gsisno, p.philhealthno, p.birno, p.pagibigno, p.presentposition, 
-            p.statusofappointment, p.natureofappointment, p.firstdayofservice, p.salarygrade, p.step, p.monthlysalary, 
-            p.itemnopinagtibay, p.level, p.specialization, p.schooldistrict, p.schoolname, p.detailed
-    FROM personalinfotbl AS p
-    INNER JOIN user_tbl AS u ON p.userid= u.userid
-    WHERE u.userid = ?"; // Modify your_table_name according to your database structure
-
-    // Include your connection script
-    include("../connection.php");
-
-    // Prepare and bind the statement
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $userId);
-
-    // Execute the statement
-    $stmt->execute();
-
-    // Bind the result variables
-    $stmt->bind_result(
-        $photo,
-        $employeeno,
-        $lastname,
-        $firstname,
-        $middlename,
-        $extensionname,
-        $depedemail,
-        $addressstreet,
-        $addressbarangay,
-        $addressdistrict,
-        $addresscity,
-        $birthday,
-        $age,
-        $contactno,
-        $gender,
-        $civilstatus,
-        $gsisno,
-        $philhealthno,
-        $birno,
-        $pagibigno,
-        $presentposition,
-        $statusofappointment,
-        $natureofappointment,
-        $firstdayofservice,
-        $salarygrade,
-        $step,
-        $monthlysalary,
-        $itemnopinagtibay,
-        $level,
-        $specialization,
-        $schooldistrict,
-        $schoolname,
-        $detailed
-    );
-
-    // Fetch the data
-    $stmt->fetch();
-
-    // Close the statement
-    $stmt->close();
-
-    // Close the connection
-    $conn->close();
-}
-            ?>
-            <h1>PERSONAL INFORMATION</h1>
-
+            <h1 id="tabTitle">Personal Information</h1>
             <div class="cycle-tab-container">
-              <ul class="nav nav-tabs">
-                  <li class="cycle-tab-item ">
-                      <a class="nav-link active" role="tab" data-toggle="tab" href="#UNITHEADS" id="Unithead-tab">Personal Information</a>
-                      <div class="progress" style="height: 4px; margin-bottom: -4px;">
-                          <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                  </li>
-                  <li class="cycle-tab-item">
-                      <a class="nav-link" role="tab" data-toggle="tab" href="#DEVELOPER" id="Developer-tab">Contact No</a>
-                      <div class="progress" style="height: 4px; margin-bottom: -4px;">
-                          <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                  </li>
-                  <li class="cycle-tab-item">
-                      <a class="nav-link" role="tab" data-toggle="tab" href="#ICTTEAM" id="Ictteam-tab">Work History</a>
-                      <div class="progress" style="height: 4px; margin-bottom: -4px;">
-                          <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                  </li>
-                  <li class="cycle-tab-item">
-                      <a class="nav-link" role="tab" data-toggle="tab" href="#ADVISER" id="Adviser-tab">Education</a>
-                      <div class="progress" style="height: 4px; margin-bottom: -4px;">
-                          <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                  </li>
-                  <li class="cycle-tab-item">
-                      <a class="nav-link" role="tab" data-toggle="tab" href="#ADVISER" id="Adviser-tab">Eligibility</a>
-                      <div class="progress" style="height: 4px; margin-bottom: -4px;">
-                          <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                  </li>
-                  <li class="cycle-tab-item">
-                      <a class="nav-link" role="tab" data-toggle="tab" href="#ADVISER" id="Adviser-tab">Training</a>
-                      <div class="progress" style="height: 4px; margin-bottom: -4px;">
-                          <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                  </li>
-                  <li class="cycle-tab-item">
-                      <a class="nav-link" role="tab" data-toggle="tab" href="#ADVISER" id="Adviser-tab">Skill</a>
-                      <div class="progress" style="height: 4px; margin-bottom: -4px;">
-                          <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div>
-                  </li>
-              </ul>
+                <ul class="nav nav-tabs">
+                    <li class="cycle-tab-item ">
+                        <a class="nav-link active" role="tab" data-toggle="tab" href="#PersonalInfo"
+                            id="PersonalInfo-tab">Personal Information</a>
+
+
+                        <div class="progress" style="height: 4px; margin-bottom: -4px;">
+                            <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuemin="0"
+                                aria-valuemax="100"></div>
+                        </div>
+                    </li>
+                    <li class="cycle-tab-item">
+                        <a class="nav-link" role="tab" data-toggle="tab" href="#ContactNo" id="ContactNo-tab">Contact
+                            No</a>
+                        <div class="progress" style="height: 4px; margin-bottom: -4px;">
+                            <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuemin="0"
+                                aria-valuemax="100"></div>
+                        </div>
+                    </li>
+                    <li class="cycle-tab-item">
+                        <a class="nav-link" role="tab" data-toggle="tab" href="#WorkHistory" id="WorkHistory-tab">Work
+                            History</a>
+                        <div class="progress" style="height: 4px; margin-bottom: -4px;">
+                            <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuemin="0"
+                                aria-valuemax="100"></div>
+                        </div>
+                    </li>
+                    <li class="cycle-tab-item">
+                        <a class="nav-link" role="tab" data-toggle="tab" href="#Education"
+                            id="Education-tab">Education</a>
+                        <div class="progress" style="height: 4px; margin-bottom: -4px;">
+                            <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuemin="0"
+                                aria-valuemax="100"></div>
+                        </div>
+                    </li>
+                    <li class="cycle-tab-item">
+                        <a class="nav-link" role="tab" data-toggle="tab" href="#Eligibility"
+                            id="Eligibility-tab">Eligibility</a>
+                        <div class="progress" style="height: 4px; margin-bottom: -4px;">
+                            <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuemin="0"
+                                aria-valuemax="100"></div>
+                        </div>
+                    </li>
+                    <li class="cycle-tab-item">
+                        <a class="nav-link" role="tab" data-toggle="tab" href="#Training" id="Training-tab">Training</a>
+                        <div class="progress" style="height: 4px; margin-bottom: -4px;">
+                            <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuemin="0"
+                                aria-valuemax="100"></div>
+                        </div>
+                    </li>
+                    <li class="cycle-tab-item">
+                        <a class="nav-link" role="tab" data-toggle="tab" href="#Skill" id="Skill-tab">Skill</a>
+                        <div class="progress" style="height: 4px; margin-bottom: -4px;">
+                            <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuemin="0"
+                                aria-valuemax="100"></div>
+                        </div>
+                    </li>
+                </ul>
             </div>
+
+
 
             <div class="PersonalInfo-box">
-                <div class="row" style="margin-left:30px;">
-                    <div class="col-md-3 responsive-col">
-                        <!-------First section------->
-                        <div class="profilephoto">
-                            <img src="../images/<?php echo $photo;?>" alt="profile">
-                        </div>
-                        <hr>
-                        <div class="inputGroup d-flex ">  
-                            <input type="text" class="form-control" id="Employeenotb" name="Employeenotb" value="<?php echo $employeeno; ?>" autocomplete="off" required="">
-                            <label for="Employeenotb">Employee No.</label>
-                        </div>
 
-                        <div class="inputGroup d-flex ">
-                            <input type="text" class="form-control" id="lastnametb" name="lastnametb" value="<?php echo $lastname; ?>" autocomplete="off" required="" autocomplete="off" required=""> 
-                            <label for="lastnametb">Last Name</label>
-                        </div>
-
-                        <div class="inputGroup d-flex ">
-                            <input type="text" class="form-control" id="firstnametb" name="firstnametb" value="<?php echo $firstname; ?>" autocomplete="off" required="">
-                            <label for="firstnametb">First Name</label>
-                        </div>
-
-                        <div class="inputGroup d-flex ">
-                            <input type="text" class="form-control" id="middlenametb" name="middlenametb" value="<?php echo $middlename; ?>" autocomplete="off" required="">
-                            <label for="middlenametb">Middle Name</label>
-                        </div>
-
-                        <div class="inputGroup d-flex ">
-                            <input type="text" class="form-control" id="extensionnametb" name="extensionnametb" value="<?php echo $extensionname; ?>" autocomplete="off" required="">
-                            <label for="extensionnametb">Extension Name</label>
-                        </div>
-
-                        <hr>
-
-                        
-
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="PersonalInfo" role="tabpanel"
+                        aria-labelledby="PersonalInfo-tab">
+                        <?php
+                        include 'getinfo/getpersonalinfo.php';
+                        ?>
                     </div>
 
-                    <div class="col-md-3 responsive-col">
-                        <!-------Second section------->
-                        <div class="inputGroup d-flex ">
-                            <input type="text" class="form-control" id="depedemailtb" name="depedemailtb" value="<?php echo $depedemail; ?>" autocomplete="off" required="">
-                            <label for="depedemailtb">Deped Email</label>
-                        </div>
 
-                        <div class="inputGroup d-flex ">
-                            <input type="text" class="form-control" id="addresstb" name="addresstb" value="<?php echo $addressstreet; ?>" autocomplete="off" required="">
-                            <label for="addresstb">Address</label>
-                        </div>
-
-                        <div class="inputGroup d-flex ">
-                            <input type="text" class="form-control" id="barangaytb" name="barangaytb" value="<?php echo $addressbarangay; ?>" autocomplete="off" required="">
-                            <label for="barangaytb">Barangay</label>
-                        </div>
-
-                        <div class="inputGroup d-flex ">
-                            <input type="text" class="form-control" id="districttb" name="districttb" value="District <?php echo $addressdistrict; ?>" autocomplete="off" required="" >
-                            <label for="districttb">District</label>
-                        </div>
-
-                        <hr>
-
-                        <div class="inputGroup d-flex ">
-                            <input type="text" class="form-control" id="Citytb" name="Citytb" value="<?php echo $addresscity; ?>" autocomplete="off" required="">
-                            <label for="Citytb">City</label>
-                        </div>
-
-                        <div class="inputGroup d-flex">
-                            <input type="text" class="form-control" id="birthdaytb" name="birthdaytb" value="<?php echo $birthday; ?>" autocomplete="off" required="">
-                            <label for="birthdaytb">Birthday</label>
-                        </div>
-                        
-                        <div class="inputGroup d-flex">
-                            <input type="text" class="form-control" id="agetb" name="agetb" value="<?php echo $age; ?>" autocomplete="off" required="">
-                            <label for="agetb">Age</label>
-                        </div>
-
-                        <div class="inputGroup d-flex">
-                            <input type="text" class="form-control" id="contacttb" name="contacttb" value="<?php echo $contactno; ?>" autocomplete="off" required="">
-                            <label for="contacttb">Contact No.</label>
-                        </div>
-
-                        <div class="inputGroup d-flex">
-                            <input type="text" class="form-control" id="gendertb" name="gendertb" value="<?php echo $gender; ?>" autocomplete="off" required="">
-                            <label for="gendertb">Gender</label>
-                        </div>
-
-                      
-
+                    <div class="tab-pane fade" id="ContactNo" role="tabpanel" aria-labelledby="ContactNo-tab">
+                        <?php
+                        include 'getinfo/getcontactno.php';
+                        ?>
                     </div>
-                    <div class="col-md-3">
-                        <!-------Third section------->  
-                        <div class="inputGroup d-flex">
-                            <input type="text" class="form-control" id="civilstatustb" name="civilstatustb" value="<?php echo $civilstatus; ?>" autocomplete="off" required="">
-                            <label for="civilstatustb">Civil Status</label>
-                        </div>
-
-                        <div class="inputGroup d-flex">
-                            <input type="text" class="form-control" id="gsistb" name="gsistb" value="<?php echo $gsisno; ?>" autocomplete="off" required="">
-                            <label for="gsistb">GSIS</label>
-                        </div>
-
-                        <div class="inputGroup d-flex">
-                            <input type="text" class="form-control" id="philhealthtb" name="philhealthtb" value="<?php echo $philhealthno; ?>" autocomplete="off" required="">
-                            <label for="philhealthtb">Philhealth</label>
-                        </div>
-
-                        <div class="inputGroup d-flex"> 
-                            <input type="text" class="form-control" id="birtb" name="birtb" value="<?php echo $birno; ?>" autocomplete="off" required="">
-                            <label for="birtb">BIR</label>
-                        </div>
-
-                        <hr>
-
-                        <div class="inputGroup d-flex">
-                            <input type="text" class="form-control" id="pagibigtb" name="pagibigtb" value="<?php echo $pagibigno; ?>" autocomplete="off" required="">
-                            <label for="pagibigtb">Pagibig</label>
-                        </div>
-
-                        <div class="inputGroup d-flex">
-                            <input type="text" class="form-control" id="presentpositiontb" name="presentpositiontb" value="<?php echo $presentposition; ?>" autocomplete="off" required="">
-                            <label for="presentpositiontb">Present Position</label>
-                        </div>
-
-                        <div class="inputGroup d-flex">
-                            <input type="text" class="form-control" id="statusofappointmenttb" name="statusofappointmenttb" value="<?php echo $statusofappointment; ?>" autocomplete="off" required="">
-                            <label for="statusofappointmenttb" class="longlabel">Status of Appointment</label>
-                        </div>
-
-                        <div class="inputGroup d-flex">
-                            <input type="text" class="form-control" id="natureofappointmenttb" name="natureofappointmenttb" value="<?php echo $natureofappointment; ?>" autocomplete="off" required="">
-                            <label for="natureofappointmenttb" class="longlabel">Nature of Appointment</label>
-                        </div>
-
-                        <div class="inputGroup d-flex">
-                            <input type="text" class="form-control" id="fdsinpresentpositiontb" name="fdsinpresentpositiontb" value="<?php echo $firstdayofservice; ?>" autocomplete="off" required="">
-                            <label for="fdsinpresentpositiontb" class="longlabel">FDS in Present Position</label>
-                        </div>
-
+                    <div class="tab-pane fade" id="WorkHistory" role="tabpanel" aria-labelledby="WorkHistory-tab">
+                        <!-- Work History content goes here -->
+                        <?php
+                        include 'getinfo/getworkhistory.php';
+                        ?>
                     </div>
-                    <div class="col-md-3 col-responsive">
-                        
-                        <div class="inputGroup d-flex">
-                            <input type="text" class="form-control" id="salarygradetb" name="salarygradetb" value="<?php echo $salarygrade; ?>" autocomplete="off" required="">
-                            <label for="salarygradetb">Salary Grade</label>
-                        </div>
+                    <div class="tab-pane fade" id="Education" role="tabpanel" aria-labelledby="Education-tab">
+                        <!-- Education content goes here -->
+                        <?php
+                        include 'getinfo/geteducation.php';
+                        ?>
+                    </div>
+                    <div class="tab-pane fade" id="Eligibility" role="tabpanel" aria-labelledby="Eligibility-tab">
+                        <!-- Eligibility content goes here -->
+                        <?php
+                        include 'getinfo/geteligibility.php';
 
-                        <div class="inputGroup d-flex">
-                            <input type="text" class="form-control" id="steptb" name="steptb" value="<?php echo $step; ?>" autocomplete="off" required="">
-                            <label for="steptb">Step</label>
-                        </div>
+                        ?>
+                    </div>
+                    <div class="tab-pane fade" id="Training" role="tabpanel" aria-labelledby="Training-tab">
+                        <!-- Training content goes here -->
+                        <?php
+                        include 'getinfo/gettraining.php';
 
-                        <div class="inputGroup d-flex">
-                            <input type="text" class="form-control" id="msalary" name="msalary" value="<?php echo $monthlysalary; ?>" autocomplete="off" required="">
-                            <label for="msalary">Monthly Salary</label>
-                        </div>
+                        ?>
+                    </div>
+                    <div class="tab-pane fade" id="Skill" role="tabpanel" aria-labelledby="Skill-tab">
+                        <?php
+                        include 'getinfo/getskill.php';
 
-                        <div class="inputGroup d-flex">
-                            <input type="text" class="form-control" id="itemsnofromappointmenttb" name="itemsnofromappointmenttb" value="<?php echo $itemnopinagtibay; ?>" autocomplete="off" required="">
-                            <label for="itemsnofromappointmenttb" >Item No.</label>
-                        </div>
-
-                        <hr>
-
-                        <div class="inputGroup d-flex">
-                            <input type="text" class="form-control" id="leveltb" name="leveltb" value="<?php echo $level; ?>" autocomplete="off" required="">
-                            <label for="leveltb">Level</label>
-                        </div>
-
-                        <div class="inputGroup d-flex "> 
-                            <input type="text" class="form-control" id="specializationtb" name="specializationtb" value="<?php echo $specialization; ?>" autocomplete="off" required="">
-                            <label for="specializationtb">Specialization</label>
-                        </div>
-
-                        <div class="inputGroup d-flex "> 
-                            <input type="text" class="form-control" id="districttb" name="districttb" value="<?php echo $schooldistrict; ?>" autocomplete="off" required="">
-                            <label for="districttb">District</label>
-                        </div>
-
-                        <div class="inputGroup d-flex ">
-                            <input type="text" class="form-control" id="schooltb" name="schooltb" value="<?php echo $schoolname; ?>" autocomplete="off" required="">
-                            <label for="schooltb">School</label>
-                        </div>
-
-                        <div class="inputGroup d-flex ">   
-                            <input type="text" class="form-control" id="ifdetailedtb" name="ifdetailedtb" value="<?php echo $detailed; ?>" autocomplete="off" required="">
-                            <label for="ifdetailedtb">If Detailed</label>
-                        </div>
-
-
-                        
+                        ?>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
+
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+        <script src="https://cdn.datatables.net/2.0.0/js/dataTables.js"></script>
+        <script src="https://cdn.datatables.net/2.0.0/js/dataTables.bootstrap5.js"></script>
+        <script src="https://cdn.datatables.net/responsive/3.0.0/js/dataTables.responsive.js"></script>
+
+
+        <script>
+
+            $(document).ready(function () {
+                // Listen for tab change event
+                $('.nav-tabs a').on('shown.bs.tab', function (event) {
+                    // Get the target tab's text and set it as the h1 content
+                    var tabText = $(event.target).text();
+                    $('#tabTitle').text(tabText);
+                });
+            });
+
+            var fullname = "<?php echo $fullName; ?>";
+            new DataTable('#example', {
+                searching: false,
+                bLengthChange: false,
+                responsive: {
+                    details: {
+                        display: DataTable.Responsive.display.modal({
+                            header: function (row) {
+                                var data = row.data();
+                                return 'Education of ' + fullname;
+                            }
+                        }),
+                        renderer: DataTable.Responsive.renderer.tableAll({
+                            tableClass: 'table'
+                        }),
+                    }
+                },
+                order: [
+                    [3, 'asc']
+                ]
+            });
+
+            var fullname = "<?php echo $fullName; ?>";
+            new DataTable('#example2', {
+                searching: false,
+                bLengthChange: false,
+                responsive: {
+                    details: {
+                        display: DataTable.Responsive.display.modal({
+                            header: function (row) {
+                                var data = row.data();
+                                return 'Eligibility of ' + fullname;
+                            }
+                        }),
+                        renderer: DataTable.Responsive.renderer.tableAll({
+                            tableClass: 'table'
+                        }),
+                    }
+                },
+                order: [
+                    [2, 'asc']
+                ]
+            });
+
+            var fullname = "<?php echo $fullName; ?>";
+            new DataTable('#example3', {
+                searching: false,
+                bLengthChange: false,
+
+                responsive: {
+                    details: {
+                        display: DataTable.Responsive.display.modal({
+                            header: function (row) {
+                                var data = row.data();
+                                return 'Trainings of ' + fullname;
+                            }
+                        }),
+                        renderer: DataTable.Responsive.renderer.tableAll({
+                            tableClass: 'table'
+                        }),
+                    }
+                },
+                order: [
+                    [1, 'asc']
+                ],
+
+                columnDefs: [{
+                    width: '20%',
+                    targets: 0
+                }
+
+                ]
+            });
+
+            var fullname = "<?php echo $fullName; ?>";
+            new DataTable('#example4', {
+                searching: false,
+                bLengthChange: false,
+                responsive: {
+                    details: {
+                        display: DataTable.Responsive.display.modal({
+                            header: function (row) {
+                                var data = row.data();
+                                return 'Eligibility of ' + fullname;
+                            }
+                        }),
+                        renderer: DataTable.Responsive.renderer.tableAll({
+                            tableClass: 'table'
+                        }),
+                    }
+                },
+                order: [
+                    [2, 'asc']
+                ]
+            });
+
+            var fullname = "<?php echo $fullName; ?>";
+            new DataTable('#example5', {
+                searching: false,
+                bLengthChange: false,
+                responsive: {
+                    details: {
+                        display: DataTable.Responsive.display.modal({
+                            header: function (row) {
+                                var data = row.data();
+                                console.log("Row Data:", data); // Log the row data
+                                console.log("workhistorytable")
+                                return 'Work History of ' + fullname;
+                            }
+                        }),
+                        renderer: DataTable.Responsive.renderer.tableAll({
+                            tableClass: 'table'
+                        }),
+                    }
+                },
+                order: [
+                    [2, 'asc']
+                ]
+            });
+        </script>
 </body>
 
 </html>
