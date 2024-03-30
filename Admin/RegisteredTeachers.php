@@ -1,5 +1,25 @@
 <?php
 session_start();
+
+// Check if the filtered data is set in the session
+if(isset($_SESSION['filtered_data'])) {
+    // Retrieve the filtered data from the session variable
+    $json_data = $_SESSION['filtered_data'];
+
+    // Decode the JSON data
+    $data = json_decode($json_data, true);
+
+    // Check if JSON decoding was successful and $data is an array
+    if (!is_array($data)) {
+        // Handle the case where JSON decoding was unsuccessful or $data is not an array
+        echo "Error processing data. Please try again.";
+        exit; // Exit script to prevent further execution
+    }
+} else {
+    // Handle the case where filtered data is not set in the session
+    echo "Filtered data not found. Please go back and try again.";
+    exit; // Exit script to prevent further execution
+}
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +28,7 @@ session_start();
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Search Item</title>
+    <title>Employee</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.0/css/dataTables.bootstrap5.css">
@@ -31,7 +51,7 @@ session_start();
 
 
             <div class="AddButton">
-                <h1>Search Item</h1>
+                <h1>REGISTERED TEACHERS</h1>
 
 
 
@@ -44,8 +64,7 @@ session_start();
                         <th scope="col">ITEM NO.</th>
                         <th scope="col">NAME</th>
                         <th scope="col">POSITION</th>
-                        <th scope="col">FDS</th>
-                        <th scope="col">CD</th>
+                        <th scope="col">SEX</th>
                         <th scope="col">SCHOOL</th>
                     </tr>
                 </thead>
@@ -77,72 +96,51 @@ session_start();
 
     <script>
 $(document).ready(function() {
-    var table = $('#example').DataTable({
-        columns: [
-            { data: 'itemnopinagtibay' },
-            { data: 'full_name',
-                render: function(data, type, row, meta) {
-              // Assuming the second column contains the full name
-              if (type === 'display') {
-                  // Return a hyperlink
-                  return '<a href="EmployeeDetails.php?id=' + row.userid + '">' + data + '</a>';
-              }
-              return data;
-          }
-        },
-            { data: 'presentposition' },
-            { data: 'firstdayofservice' },
-            { data: 'schooldistrict' },
-            { data: 'schoolname' }
-            
+    $('#example').DataTable({
+        "data": <?php echo $json_data; ?>,
+        "columns": [
+            { "data": "itemnopinagtibay" },
+            { 
+                "data": "full_name",
+                "render": function(data, type, row, meta) {
+                    if (type === 'display') {
+                        return '<a href="EmployeeDetails.php?id=' + row.userid + '">' + data + '</a>';
+                    }
+                    return data;
+                }
+            },
+            { "data": "presentposition" },
+            { "data": "gender" },
+            { "data": "schoolname" }
         ],
-        bLengthChange: false,
-        deferRender: true,
-        ordering: false, // Disabling sorting
-        responsive: {
-            details: {
-                display: $.fn.dataTable.Responsive.display.modal({
-                    header: function(row) {
+        "bLengthChange": false,
+        "deferRender": true,
+        "ordering": false, // Disabling sorting
+        "responsive": {
+            "details": {
+                "display": $.fn.dataTable.Responsive.display.modal({
+                    "header": function(row) {
                         var data = row.data();
                         return 'Details of ' + data.full_name;
                     }
                 }),
-                renderer: $.fn.dataTable.Responsive.renderer.tableAll({
-                    tableClass: 'table'
+                "renderer": $.fn.dataTable.Responsive.renderer.tableAll({
+                    "tableClass": 'table'
                 }),
             }
         },
-        columnDefs: [
-            { targets: 0, searchable: true }, // Make second column searchable
-            { targets: [1, 2, 3, 4], searchable: false } // Disable searching for other columns
+        "columnDefs": [
+            { "targets": 1, "searchable": true }, // Make second column searchable
+            { "targets": [0, 2, 3, 4], "searchable": false } // Disable searching for other columns
+        ],
+        "order": [
+            [1, 'asc'] // Sort by the second column (full_name) in ascending order
         ]
     });
-
-    // Fetch data using AJAX
-    $.ajax({
-        url: 'getinfo/Itemdatatable.php',
-        dataType: 'json',
-        success: function(data) {
-            table.clear().rows.add(data).draw();
-        }
-    });
-
-   
-    // Bind the search event for DataTables
-    $('#example').on('search.dt', function() {
-        var searchValue = table.search().trim(); // Trim whitespace from search value
-
-        // Hide the table body if the search value is empty
-        if (searchValue === '') {
-            $('#example tbody').hide();
-        } else {
-            $('#example tbody').show();
-        }
-    });
-
-    
 });
 </script>
+
+
 
 
 

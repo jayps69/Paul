@@ -6,104 +6,104 @@ session_start();
 include '../Templates/adminhead.php';
 ?>
 <style>
-    .inputGroup {
-        font-family: "Segoe UI", sans-serif;
-        margin: 1em 0 1em 0;
-        max-width: 190px;
-        position: relative;
-    }
+.inputGroup {
+    font-family: "Segoe UI", sans-serif;
+    margin: 1em 0 1em 0;
+    max-width: 190px;
+    position: relative;
+}
 
-    .inputGroup input {
-        font-size: 100%;
-        padding: 0.8em;
-        outline: none;
-        border: 2px solid rgb(200, 200, 200);
-        background-color: transparent;
-        border-radius: 20px;
-        width: 400px;
-    }
+.inputGroup input {
+    font-size: 100%;
+    padding: 0.8em;
+    outline: none;
+    border: 2px solid rgb(200, 200, 200);
+    background-color: transparent;
+    border-radius: 20px;
+    width: 400px;
+}
 
-    .inputGroup label {
-        font-size: 100%;
-        position: absolute;
-        left: 0;
-        padding: 0.8em;
-        margin-left: 0.5em;
-        pointer-events: none;
-        transition: all 0.3s ease;
-        color: rgb(100, 100, 100);
-        top: 0;
-        /* Add this line */
-    }
+.inputGroup label {
+    font-size: 100%;
+    position: absolute;
+    left: 0;
+    padding: 0.8em;
+    margin-left: 0.5em;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    color: rgb(100, 100, 100);
+    top: 0;
+    /* Add this line */
+}
 
-    .inputGroup :is(input:focus, input:valid)~label {
-        transform: translateY(-50%) scale(0.9);
-        margin: 0em;
-        margin-left: 1em;
-        padding: 0.1em;
-        background-color: White;
-    }
+.inputGroup :is(input:focus, input:valid)~label {
+    transform: translateY(-50%) scale(0.9);
+    margin: 0em;
+    margin-left: 1em;
+    padding: 0.1em;
+    background-color: White;
+}
 
-    .inputGroup :is(input:focus, input:valid) {
-        border-color: rgb(150, 150, 200);
-    }
+.inputGroup :is(input:focus, input:valid) {
+    border-color: rgb(150, 150, 200);
+}
 
-    .inputGroup select {
-        font-size: 100%;
-        padding: 0.4em;
-        outline: none;
-        border: 2px solid rgb(200, 200, 200);
-        background-color: transparent;
-        border-radius: 20px;
-        width: 100%;
-        width: 250px;
-    }
+.inputGroup select {
+    font-size: 100%;
+    padding: 0.4em;
+    outline: none;
+    border: 2px solid rgb(200, 200, 200);
+    background-color: transparent;
+    border-radius: 20px;
+    width: 100%;
+    width: 250px;
+}
 
-    .inputGroup select:focus+label2,
-    .inputGroup select:valid+label2 {
-        transform: translateY(-50%) scale(0.9);
-        margin: 0em;
-        margin-left: 0.6em;
-        padding: 0.1em;
-        background-color: White;
-    }
+.inputGroup select:focus+label2,
+.inputGroup select:valid+label2 {
+    transform: translateY(-50%) scale(0.9);
+    margin: 0em;
+    margin-left: 0.6em;
+    padding: 0.1em;
+    background-color: White;
+}
 
-    .inputGroup select:focus,
-    .inputGroup select:valid {
-        border-color: rgb(150, 150, 200);
-    }
+.inputGroup select:focus,
+.inputGroup select:valid {
+    border-color: rgb(150, 150, 200);
+}
 
-    .inputGroup label2 {
-        font-size: 100%;
-        position: absolute;
-        padding: 0.8em;
-        top: -0.35em;
-        left: 0.5em;
-        pointer-events: none;
-        transition: all 0.3s ease;
-        color: rgb(100, 100, 100);
-    }
+.inputGroup label2 {
+    font-size: 100%;
+    position: absolute;
+    padding: 0.8em;
+    top: -0.35em;
+    left: 0.5em;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    color: rgb(100, 100, 100);
+}
 
-    .col {
-        margin-left: 2em;
-    }
+.col {
+    margin-left: 2em;
+}
 
-    .btn-primary {
-        font-size: 17px;
-        width: 80px;
-    }
+.btn-primary {
+    font-size: 17px;
+    width: 80px;
+}
 
-    .filterbutton {
-        display: flex;
-        justify-content: center;
-        margin-left: 1em;
-    }
+.filterbutton {
+    display: flex;
+    justify-content: center;
+    margin-left: 1em;
+}
 
-    .filterlink {
-        display: flex;
-        justify-content: center;
-        margin-left: 1em;
-    }
+.filterlink {
+    display: flex;
+    justify-content: center;
+    margin-left: 1em;
+}
 </style>
 
 <body>
@@ -122,7 +122,7 @@ include '../Templates/adminhead.php';
             </div>
             <hr>
             <div class="col">
-                <form id="filterForm" method="POST" action="process_query.php">
+                <form id="filterForm" method="POST" action="getinfo/FilteredData1.php">
                     <div class="inputGroup">
                         <select required="" autocomplete="off" id="level" name="level">
                             <option value="ALL">ALL</option>
@@ -145,7 +145,7 @@ include '../Templates/adminhead.php';
                         <label2 for="district">District</label2>
                     </div>
                     <div class="inputGroup">
-                        <select  autocomplete="off" id="school" name="school">
+                        <select autocomplete="off" id="school" name="school">
                             <?php
                             // Assuming you've already connected to your database
                             
@@ -199,7 +199,7 @@ include '../Templates/adminhead.php';
                         <label2 for="appstat">Appointment Status</label2>
                     </div>
                     <div class="inputGroup">
-                        <select  autocomplete="off" id="specialization" name="specialization">
+                        <select autocomplete="off" id="specialization" name="specialization">
 
                             <?php
                             // Assuming you've already connected to your database
@@ -240,7 +240,7 @@ include '../Templates/adminhead.php';
                         <label2 for="empstat">Employment Status</label2>
                     </div>
                     <div class="inputGroup filterbutton">
-                        <button type="submit"  name="filter" class="btn btn-primary">Filter</button>
+                        <button type="submit" name="filter" class="btn btn-primary">Filter</button>
                         <button type="reset" class="btn btn-primary">Reset</button>
                     </div>
                 </form>
@@ -258,7 +258,7 @@ include '../Templates/adminhead.php';
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
     <script>
-   $(document).ready(function() {
+    $(document).ready(function() {
     // Add change event listener to the district dropdown
     $('#district').change(function() {
         var district = $(this).val();
@@ -270,13 +270,23 @@ include '../Templates/adminhead.php';
         $('#school option[id="' + district + '"], #school option[value=""]').show();
     });
 
-     
+    // Get the form element
+    var form = document.getElementById("filterForm");
+
+    // Get the reset button
+    var resetBtn = form.querySelector("button[type='reset']");
+
+    // Add event listener to the reset button
+    resetBtn.addEventListener("click", function() {
+        // Reset the form
+        form.reset();
+    });
+    });
+
+
+
     
-});
-
-
-
-</script>
+    </script>
 
 
 </body>

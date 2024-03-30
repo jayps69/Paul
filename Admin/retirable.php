@@ -78,6 +78,7 @@ session_start();
 
     <script>
 $(document).ready(function() {
+    
     var table = $('#example').DataTable({
         columns: [
             { data: 'employeeno' },
@@ -105,7 +106,7 @@ $(document).ready(function() {
                 display: $.fn.dataTable.Responsive.display.modal({
                     header: function(row) {
                         var data = row.data();
-                        return 'Details of ' + data.full_name;
+                        return 'Details of ' + data.fullname;
                     }
                 }),
                 renderer: $.fn.dataTable.Responsive.renderer.tableAll({

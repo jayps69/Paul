@@ -1,9 +1,9 @@
 <?php
-include("../connection.php");
+include("../../connection.php");
 
 // Query to retrieve data from your database
-$query = "SELECT `userid`, `itemnopinagtibay`, CONCAT(`lastname`, ', ', `firstname`) AS `full_name`, `presentposition`, `firstdayofservice`, `schooldistrict`, `schoolname`
-FROM `personalinfotbl`";
+$query = "SELECT `userid`,`itemnopinagtibay`, CONCAT(`lastname`, ', ', `firstname`) AS `full_name`, `presentposition`, `gender`, `schoolname`
+                    FROM `personalinfotbl`";
 
 $result = $conn->query($query);
 
@@ -45,7 +45,3 @@ if ($result->num_rows > 0) {
 }
 
 ?>
-
-
-
-

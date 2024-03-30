@@ -117,7 +117,7 @@ $(document).ready(function() {
 
    // Fetch data using AJAX
 $.ajax({
-    url: 'Employeedatatable.php',
+    url: 'getinfo/Employeedatatable.php',
     dataType: 'json',
     success: function(data) {
         if (data && data.length > 0) {
