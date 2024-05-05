@@ -248,10 +248,7 @@ session_start();
 
         @media (max-width: 1051px) {
 
-            .PersonalInfo-box {
-                height: 800px;
 
-            }
         }
 
         @media (max-width: 960px) {
@@ -322,13 +319,7 @@ session_start();
             }
         }
 
-        @media (max-width: 767px) {
 
-            .PersonalInfo-box {
-                height: 1500px;
-
-            }
-        }
     </style>
 </head>
 

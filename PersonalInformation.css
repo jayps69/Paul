@@ -2,13 +2,19 @@ body {
     margin: 0;
     padding: 0;
     font-family: kameron;
-  }
-  
-  #wrapper {
+}
+
+label {
+    width: 120px;
+    margin-right: 2px;
+    display: block;
+}
+
+#wrapper {
     display: flex;
-  }
-  
-  #sidebar {
+}
+
+#sidebar {
     max-width: 200px;
     position: sticky;
     top: 0;
@@ -20,124 +26,121 @@ body {
     flex-direction: column;
     align-items: center;
     overflow-y: auto;
-  }
-  
-  #sidebar .navbar-brand img {
+
+}
+
+#sidebar .navbar-brand img {
     width: 75px;
     height: 75px;
-  }
-  
-  #sidebar .navbar-nav {
+}
+
+#sidebar .navbar-nav {
     display: flex;
     flex-direction: column;
-  }
-  
-  #sidebar .nav-item {
+}
+
+#sidebar .nav-item {
     padding: 5px;
     margin-bottom: 10px;
-  }
-  
-  #sidebar .nav-item i {
+}
+
+#sidebar .nav-item i {
     margin-right: 5px;
-  }
-  
-  #sidebar .nav-item a {
+}
+
+#sidebar .nav-item a {
     color: white;
     font-weight: bold;
     font-size: 14px;
-  }
-  
-  header {
+}
+
+header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid #007bff;
+    border-top: 1px solid #007bff;
+    border-left: 1px solid #007bff;
+    border-right: 1px solid #007bff;
+    border-bottom: 1px solid #007bff;
     padding: 10px;
     border-radius: 25px;
     box-shadow: 16px 12px 9px 0px rgba(0, 0, 0, 0.18);
-  }
-  
-  header div {
+}
+
+header div {
     display: flex;
     flex-direction: column;
-  }
-  
-  header p1,
-  header p2,
-  header p3 {
+}
+
+header p1,
+header p2,
+header p3 {
     font-weight: bold;
-  }
-  
-  header p1 {
+}
+
+header p1 {
     font-size: 24px;
-  }
-  
-  header p2 {
+}
+
+header p2 {
     font-size: 22px;
-  }
-  
-  header p3 {
+}
+
+header p3 {
     font-size: 20px;
-  }
-  
-  #profile {
+}
+
+#profile {
     display: flex;
     align-items: center;
-  }
-  
-  #profile img {
+}
+
+#profile img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
     margin-right: 10px;
-  }
-  
-  #profile span {
+}
+
+#profile span {
     font-weight: bold;
     font-size: 14px;
-  }
-  
-  #content {
+}
+
+#content {
     width: 100%;
     padding: 15px;
-  }
-  
-  h1 {
+}
+
+h1 {
     margin-top: 20px;
     font-weight: bold;
-    text-shadow: 3px 2px rgba(0, 0, 0, 0.18);
-  }
-  
-  .ContactDetails-box {
+}
+
+
+.PersonalInfo-box {
     border: 1px solid #007bff;
     padding: 10px;
     margin-top: 20px;
     border-radius: 25px;
     width: 1400px;
-    height: 650px;
+    height: 550px;
     margin: 0 auto;
     width: 100%;
     transition: height 0.5s ease;
-    box-shadow: 16px 12px 9px 0px rgba(0, 0, 0, 0.18);
-  }
+    box-shadow: 10px 8px 5px 0px rgba(0, 0, 0, 0.18);
 
-  .btn-primary {
-    border-radius: 25px;
-    font-size: 16px;
-    margin-top: 0 !important;
-  }
 
-  .savebtn{
-    position: absolute !important;
-    right: 43%;
-    bottom: 10% !important;
-  }
 
-  .row{
-    justify-content: center !important;
-  }
-  .inputGroup {
+}
+
+button,
+input {
+    overflow: hidden !important;
+}
+
+.inputGroup {
     font-family: "Segoe UI", sans-serif;
     margin: 1em 0 1em 0;
     max-width: 190px;
@@ -168,6 +171,7 @@ body {
     z-index: 2;
     /* Add this line */
 }
+
 .inputGroup label2 {
     font-size: 100%;
     font-weight: bold;
@@ -176,6 +180,7 @@ body {
 
 }
 
+
 .inputGroup :is(input:focus, input:valid)~label {
     transform: translateY(-75%) scale(0.9);
     margin: 0em;
@@ -183,100 +188,118 @@ body {
     padding: 0.1em;
     background-color: transparent;
 }
-button, input {
-  overflow: hidden !important;
+
+.btn-primary {
+    border-radius: 25px;
+    font-size: 16px;
+    margin-top: 0.1rem;
+    margin-bottom: 0.1rem;
 }
 
-  
-  
-  @media (max-width: 1250px) {
+.longlabel {
+    font-size: 10px !important;
+}
+
+
+@media (max-width: 1250px) {
+    .row {
+        justify-content: center;
+    }
+
     header p1 {
-      font-size: 20px;
+        font-size: 20px;
     }
-  
+
     header p2 {
-      font-size: 18px;
+        font-size: 18px;
     }
-  
+
     header p3 {
-      font-size: 16px;
+        font-size: 16px;
     }
-  
+
     #profile span {
-      font-size: 12px;
+        font-size: 12px;
     }
-  
+
     h1 {
-      font-size: 30px;
+        font-size: 30px;
     }
-  }
-  
-  @media (max-width: 1051px) {
-    .ContactDetails-box {
-      height: 700ppx;
-    }
-  }
-  
-  @media (max-width: 960px) {
+}
+
+
+@media (max-width: 960px) {
     header p1 {
-      font-size: 18px;
+        font-size: 18px;
     }
-  
+
     header p2 {
-      font-size: 16px;
+        font-size: 16px;
     }
-  
+
     header p3 {
-      font-size: 14px;
+        font-size: 14px;
     }
-  
+
     #profile span {
-      font-size: 10px;
+        font-size: 10px;
     }
-  
+
     h1 {
-      font-size: 20px;
+        font-size: 20px;
     }
-  }
-  
-  @media (max-width: 875px) {
+}
+
+
+
+@media (max-width: 875px) {
     #sidebar {
-      width: 70px;
+        width: 70px;
     }
-  
+
     #sidebar .navbar-nav {
-      align-items: center;
+        align-items: center;
     }
+
     #sidebar .nav-item {
-      padding: 5px;
-      margin-bottom: 5px;
+        padding: 5px;
+        margin-bottom: 5px;
     }
+
     #sidebar .nav-item span {
-      display: none;
+        display: none;
     }
+
     #sidebar .navbar {
-      overflow: visible;
-      justify-content: center;
+        overflow: visible;
+        justify-content: center;
     }
-  
+
     header p1 {
-      font-size: 16px;
+        font-size: 16px;
     }
-  
+
     header p2 {
-      font-size: 14px;
+        font-size: 14px;
     }
-  
+
     header p3 {
-      font-size: 12px;
+        font-size: 12px;
     }
-  
+
     #profile span {
-      font-size: 10px;
+        font-size: 10px;
     }
-  
+
     h1 {
-      font-size: 18px;
+        font-size: 18px;
     }
-  }
-  
+}
+
+@media (max-width: 767px) {
+
+    .PersonalInfo-box {
+        height: 2000px;
+
+    }
+}

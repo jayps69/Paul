@@ -1,6 +1,7 @@
 <?php
 include 'Templates/head.php';
 ?>
+   <title>Account Page</title>
 
 <body>
 
@@ -66,9 +67,8 @@ include 'Templates/head.php';
           <div class="col-md-6 ">
             <div class="AccountPicture-box" id="AccountPicture-box">
               <!-- Content for AccountPicture-box goes here -->
-              <img src="images/enano.jpg" alt="Profile Photo" />
-              <input type="file" id="upload" style="display: none;" accept="image/*">
-              <label for="upload" class="button btn-primary btn">Change Photo</label>
+              <img src="<?php echo $picture; ?>" alt="Profile Photo" />
+             
               
             </div>
             <div class="Changepasswordbtn" id="Changepasswordbtn">

@@ -34,6 +34,7 @@ session_start();
     #sidebar {
         max-width: 200px;
         position: sticky;
+        min-width: 70px;
         top: 0;
         height: 100vh;
         background: #007bff;
@@ -158,17 +159,58 @@ session_start();
         margin-top: 20px;
         border-radius: 25px;
         width: 1400px;
-        height: 550px;
+        
         margin: 0 auto;
         width: 100%;
         transition: height 0.5s ease;
         box-shadow: 10px 8px 5px 0px rgba(0, 0, 0, 0.18);
-        overflow-y: scroll;
-        overflow-x: hidden;
+    }
 
+    .PersonalInfo-box-PersonalInfo {
 
+        height: 600px;
 
     }
+    .PersonalInfo-box-ContactNo {
+       
+        height: 250px;
+       
+    }
+
+    .PersonalInfo-box-WorkHistory {
+       
+       height: 600px;
+      
+    }
+
+    .PersonalInfo-box-Education {
+       
+       height: 600px;
+      
+    }
+
+    .PersonalInfo-box-Eligibility {
+       
+       height: 600px;
+      
+    }
+
+    .PersonalInfo-box-Training {
+       
+       height: 800px;
+      
+    }
+
+    .PersonalInfo-box-Skill {
+       
+       height:600px;
+      
+    }
+
+
+
+
+
 
     .inputGroup {
         font-family: "Segoe UI", sans-serif;
@@ -242,6 +284,11 @@ session_start();
         border-radius: 20px;
     }
 
+    button,
+input {
+    overflow: hidden !important;
+}
+
     @media (max-width: 1250px) {
         .row {
             justify-content: center;
@@ -270,7 +317,7 @@ session_start();
 
     @media (max-width: 1051px) {
 
-        .PersonalInfo-box {
+        .PersonalInfo-box-PersonalInfo  {
             height: 800px;
 
         }
@@ -346,10 +393,45 @@ session_start();
 
     @media (max-width: 767px) {
 
-        .PersonalInfo-box {
-            height: 1500px;
+        .PersonalInfo-box-PersonalInfo  {
+            height: 2000px;
 
         }
+
+        .PersonalInfo-box-ContactNo {
+            height: 500px;
+
+        }
+
+        .PersonalInfo-box-WorkHistory {
+       
+       height: 700px;
+      
+    }
+
+    .PersonalInfo-box-Education {
+       
+       height: 700px;
+      
+    }
+
+    .PersonalInfo-box-Eligibility {
+       
+       height: 700px;
+      
+    }
+
+    .PersonalInfo-box-Training {
+       
+       height: 1500px;
+      
+    }
+
+    .PersonalInfo-box-Skill {
+       
+       height:700px;
+      
+    }
     }
     </style>
 </head>
@@ -372,12 +454,6 @@ session_start();
                     <li class="cycle-tab-item ">
                         <a class="nav-link active" role="tab" data-toggle="tab" href="#PersonalInfo"
                             id="PersonalInfo-tab">Personal Information</a>
-
-
-                        <div class="progress" style="height: 4px; margin-bottom: -4px;">
-                            <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuemin="0"
-                                aria-valuemax="100"></div>
-                        </div>
                     </li>
                     <li class="cycle-tab-item">
                         <a class="nav-link" role="tab" data-toggle="tab" href="#ContactNo" id="ContactNo-tab">Contact
@@ -430,57 +506,65 @@ session_start();
 
 
 
-            <div class="PersonalInfo-box">
 
                 <div class="tab-content">
-                    <div class="tab-pane fade show active" id="PersonalInfo" role="tabpanel"
-                        aria-labelledby="PersonalInfo-tab">
-                        <?php
-                        include 'getinfo/getpersonalinfo.php';
-                        ?>
+                    <div class="tab-pane fade show active" id="PersonalInfo" role="tabpanel" aria-labelledby="PersonalInfo-tab">
+                        <div class="PersonalInfo-box PersonalInfo-box-PersonalInfo">
+                            <?php
+                            include 'getinfo/getpersonalinfo.php';
+                            ?>
+                        </div>
                     </div>
 
 
                     <div class="tab-pane fade" id="ContactNo" role="tabpanel" aria-labelledby="ContactNo-tab">
-                        <?php
-                        include 'getinfo/getcontactno.php';
-                        ?>
+                        <div class="PersonalInfo-box PersonalInfo-box-ContactNo">
+                            <?php
+                            include 'getinfo/getcontactno.php';
+                            ?>
+                        </div>
                     </div>
                     <div class="tab-pane fade" id="WorkHistory" role="tabpanel" aria-labelledby="WorkHistory-tab">
+                        <div class="PersonalInfo-box PersonalInfo-box-WorkHistory">
                         <!-- Work History content goes here -->
-                        <?php
-                        include 'getinfo/getworkhistory.php';
-                        ?>
+                            <?php
+                            include 'getinfo/getworkhistory.php';
+                            ?>
+                        </div>
                     </div>
                     <div class="tab-pane fade" id="Education" role="tabpanel" aria-labelledby="Education-tab">
+                        <div class="PersonalInfo-box PersonalInfo-box-Education">
                         <!-- Education content goes here -->
-                        <?php
-                        include 'getinfo/geteducation.php';
-                        ?>
+                            <?php
+                            include 'getinfo/geteducation.php';
+                            ?>
+                        </div>
                     </div>
                     <div class="tab-pane fade" id="Eligibility" role="tabpanel" aria-labelledby="Eligibility-tab">
+                        <div class="PersonalInfo-box PersonalInfo-box-Eligibility">
                         <!-- Eligibility content goes here -->
-                        <?php
-                        include 'getinfo/geteligibility.php';
-
-                        ?>
+                            <?php
+                            include 'getinfo/geteligibility.php';
+                            ?>
+                        </div>
                     </div>
                     <div class="tab-pane fade" id="Training" role="tabpanel" aria-labelledby="Training-tab">
+                        <div class="PersonalInfo-box PersonalInfo-box-Training">
                         <!-- Training content goes here -->
-                        <?php
-                        include 'getinfo/gettraining.php';
-
-                        ?>
+                            <?php
+                            include 'getinfo/gettraining.php';
+                            ?>
+                        </div>
                     </div>
                     <div class="tab-pane fade" id="Skill" role="tabpanel" aria-labelledby="Skill-tab">
-                        <?php
-                        include 'getinfo/getskill.php';
-
-                        ?>
+                        <div class="PersonalInfo-box PersonalInfo-box-Skill">
+                            <?php
+                            include 'getinfo/getskill.php';
+                            ?>
+                        </div>
                     </div>
                 </div>
-            </div>
-
+           
 
 
 

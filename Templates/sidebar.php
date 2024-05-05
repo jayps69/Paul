@@ -51,7 +51,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="AboutUs.html">
+            <a class="nav-link" href="AboutUs.php">
               <i class="fas fa-info-circle"></i><span>ABOUT US</span>
             </a>
           </li>
